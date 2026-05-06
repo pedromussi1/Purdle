@@ -13,7 +13,10 @@ const PUZZLES_BASE = `${import.meta.env.BASE_URL}puzzles/wordle/${DEFAULT_LANGUA
 
 async function fetchPuzzle(date: string): Promise<Puzzle | null> {
   try {
-    const r = await fetch(PUZZLES_BASE + date + '.json', { cache: 'force-cache' })
+    // 'no-cache' = the URL is stable but the body can change daily (the cron
+    // workflow regenerates today's puzzle). The browser revalidates with the
+    // server (cheap 304 when unchanged) instead of trusting any cached copy.
+    const r = await fetch(PUZZLES_BASE + date + '.json', { cache: 'no-cache' })
     if (!r.ok) return null
     return (await r.json()) as Puzzle
   } catch {
