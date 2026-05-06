@@ -370,6 +370,141 @@
   filter: brightness(1.05);
 }
 
+/* ---------- Archive page ---------- */
+.archive {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.archive-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.archive-back {
+  align-self: flex-start;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.archive-back:hover {
+  color: var(--color-text);
+}
+
+.archive-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.archive-sub {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.archive-empty {
+  padding: var(--space-6) 0;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.archive-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--color-bg);
+}
+
+.archive-card-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.archive-date {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.archive-solution {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  color: var(--state-correct);
+}
+
+.archive-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.archive-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  background: var(--color-key-bg);
+  color: var(--color-key-text);
+}
+
+.archive-tag--source {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.archive-tag--fallback {
+  border-color: var(--state-present);
+  color: var(--state-present);
+}
+
+.archive-etymology {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.not-found {
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+}
+
 /* ---------- Settings modal ---------- */
 .setting {
   display: flex;
