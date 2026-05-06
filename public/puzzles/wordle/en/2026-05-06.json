@@ -3,9 +3,9 @@
   "game": "wordle",
   "lang": "en",
   "schema_version": 1,
-  "solution": "press",
-  "difficulty": null,
-  "theme": null,
-  "etymology": null,
-  "generated_by": "fallback"
+  "solution": "chair",
+  "difficulty": 2,
+  "theme": "furniture",
+  "etymology": "The word 'chair' comes from the Old French 'chaire', meaning 'seat'. This, in turn, derives from the Latin 'cathedra', which referred to a seat with a back and arms, often used by teachers or bishops. It fundamentally means a place to sit.",
+  "generated_by": "gemini-2.5-flash-lite"
 }
