@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-05",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sugar",
+  "difficulty": null,
+  "theme": null,
+  "etymology": null,
+  "generated_by": "fallback"
+}

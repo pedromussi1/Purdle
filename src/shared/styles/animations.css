@@ -1,0 +1,133 @@
+@keyframes tile-pop {
+  0% {
+    transform: scale(0.92);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes row-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes tile-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Reveal animations: rotate the tile to show its evaluated state. The state
+   color flips in at the keyframe midpoint while the tile is edge-on, matching
+   the iconic NYT Wordle reveal. One keyframe per state since the target
+   colors come from CSS variables that can't be interpolated as a group. */
+
+@keyframes reveal-correct {
+  0% {
+    transform: rotateX(0);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  49.99% {
+    transform: rotateX(-90deg);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  50% {
+    transform: rotateX(-90deg);
+    background: var(--state-correct);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+  100% {
+    transform: rotateX(0);
+    background: var(--state-correct);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+}
+
+@keyframes reveal-present {
+  0% {
+    transform: rotateX(0);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  49.99% {
+    transform: rotateX(-90deg);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  50% {
+    transform: rotateX(-90deg);
+    background: var(--state-present);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+  100% {
+    transform: rotateX(0);
+    background: var(--state-present);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+}
+
+@keyframes reveal-absent {
+  0% {
+    transform: rotateX(0);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  49.99% {
+    transform: rotateX(-90deg);
+    background: var(--color-tile-empty);
+    color: var(--color-text);
+    border-color: var(--color-tile-filled-border);
+  }
+  50% {
+    transform: rotateX(-90deg);
+    background: var(--state-absent);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+  100% {
+    transform: rotateX(0);
+    background: var(--state-absent);
+    color: var(--state-text);
+    border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile,
+  .row {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-04-30",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "brain",
+  "difficulty": null,
+  "theme": null,
+  "etymology": null,
+  "generated_by": "fallback"
+}

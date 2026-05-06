@@ -1,0 +1,67 @@
+:root {
+  /* Spacing & sizing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --tile-size: 62px;
+  --tile-gap: 5px;
+  --board-max-width: 350px;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  /* Default = light theme */
+  --color-bg: #ffffff;
+  --color-text: #1a1a1b;
+  --color-text-muted: #787c7e;
+  --color-border: #d3d6da;
+  --color-border-strong: #878a8c;
+
+  --color-key-bg: #d3d6da;
+  --color-key-text: #1a1a1b;
+  --color-key-hover: #bbbec1;
+
+  --color-tile-empty: #ffffff;
+  --color-tile-filled-border: #878a8c;
+
+  /* State colors — default palette (Wordle green/yellow) */
+  --state-correct: #6aaa64;
+  --state-present: #c9b458;
+  --state-absent: #787c7e;
+  --state-text: #ffffff;
+
+  --header-height: 56px;
+
+  --font-base:
+    'Helvetica Neue', Arial, system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+}
+
+[data-theme='dark'] {
+  --color-bg: #121213;
+  --color-text: #ffffff;
+  --color-text-muted: #818384;
+  --color-border: #3a3a3c;
+  --color-border-strong: #565758;
+
+  --color-key-bg: #818384;
+  --color-key-text: #ffffff;
+  --color-key-hover: #6e7173;
+
+  --color-tile-empty: #121213;
+  --color-tile-filled-border: #565758;
+
+  --state-correct: #538d4e;
+  --state-present: #b59f3b;
+  --state-absent: #3a3a3c;
+}
+
+/* Color-blind palette (orange/blue) — applied on top of theme */
+[data-palette='cb'] {
+  --state-correct: #f5793a;
+  --state-present: #85c0f9;
+}

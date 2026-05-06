@@ -1,0 +1,7 @@
+# Production deps — installed by .github/workflows/daily-puzzle.yml.
+# All are optional for local fallback runs (the script gracefully skips any
+# step whose import fails), but for full pipeline behavior install all of them.
+google-genai>=1.0
+wordfreq>=3.1
+better-profanity>=0.7
+sentence-transformers>=2.7

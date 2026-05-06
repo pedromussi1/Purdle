@@ -1,0 +1,11 @@
+{
+  "date": "2026-04-29",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "music",
+  "difficulty": null,
+  "theme": null,
+  "etymology": null,
+  "generated_by": "fallback"
+}
