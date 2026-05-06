@@ -38,6 +38,14 @@ jobs:
       - run: npm ci
 
       - name: Build
+        # Vite reads VITE_-prefixed env vars at build time and inlines them
+        # into the JS bundle. These keys are public-by-design (RLS gates the
+        # actual data); GitHub secrets are used only as a config carrier.
+        # If the secrets aren't set, the bundle still builds and the app
+        # falls back to local-stats-only mode (no sign-in UI).
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
         run: npm run build
 
       - uses: actions/configure-pages@v5

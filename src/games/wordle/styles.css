@@ -600,6 +600,73 @@
   align-items: center;
 }
 
+/* ---------- Account section (in settings modal) ---------- */
+.account-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-2);
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.account-email {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-error {
+  font-size: 0.8rem;
+  color: #d23f31;
+}
+
+.provider-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.provider-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.provider-btn:hover:not(:disabled) {
+  background: var(--color-key-bg);
+}
+
+.provider-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.provider-btn--github svg {
+  color: var(--color-text);
+}
+
 /* ---------- Settings modal ---------- */
 .setting {
   display: flex;

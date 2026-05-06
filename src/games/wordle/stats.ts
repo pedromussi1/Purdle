@@ -18,10 +18,16 @@ interface StatsState extends StatsSnapshot {
     guessCount: number
     date: string
   }) => void
+  // Pure read of the snapshot — used by cloud-sync to push the latest
+  // local state.
+  snapshot: () => StatsSnapshot
+  // Bulk overwrite — used by cloud-sync after pulling+merging a remote
+  // snapshot. Bypasses recordResult's idempotency check on purpose.
+  replace: (next: StatsSnapshot) => void
   reset: () => void
 }
 
-const EMPTY: StatsSnapshot = {
+export const EMPTY_STATS: StatsSnapshot = {
   played: 0,
   won: 0,
   currentStreak: 0,
@@ -41,9 +47,9 @@ function isConsecutive(prev: string | null, today: string): boolean {
 export const useStats = create<StatsState>()(
   persist(
     (set, get) => ({
-      ...EMPTY,
+      ...EMPTY_STATS,
       recordResult: ({ won, guessCount, date }) => {
-        // Idempotent: the same date can't be recorded twice.
+        // Idempotent: same date can't be recorded twice.
         if (get().lastPlayedDate === date) return
         const dist = [...get().distribution]
         if (won) dist[guessCount - 1] = (dist[guessCount - 1] ?? 0) + 1
@@ -63,7 +69,29 @@ export const useStats = create<StatsState>()(
           lastWonDate: won ? date : lastWon,
         })
       },
-      reset: () => set({ ...EMPTY }),
+      snapshot: () => {
+        const s = get()
+        return {
+          played: s.played,
+          won: s.won,
+          currentStreak: s.currentStreak,
+          maxStreak: s.maxStreak,
+          distribution: [...s.distribution],
+          lastPlayedDate: s.lastPlayedDate,
+          lastWonDate: s.lastWonDate,
+        }
+      },
+      replace: (next) =>
+        set({
+          played: next.played,
+          won: next.won,
+          currentStreak: next.currentStreak,
+          maxStreak: next.maxStreak,
+          distribution: [...next.distribution],
+          lastPlayedDate: next.lastPlayedDate,
+          lastWonDate: next.lastWonDate,
+        }),
+      reset: () => set({ ...EMPTY_STATS }),
     }),
     { name: 'purdle:stats:wordle' },
   ),

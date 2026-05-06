@@ -15,8 +15,14 @@ import { ReplayPage } from './pages/ReplayPage'
 import { NotFound } from './pages/NotFound'
 import { useWordleStore } from './games/wordle/store'
 import { attachSettingsToDocument } from './shared/store/settings'
+import { useAuth, useAuthBootstrap } from './shared/store/auth'
+import {
+  attachStatsCloudSync,
+  syncOnSignIn,
+} from './games/wordle/lib/statsCloudSync'
 
 attachSettingsToDocument()
+attachStatsCloudSync()
 
 // Vite serves us at /Purdle/ in production and dev — strip the trailing slash
 // for React Router's basename.
@@ -38,6 +44,17 @@ function Shell() {
   const status = useWordleStore((s) => s.status)
   const guesses = useWordleStore((s) => s.guesses)
   const navigate = useNavigate()
+
+  // Restore Supabase session and subscribe to auth changes for the app's
+  // lifetime.
+  useAuthBootstrap()
+  const userId = useAuth((s) => s.user?.id)
+
+  // When a user transitions from signed-out to signed-in, merge their
+  // local stats with whatever's on file in the cloud.
+  useEffect(() => {
+    if (userId) void syncOnSignIn()
+  }, [userId])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
