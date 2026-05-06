@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import { useWordleStore } from '../store'
+import { useStore } from '../StoreContext'
 
 export function Toast() {
-  const toast = useWordleStore((s) => s.toast)
-  const status = useWordleStore((s) => s.status)
-  const resetToast = useWordleStore((s) => s.resetToast)
+  const toast = useStore((s) => s.toast)
+  const status = useStore((s) => s.status)
+  const resetToast = useStore((s) => s.resetToast)
 
   useEffect(() => {
     if (!toast) return

@@ -1,5 +1,5 @@
 import { Row } from './Row'
-import { useWordleStore } from '../store'
+import { useStore } from '../StoreContext'
 import { MAX_GUESSES } from '../types'
 
 interface BoardProps {
@@ -7,10 +7,10 @@ interface BoardProps {
 }
 
 export function Board({ shakeCurrent }: BoardProps) {
-  const guesses = useWordleStore((s) => s.guesses)
-  const currentGuess = useWordleStore((s) => s.currentGuess)
-  const status = useWordleStore((s) => s.status)
-  const revealingRowIndex = useWordleStore((s) => s.revealingRowIndex)
+  const guesses = useStore((s) => s.guesses)
+  const currentGuess = useStore((s) => s.currentGuess)
+  const status = useStore((s) => s.status)
+  const revealingRowIndex = useStore((s) => s.revealingRowIndex)
 
   const winningRowIndex =
     status === 'won' && revealingRowIndex === null ? guesses.length - 1 : -1

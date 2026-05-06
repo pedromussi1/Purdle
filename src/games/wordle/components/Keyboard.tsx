@@ -1,4 +1,4 @@
-import { useWordleStore } from '../store'
+import { useStore } from '../StoreContext'
 import type { LetterEvaluation } from '../types'
 
 const ROWS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm']
@@ -28,10 +28,10 @@ function KeyButton({ label, state, wide, onClick }: KeyButtonProps) {
 }
 
 export function Keyboard() {
-  const keyboard = useWordleStore((s) => s.keyboard)
-  const pressLetter = useWordleStore((s) => s.pressLetter)
-  const pressBackspace = useWordleStore((s) => s.pressBackspace)
-  const pressEnter = useWordleStore((s) => s.pressEnter)
+  const keyboard = useStore((s) => s.keyboard)
+  const pressLetter = useStore((s) => s.pressLetter)
+  const pressBackspace = useStore((s) => s.pressBackspace)
+  const pressEnter = useStore((s) => s.pressEnter)
 
   return (
     <div className="keyboard">

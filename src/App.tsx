@@ -11,6 +11,7 @@ import { SettingsModal } from './games/wordle/components/SettingsModal'
 import { StatsModal } from './games/wordle/components/StatsModal'
 import { WordlePage } from './games/wordle/WordlePage'
 import { ArchivePage } from './pages/ArchivePage'
+import { ReplayPage } from './pages/ReplayPage'
 import { NotFound } from './pages/NotFound'
 import { useWordleStore } from './games/wordle/store'
 import { attachSettingsToDocument } from './shared/store/settings'
@@ -65,6 +66,7 @@ function Shell() {
       <Routes>
         <Route path="/" element={<WordlePage />} />
         <Route path="/archive" element={<ArchivePage />} />
+        <Route path="/archive/:date" element={<ReplayPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <HelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
