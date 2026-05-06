@@ -4,7 +4,9 @@ A daily five-letter word puzzle in the Wordle tradition — but every puzzle is 
 
 > **Live:** https://pedromussi1.github.io/Purdle/
 
-The game itself is a faithful Wordle clone: 6 guesses, green / yellow / grey feedback, daily puzzle, hard mode, color-blind palette, dark mode, local stats with shareable emoji grid. The interesting part is everything *behind* the puzzle.
+![Purdle in play — a three-guess solve of today's automatically-generated puzzle](docs/screenshot.png)
+
+The game itself is a faithful Wordle clone: 6 guesses, green / yellow / grey feedback, daily puzzle, hard mode, color-blind palette, dark mode, local stats with shareable emoji grid, and a playable archive of past puzzles. The interesting part is everything *behind* the puzzle.
 
 ---
 
