@@ -9,12 +9,22 @@ import { useStats } from './stats'
 import type { Group, QuartetStatus, QuartetPuzzle } from './types'
 import { GROUP_COUNT, MAX_MISTAKES, WORDS_PER_GROUP } from './types'
 
+// One submitted guess in chronological order. `tiers[i]` is the tier of the
+// group that owns `words[i]` — used to render the share emoji grid post-game.
+export interface GuessRecord {
+  words: string[]
+  tiers: number[]
+}
+
 export interface QuartetState {
   // null until the puzzle JSON is fetched.
   puzzle: QuartetPuzzle | null
   puzzleDate: string | null
   // Solved-group indices into puzzle.groups, in solve order.
   solvedGroupIndices: number[]
+  // Every submission, in order — both correct and wrong. Drives the share
+  // emoji grid after the game ends.
+  guessHistory: GuessRecord[]
   // Currently selected words (max 4). Stable order = pick order, so the user
   // can see what they picked first.
   selected: string[]
@@ -100,6 +110,7 @@ export function createQuartetStore({
     puzzle: null,
     puzzleDate: null,
     solvedGroupIndices: [],
+    guessHistory: [],
     selected: [],
     displayOrder: [],
     mistakes: 0,
@@ -131,6 +142,7 @@ export function createQuartetStore({
         puzzle,
         puzzleDate: puzzle.date,
         solvedGroupIndices: [],
+        guessHistory: [],
         selected: [],
         displayOrder: shuffleSeeded(allWords, puzzle.date),
         mistakes: 0,
@@ -160,13 +172,31 @@ export function createQuartetStore({
     },
 
     submit: () => {
-      const { selected, puzzle, solvedGroupIndices, mistakes, status, displayOrder } =
-        get()
+      const {
+        selected,
+        puzzle,
+        solvedGroupIndices,
+        guessHistory,
+        mistakes,
+        status,
+        displayOrder,
+      } = get()
       if (status !== 'in-progress' || !puzzle) return
       if (selected.length !== WORDS_PER_GROUP) {
         set({ toast: 'Pick four words first' })
         return
       }
+
+      // Compute the tier of each picked word (always defined — every word in
+      // the puzzle belongs to exactly one group).
+      const tiersOfSelection = selected.map((w) => {
+        const g = puzzle.groups.find((grp) => grp.words.includes(w))
+        return g ? g.tier : 0
+      })
+      const newGuessHistory: GuessRecord[] = [
+        ...guessHistory,
+        { words: [...selected], tiers: tiersOfSelection },
+      ]
 
       // Match against any unsolved group.
       let solvedIdx = -1
@@ -186,6 +216,7 @@ export function createQuartetStore({
         const won = newSolved.length === GROUP_COUNT
         set({
           solvedGroupIndices: newSolved,
+          guessHistory: newGuessHistory,
           selected: [],
           displayOrder: remaining,
           flashSolvedIndex: solvedIdx,
@@ -213,10 +244,9 @@ export function createQuartetStore({
       const lost = newMistakes >= MAX_MISTAKES
       set({
         mistakes: newMistakes,
+        guessHistory: newGuessHistory,
         status: lost ? 'lost' : 'in-progress',
         toast: lost ? 'Out of mistakes' : oneAway ? 'One away…' : 'Not quite',
-        // Keep the wrong selection visible for a beat so the player sees the
-        // shake animation against their picks; then clear.
       })
 
       // Clear the failed selection after a short pause.
@@ -243,6 +273,7 @@ export function createQuartetStore({
       const allWords = puzzle.groups.flatMap((g) => g.words)
       set({
         solvedGroupIndices: [],
+        guessHistory: [],
         selected: [],
         displayOrder: shuffleSeeded(allWords, puzzle.date),
         mistakes: 0,
@@ -260,6 +291,7 @@ export function createQuartetStore({
         partialize: (s) => ({
           puzzleDate: s.puzzleDate,
           solvedGroupIndices: s.solvedGroupIndices,
+          guessHistory: s.guessHistory,
           mistakes: s.mistakes,
           status: s.status,
           displayOrder: s.displayOrder,

@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Modal } from '../../../shared/components/Modal'
 import { useStats } from '../stats'
 import { useQuartetStore } from '../store'
+import { buildShareText } from '../lib/share'
 import { MAX_MISTAKES } from '../types'
 
 interface Props {
@@ -12,12 +14,35 @@ export function StatsModal({ open, onClose }: Props) {
   const stats = useStats()
   const playAgain = useQuartetStore((s) => s.playAgain)
   const status = useQuartetStore((s) => s.status)
+  const guessHistory = useQuartetStore((s) => s.guessHistory)
+  const puzzleDate = useQuartetStore((s) => s.puzzleDate)
+  const mistakes = useQuartetStore((s) => s.mistakes)
+  const [shareLabel, setShareLabel] = useState('Share')
 
   const winPct = stats.played
     ? Math.round((stats.won / stats.played) * 100)
     : 0
   const maxBucket = Math.max(1, ...stats.mistakesDistribution)
   const canReplay = status !== 'in-progress'
+  const canShare = status !== 'in-progress' && guessHistory.length > 0 && puzzleDate
+
+  async function onShare() {
+    if (!puzzleDate) return
+    const text = buildShareText({
+      date: puzzleDate,
+      guessHistory,
+      won: status === 'won',
+      mistakes,
+    })
+    try {
+      await navigator.clipboard.writeText(text)
+      setShareLabel('Copied!')
+      setTimeout(() => setShareLabel('Share'), 1500)
+    } catch {
+      setShareLabel('Copy failed')
+      setTimeout(() => setShareLabel('Share'), 1500)
+    }
+  }
 
   return (
     <Modal open={open} onClose={onClose} title="Statistics">
@@ -68,6 +93,15 @@ export function StatsModal({ open, onClose }: Props) {
           >
             Play again
           </button>
+          {canShare && (
+            <button
+              type="button"
+              className="primary-button"
+              onClick={onShare}
+            >
+              {shareLabel}
+            </button>
+          )}
         </div>
       )}
     </Modal>
