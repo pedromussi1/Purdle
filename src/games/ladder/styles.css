@@ -228,6 +228,22 @@
   }
 }
 
+/* Mini ladder rows inside the Help modal — keep them compact so the
+   modal doesn't grow tall. The input variant's shake animation isn't
+   triggered here (no shakeKey bumps from a static help context), so
+   the cell sits still. */
+.help-ladder-row {
+  max-width: 220px;
+  margin: 4px 0 var(--space-3);
+}
+.help-ladder-row .l-cell {
+  font-size: 1rem;
+  border-width: 2px;
+}
+.help-ladder-row.l-row--input {
+  animation: none;
+}
+
 /* Ladder card on the home page — blue accent so it stands apart from
    Purdle (green) and Quartet (purple). */
 .home-card--ladder {
