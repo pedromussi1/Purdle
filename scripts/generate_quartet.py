@@ -371,11 +371,15 @@ def write_puzzle(args: Args, payload: dict) -> Path:
 
 
 def update_manifest(out_dir: Path) -> Path:
+    # Filter to bare date.json files; embeddings sidecars (*.embeddings.json)
+    # share the directory but aren't separate puzzles.
     files = sorted(out_dir.glob("*.json"))
     dates = sorted(
         f.stem
         for f in files
-        if f.name != "index.json" and re.fullmatch(r"\d{4}-\d{2}-\d{2}", f.stem)
+        if f.name != "index.json"
+        and not f.stem.endswith(".embeddings")
+        and re.fullmatch(r"\d{4}-\d{2}-\d{2}", f.stem)
     )
     manifest = out_dir / "index.json"
     manifest.write_text(
@@ -383,6 +387,35 @@ def update_manifest(out_dir: Path) -> Path:
         encoding="utf-8",
     )
     return manifest
+
+
+def write_embeddings(date: str, out_dir: Path, groups: list[dict]) -> Path | None:
+    """Encode the 16 puzzle words with the same MiniLM model the cluster
+    validator uses, write them as a sidecar JSON file. Used by the in-browser
+    hint feature: cosine similarity on these vectors picks the next pick most
+    semantically tied to the player's current selection.
+
+    No-op when sentence-transformers isn't installed (local fallback runs).
+    """
+    model = _get_embedder()
+    if model is None:
+        log("sentence-transformers not installed; skipping embeddings", level="warn")
+        return None
+
+    words = [w for g in groups for w in g["words"]]
+    emb = model.encode(words, normalize_embeddings=True, convert_to_numpy=True)
+    # Round to keep the JSON small. 5 decimals preserves enough precision for
+    # cosine-sim ranking; the alternative (full float32) ~doubles file size.
+    rounded = [[round(float(v), 5) for v in row] for row in emb]
+    payload = {
+        "date": date,
+        "words": words,
+        "embedding_dim": int(emb.shape[1]),
+        "embeddings": rounded,
+    }
+    out_path = out_dir / f"{date}.embeddings.json"
+    out_path.write_text(json.dumps(payload) + "\n", encoding="utf-8")
+    return out_path
 
 
 def main() -> int:
@@ -403,6 +436,7 @@ def main() -> int:
         payload = fallback_puzzle(args.date)
 
     out = write_puzzle(args, payload)
+    write_embeddings(args.date, args.out_dir, payload["groups"])
     update_manifest(args.out_dir)
 
     themes = ", ".join(g["theme"] for g in payload["groups"])

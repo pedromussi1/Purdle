@@ -1,6 +1,7 @@
 import { useStore } from './StoreContext'
 import { Grid } from './components/Grid'
 import { Controls } from './components/Controls'
+import { HintButton } from './components/HintButton'
 import { MistakesIndicator } from './components/MistakesIndicator'
 import { SolvedRow } from './components/SolvedRow'
 import { Toast } from './components/Toast'
@@ -47,6 +48,7 @@ export function GameSurface() {
       )}
       <Grid />
       <Toast />
+      <HintButton />
       <MistakesIndicator />
       <Controls />
     </>
