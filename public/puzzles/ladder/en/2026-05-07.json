@@ -4,16 +4,15 @@
   "lang": "en",
   "schema_version": 1,
   "start": "carve",
-  "end": "whole",
-  "optimal_steps": 6,
+  "end": "paint",
+  "optimal_steps": 5,
   "optimal_path": [
     "carve",
-    "carse",
-    "corse",
-    "worse",
-    "woose",
-    "whose",
-    "whole"
+    "carne",
+    "carns",
+    "cains",
+    "pains",
+    "paint"
   ],
   "difficulty_similarity": null,
   "generated_by": "fallback"

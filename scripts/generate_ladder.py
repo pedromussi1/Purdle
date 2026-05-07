@@ -117,9 +117,10 @@ def load_recent(out_dir: Path) -> list[dict]:
 
 # ---------- BFS over the dictionary ----------
 
-# Cache the graph across retries within a process — building it is the
-# expensive step (~1s) and it's identical for every attempt today.
+# Caches across retries within a process — building each graph is the
+# expensive step (~0.5-1s) and it's identical for every attempt today.
 _graph_cache: dict[str, list[str]] | None = None
+_common_set_cache: set[str] | None = None
 
 
 def build_graph(dictionary: set[str]) -> dict[str, list[str]]:
@@ -143,6 +144,28 @@ def build_graph(dictionary: set[str]) -> dict[str, list[str]]:
         graph[w] = neighbours
     _graph_cache = graph
     return graph
+
+
+def common_words(dictionary: set[str], lang: str, threshold: float = 3.5) -> set[str]:
+    """Subset of `dictionary` keeping only Zipf-frequent words. The "optimal
+    path" calculation uses this restricted set so the BFS shortest path can
+    only travel through words humans actually recognise — no obscure bridges
+    like CARSE / CORSE / WOOSE.
+
+    Falls back to the full dictionary if `wordfreq` isn't installed."""
+    global _common_set_cache
+    if _common_set_cache is not None:
+        return _common_set_cache
+    try:
+        from wordfreq import zipf_frequency  # type: ignore
+    except ImportError:
+        log("wordfreq not installed; using full dictionary for BFS", level="warn")
+        _common_set_cache = dictionary
+        return _common_set_cache
+    common = {w for w in dictionary if zipf_frequency(w, lang) >= threshold}
+    log(f"filtered to {len(common)} common words (Zipf ≥ {threshold})")
+    _common_set_cache = common
+    return common
 
 
 def bfs_shortest_path(start: str, end: str, graph: dict[str, list[str]]) -> list[str] | None:
@@ -316,12 +339,13 @@ def validate_pair(
 def fallback_pair(date: str, answers: list[str], graph: dict[str, list[str]],
                   recent_pairs: set[tuple[str, str]]) -> tuple[str, list[str]]:
     """Deterministic random pair from the answer list, retrying through
-    the seed space until BFS finds a valid path. Always succeeds in
-    practice — the answer list has thousands of suitable pairs."""
+    the seed space until BFS finds a valid path through the common-words
+    graph (the one passed in). Always succeeds in practice — the answer
+    list has thousands of suitable pairs even after the common-words filter."""
     seed = int(hashlib.sha256(date.encode()).hexdigest(), 16)
     n = len(answers)
-    # Restrict to answer-list words that ARE in the graph (some curated
-    # answers might not be in the broader valid-guess dict — rare but possible).
+    # Restrict to answer-list words that ARE in the graph. With the
+    # common-words filter, this drops a few obscure answer-list entries.
     candidates = [w for w in answers if w in graph]
     if not candidates:
         sys.exit("no answer-list words in graph — dictionary mismatch?")
@@ -414,7 +438,11 @@ def main() -> int:
     answers = load_words(ANSWER_LIST_PATH)
     dictionary = set(load_words(DICT_PATH))
     log(f"loaded {len(answers)} answer-list words and {len(dictionary)} dict words")
-    graph = build_graph(dictionary)
+    # BFS runs over a *common-words* subset so the optimal path only uses
+    # words humans recognise. Player input still validates against the full
+    # dictionary on the client side — they can take any chain of valid words.
+    common = common_words(dictionary, args.lang)
+    graph = build_graph(common)
 
     recent = load_recent(args.out_dir)
     recent_pairs: set[tuple[str, str]] = set()

@@ -40,4 +40,20 @@ Get-WordList `
   -Url 'https://raw.githubusercontent.com/tabatkins/wordle-list/main/words' `
   -OutPath (Join-Path $root 'public\words\valid-guesses.txt')
 
+# Augment with curated extras (proper-noun-derived adjectives like 'norse',
+# 'greek', 'roman' — recognisable English words that the upstream Wordle
+# dictionary excludes because they're conventionally capitalised). Keeps the
+# Word Ladder bridge graph richer for these natural connector words.
+$extrasPath = Join-Path $root 'scripts\extra_words.txt'
+$mainPath = Join-Path $root 'public\words\valid-guesses.txt'
+if (Test-Path $extrasPath) {
+  Write-Host "  · merging scripts\extra_words.txt"
+  $combined = (Get-Content $mainPath) + (Get-Content $extrasPath) `
+    | ForEach-Object { $_.Trim().ToLower() } `
+    | Where-Object { $_ -match '^[a-z]{5}$' } `
+    | Sort-Object -Unique
+  Set-Content -Path $mainPath -Value $combined -Encoding ascii
+  Write-Host ("    {0,5} words -> {1}" -f $combined.Count, ($mainPath -replace [regex]::Escape($root), '.'))
+}
+
 Write-Host "`nDone."

@@ -1,0 +1,15 @@
+norse
+greek
+roman
+latin
+dutch
+welsh
+saxon
+swiss
+maori
+inuit
+aztec
+mayan
+anglo
+slavic
+texan

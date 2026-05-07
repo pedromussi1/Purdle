@@ -859,6 +859,7 @@ azole
 azons
 azote
 azoth
+aztec
 azuki
 azure
 azurn
@@ -5902,6 +5903,7 @@ intil
 intis
 intra
 intro
+inuit
 inula
 inure
 inurn
@@ -6719,6 +6721,7 @@ lathe
 lathi
 laths
 lathy
+latin
 latke
 latte
 latus
@@ -7374,6 +7377,7 @@ manty
 manul
 manus
 manzo
+maori
 mapau
 mapes
 maple
@@ -8548,6 +8552,7 @@ noris
 norks
 norma
 norms
+norse
 north
 nosed
 noser
@@ -11202,6 +11207,7 @@ sawah
 sawed
 sawer
 saxes
+saxon
 sayas
 sayed
 sayee
@@ -12984,6 +12990,7 @@ teugh
 tewed
 tewel
 tewit
+texan
 texas
 texes
 texta
