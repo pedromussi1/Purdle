@@ -6,7 +6,7 @@ A daily five-letter word puzzle in the Wordle tradition — but every puzzle is 
 
 ![Purdle in play — a three-guess solve of today's automatically-generated puzzle](docs/screenshot.png)
 
-The game itself is a faithful Wordle clone: 6 guesses, green / yellow / grey feedback, daily puzzle, hard mode, color-blind palette, dark mode, local stats with shareable emoji grid, and a playable archive of past puzzles. The interesting part is everything *behind* the puzzle.
+The game itself is a faithful Wordle clone: 6 guesses, green / yellow / grey feedback, daily puzzle, hard mode, color-blind palette, dark mode, local stats with shareable emoji grid, a playable archive of past puzzles, optional Google / GitHub sign-in for cross-device stat sync, and an information-theoretic solver that suggests the optimal next guess on demand. The interesting part is everything *behind* the puzzle.
 
 ---
 
@@ -78,10 +78,12 @@ When a candidate is rejected, the rejection reason is fed back into the prompt f
 
 | Layer | Choice |
 |---|---|
-| Frontend | React 19 + Vite + TypeScript (strict) |
-| State | Zustand (with `persist` middleware for stats + in-progress games) |
+| Frontend | React 19 + Vite + TypeScript (strict), React Router 7 |
+| State | Zustand (with `persist` middleware for stats + in-progress games), context-based store factory so the same UI drives both today's persisted game and the ephemeral archive replay |
+| Auth & cloud sync | Supabase (Google / GitHub OAuth), Postgres + Row Level Security; opt-in, gracefully degrades to local-only when env vars aren't set |
 | Styling | CSS variables + tokens, no UI framework |
-| Tests | Vitest (the green / yellow / grey evaluator gets the duplicate-letter edge cases right — see [`evaluate.test.ts`](src/games/wordle/lib/evaluate.test.ts)) |
+| Tests | Vitest — see [`evaluate.test.ts`](src/games/wordle/lib/evaluate.test.ts) (duplicate-letter algorithm + hard-mode rule) and [`solver.test.ts`](src/games/wordle/lib/solver.test.ts) (entropy / pattern grouping) |
+| In-game ML | Information-theoretic solver running entirely in-browser ([`solver.ts`](src/games/wordle/lib/solver.ts)) — surfaces the entropy-maximising next guess on demand, with a precomputed turn-1 opener |
 | Pipeline | Python 3.12, Gemini 2.5 Flash-Lite, wordfreq, better-profanity, sentence-transformers |
 | CI / Cron | GitHub Actions (free, unlimited minutes for public repos) |
 | Hosting | GitHub Pages (zero servers, zero cost) |

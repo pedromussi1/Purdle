@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import {
   BrowserRouter,
+  Navigate,
   Route,
   Routes,
   useNavigate,
+  useParams,
 } from 'react-router-dom'
 import { Header } from './games/wordle/components/Header'
 import { HelpModal } from './games/wordle/components/HelpModal'
@@ -12,6 +14,7 @@ import { StatsModal } from './games/wordle/components/StatsModal'
 import { WordlePage } from './games/wordle/WordlePage'
 import { ArchivePage } from './pages/ArchivePage'
 import { ReplayPage } from './pages/ReplayPage'
+import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
 import { useWordleStore } from './games/wordle/store'
 import { attachSettingsToDocument } from './shared/store/settings'
@@ -78,12 +81,16 @@ function Shell() {
         onOpenHelp={() => setHelpOpen(true)}
         onOpenStats={() => setStatsOpen(true)}
         onOpenSettings={() => setSettingsOpen(true)}
-        onOpenArchive={() => navigate('/archive')}
+        onOpenArchive={() => navigate('/wordle/archive')}
       />
       <Routes>
-        <Route path="/" element={<WordlePage />} />
-        <Route path="/archive" element={<ArchivePage />} />
-        <Route path="/archive/:date" element={<ReplayPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/wordle" element={<WordlePage />} />
+        <Route path="/wordle/archive" element={<ArchivePage />} />
+        <Route path="/wordle/archive/:date" element={<ReplayPage />} />
+        {/* Backwards-compat redirects from the v1.1 URL shape: */}
+        <Route path="/archive" element={<RedirectArchive />} />
+        <Route path="/archive/:date" element={<RedirectArchiveDate />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <HelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
@@ -94,6 +101,15 @@ function Shell() {
       />
     </div>
   )
+}
+
+function RedirectArchive() {
+  return <Navigate to="/wordle/archive" replace />
+}
+
+function RedirectArchiveDate() {
+  const { date } = useParams<{ date: string }>()
+  return <Navigate to={`/wordle/archive/${date ?? ''}`} replace />
 }
 
 export default App

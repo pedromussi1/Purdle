@@ -14,12 +14,12 @@ export function ReplayPage() {
   const { date } = useParams<{ date: string }>()
 
   if (!date || !ISO_DATE.test(date)) {
-    return <Navigate to="/archive" replace />
+    return <Navigate to="/wordle/archive" replace />
   }
   // Today's puzzle has its own canonical home — don't fork it as an
   // ephemeral replay.
   if (date === todayUTC()) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/wordle" replace />
   }
 
   // Force a fresh ephemeral store whenever the URL date changes.
@@ -50,7 +50,7 @@ function ReplayInner({ date }: { date: string }) {
       <main className="game">
         <div className="puzzle-banner">
           No puzzle for {date}.{' '}
-          <Link to="/archive" className="archive-back">
+          <Link to="/wordle/archive" className="archive-back">
             Back to archive
           </Link>
         </div>
@@ -89,7 +89,7 @@ function ReplayEpilogue({ puzzle }: { puzzle: Puzzle }) {
       {puzzle.etymology && (
         <p className="replay-epilogue-etymology">{puzzle.etymology}</p>
       )}
-      <Link to="/archive" className="archive-back">
+      <Link to="/wordle/archive" className="archive-back">
         &larr; Back to archive
       </Link>
     </div>

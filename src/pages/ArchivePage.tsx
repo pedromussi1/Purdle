@@ -63,7 +63,7 @@ export function ArchivePage() {
   return (
     <main className="archive">
       <div className="archive-header">
-        <Link to="/" className="archive-back">
+        <Link to="/wordle" className="archive-back">
           &larr; Back to today&apos;s puzzle
         </Link>
         <h2 className="archive-title">Past puzzles</h2>
@@ -133,7 +133,7 @@ function ArchiveCard({ puzzle }: { puzzle: Puzzle }) {
       </div>
 
       <div className="archive-actions">
-        <Link to={`/archive/${puzzle.date}`} className="archive-play-btn">
+        <Link to={`/wordle/archive/${puzzle.date}`} className="archive-play-btn">
           Play
         </Link>
         <button

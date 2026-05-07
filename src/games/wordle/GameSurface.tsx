@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Board } from './components/Board'
 import { Keyboard } from './components/Keyboard'
 import { Toast } from './components/Toast'
+import { HintButton } from './components/HintButton'
 import { useStore } from './StoreContext'
 
 // Game UI driven entirely by the store in context — works for both today's
@@ -44,6 +45,7 @@ export function GameSurface() {
     <>
       <Board shakeCurrent={shake} />
       <Toast />
+      <HintButton />
       <Keyboard />
     </>
   )

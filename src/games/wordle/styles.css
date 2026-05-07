@@ -168,6 +168,87 @@
   background: var(--state-present);
 }
 
+/* ---------- Solver hint ---------- */
+.hint-button {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  cursor: pointer;
+  align-self: center;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.hint-button:hover:not(:disabled) {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.hint-button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.hint-card {
+  width: 100%;
+  max-width: var(--board-max-width);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-self: center;
+  background: var(--color-bg);
+}
+
+.hint-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hint-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.hint-dismiss {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 var(--space-1);
+}
+
+.hint-dismiss:hover {
+  color: var(--color-text);
+}
+
+.hint-guess {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: var(--state-correct);
+}
+
+.hint-bits {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
 /* ---------- Toast ---------- */
 .toast {
   position: fixed;
@@ -368,6 +449,125 @@
 
 .primary-button:hover {
   filter: brightness(1.05);
+}
+
+/* ---------- Home / landing ---------- */
+.home {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.home-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.home-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.home-sub {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.home-games {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.home-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.home-card:hover {
+  border-color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.home-card--primary {
+  background: var(--state-correct);
+  border-color: var(--state-correct);
+  color: var(--state-text);
+}
+
+.home-card--primary:hover {
+  filter: brightness(1.05);
+  border-color: var(--state-correct);
+}
+
+.home-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.home-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.home-card-meta {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.home-card-arrow {
+  font-size: 1.4rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.home-foot {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.home-foot a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+}
+
+.home-foot a:hover {
+  text-decoration-color: var(--color-text);
 }
 
 /* ---------- Archive page ---------- */

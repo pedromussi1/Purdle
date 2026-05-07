@@ -29,6 +29,12 @@ Get-WordList `
   -Url 'https://gist.githubusercontent.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b/raw/wordle-answers-alphabetical.txt' `
   -OutPath (Join-Path $root 'scripts\answer_list.txt')
 
+# Mirror it under public/ so the in-browser solver can fetch the candidate set.
+Copy-Item `
+  -Path (Join-Path $root 'scripts\answer_list.txt') `
+  -Destination (Join-Path $root 'public\words\answer-list.txt') `
+  -Force
+
 # Combined valid-guess dictionary (player input is validated against this).
 Get-WordList `
   -Url 'https://raw.githubusercontent.com/tabatkins/wordle-list/main/words' `
