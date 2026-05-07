@@ -791,6 +791,41 @@
   line-height: 1.5;
 }
 
+.replay-epilogue-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  padding-top: var(--space-2);
+}
+
+/* Secondary button — for "Play again" and other neutral post-game CTAs.
+   Outlined style that doesn't compete with the green primary action. */
+.secondary-button {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.secondary-button:hover {
+  background: var(--color-key-bg);
+  border-color: var(--color-text-muted);
+}
+
+.stats-actions {
+  gap: var(--space-3);
+}
+
 .not-found {
   padding: var(--space-8) var(--space-4);
   text-align: center;

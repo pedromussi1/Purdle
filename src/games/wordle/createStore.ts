@@ -38,6 +38,11 @@ export interface WordleState {
   pressBackspace: () => void
   pressEnter: () => void
   resetToast: () => void
+  // Reset the in-progress state for the current puzzle (clears guesses,
+  // keyboard tints, toast). Preserves solution + puzzleDate. Stats are not
+  // touched — recordResult is idempotent per date so a replay can't
+  // double-count or undo a previous win.
+  playAgain: () => void
 }
 
 export type WordleStoreHook = UseBoundStore<StoreApi<WordleState>>
@@ -184,6 +189,16 @@ export function createWordleStore({
     },
 
     resetToast: () => set({ toast: null }),
+
+    playAgain: () =>
+      set({
+        guesses: [],
+        currentGuess: '',
+        status: 'in-progress',
+        keyboard: {},
+        toast: null,
+        revealingRowIndex: null,
+      }),
   })
 
   if (persistKey) {

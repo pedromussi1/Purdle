@@ -64,14 +64,13 @@ function ReplayInner({ date }: { date: string }) {
         Replay · {formatDate(date)} · scores aren&apos;t recorded
       </div>
       <GameSurface />
-      {gameStatus !== 'in-progress' && puzzle && (
-        <ReplayEpilogue puzzle={puzzle} />
-      )}
+      {gameStatus !== 'in-progress' && puzzle && <ReplayEpilogue puzzle={puzzle} />}
     </main>
   )
 }
 
 function ReplayEpilogue({ puzzle }: { puzzle: Puzzle }) {
+  const playAgain = useStore((s) => s.playAgain)
   return (
     <div className="replay-epilogue">
       <div className="replay-epilogue-row">
@@ -89,9 +88,18 @@ function ReplayEpilogue({ puzzle }: { puzzle: Puzzle }) {
       {puzzle.etymology && (
         <p className="replay-epilogue-etymology">{puzzle.etymology}</p>
       )}
-      <Link to="/wordle/archive" className="archive-back">
-        &larr; Back to archive
-      </Link>
+      <div className="replay-epilogue-actions">
+        <button
+          type="button"
+          className="secondary-button"
+          onClick={playAgain}
+        >
+          Play again
+        </button>
+        <Link to="/wordle/archive" className="archive-back">
+          &larr; Back to archive
+        </Link>
+      </div>
     </div>
   )
 }

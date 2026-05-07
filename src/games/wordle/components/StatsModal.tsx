@@ -16,6 +16,7 @@ export function StatsModal({ open, onClose }: Props) {
   const guesses = useWordleStore((s) => s.guesses)
   const status = useWordleStore((s) => s.status)
   const puzzleDate = useWordleStore((s) => s.puzzleDate)
+  const playAgain = useWordleStore((s) => s.playAgain)
   const colorBlind = useSettings((s) => s.colorBlind)
   const [shareLabel, setShareLabel] = useState('Share')
 
@@ -82,6 +83,16 @@ export function StatsModal({ open, onClose }: Props) {
 
       {canShare && (
         <div className="stats-actions">
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => {
+              playAgain()
+              onClose()
+            }}
+          >
+            Play again
+          </button>
           <button type="button" className="primary-button" onClick={onShare}>
             {shareLabel}
           </button>

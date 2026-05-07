@@ -110,11 +110,6 @@ function ArchiveCard({ puzzle }: { puzzle: Puzzle }) {
           {formatDate(puzzle.date)}
         </time>
         <div className="archive-meta">
-          {puzzle.theme && (
-            <span className="archive-tag" title="Theme">
-              {puzzle.theme}
-            </span>
-          )}
           {puzzle.difficulty != null && (
             <span className="archive-tag" title="Difficulty (1–5)">
               ★ {puzzle.difficulty}
@@ -154,6 +149,12 @@ function ArchiveCard({ puzzle }: { puzzle: Puzzle }) {
               {puzzle.solution.toUpperCase()}
             </span>
           </div>
+          {puzzle.theme && (
+            <div className="archive-card-row">
+              <span className="archive-reveal-label">Theme</span>
+              <span>{puzzle.theme}</span>
+            </div>
+          )}
           {puzzle.etymology && (
             <p className="archive-etymology">{puzzle.etymology}</p>
           )}
