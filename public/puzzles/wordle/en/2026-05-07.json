@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-07",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "river",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "The word 'river' comes from the Latin word 'riparius', meaning 'of the bank'. It evolved through Old French and Middle English to describe a large natural stream of water flowing to the sea or a larger lake.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
