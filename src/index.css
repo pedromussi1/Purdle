@@ -2,4 +2,5 @@
 @import './shared/styles/global.css';
 @import './shared/styles/animations.css';
 @import './games/purdle/styles.css';
+@import './games/quartet/styles.css';
 @import './App.css';

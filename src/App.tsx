@@ -4,13 +4,14 @@ import {
   Navigate,
   Route,
   Routes,
+  useLocation,
   useNavigate,
   useParams,
 } from 'react-router-dom'
-import { Header } from './games/purdle/components/Header'
-import { HelpModal } from './games/purdle/components/HelpModal'
+import { Header } from './shared/components/Header'
+import { HelpModal as PurdleHelpModal } from './games/purdle/components/HelpModal'
 import { SettingsModal } from './games/purdle/components/SettingsModal'
-import { StatsModal } from './games/purdle/components/StatsModal'
+import { StatsModal as PurdleStatsModal } from './games/purdle/components/StatsModal'
 import { WordlePage } from './games/purdle/WordlePage'
 import { ArchivePage } from './pages/ArchivePage'
 import { ReplayPage } from './pages/ReplayPage'
@@ -20,15 +21,25 @@ import { useWordleStore } from './games/purdle/store'
 import { attachSettingsToDocument } from './shared/store/settings'
 import { useAuth, useAuthBootstrap } from './shared/store/auth'
 import {
-  attachStatsCloudSync,
-  syncOnSignIn,
+  attachStatsCloudSync as attachPurdleCloudSync,
+  syncOnSignIn as syncPurdleOnSignIn,
 } from './games/purdle/lib/statsCloudSync'
 
-attachSettingsToDocument()
-attachStatsCloudSync()
+import { QuartetPage } from './games/quartet/QuartetPage'
+import { QuartetArchive } from './pages/QuartetArchive'
+import { QuartetReplay } from './pages/QuartetReplay'
+import { HelpModal as QuartetHelpModal } from './games/quartet/components/HelpModal'
+import { StatsModal as QuartetStatsModal } from './games/quartet/components/StatsModal'
+import { useQuartetStore } from './games/quartet/store'
+import {
+  attachCloudSync as attachQuartetCloudSync,
+  syncOnSignIn as syncQuartetOnSignIn,
+} from './games/quartet/lib/cloudSync'
 
-// Vite serves us at /Purdle/ in production and dev — strip the trailing slash
-// for React Router's basename.
+attachSettingsToDocument()
+attachPurdleCloudSync()
+attachQuartetCloudSync()
+
 const BASENAME = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 function App() {
@@ -39,41 +50,77 @@ function App() {
   )
 }
 
+type ActiveGame = 'purdle' | 'quartet' | null
+
+function activeGameFromPath(pathname: string): ActiveGame {
+  if (pathname === '/play' || pathname.startsWith('/play/')) return 'purdle'
+  if (pathname === '/quartet' || pathname.startsWith('/quartet/')) return 'quartet'
+  // Legacy URLs that redirect to /play* — treat as Purdle for modal purposes.
+  if (pathname.startsWith('/wordle') || pathname.startsWith('/archive')) {
+    return 'purdle'
+  }
+  return null
+}
+
 function Shell() {
   const [helpOpen, setHelpOpen] = useState(false)
   const [statsOpen, setStatsOpen] = useState(false)
   const [settingsOpen, setSettingsOpen] = useState(false)
 
-  const status = useWordleStore((s) => s.status)
-  const guesses = useWordleStore((s) => s.guesses)
   const navigate = useNavigate()
+  const location = useLocation()
+  const activeGame = activeGameFromPath(location.pathname)
 
-  // Restore Supabase session and subscribe to auth changes for the app's
-  // lifetime.
+  // Auth bootstrap + cross-store sign-in sync.
   useAuthBootstrap()
   const userId = useAuth((s) => s.user?.id)
-
-  // When a user transitions from signed-out to signed-in, merge their
-  // local stats with whatever's on file in the cloud.
   useEffect(() => {
-    if (userId) void syncOnSignIn()
+    if (!userId) return
+    void syncPurdleOnSignIn()
+    void syncQuartetOnSignIn()
   }, [userId])
 
+  // First-visit help auto-open: scoped to whichever game the user lands on.
+  // For purdle, also respect the legacy 'purdle:visited' flag so existing
+  // players who already saw the Purdle help in v3 don't see it pop again.
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const KEY = 'purdle:visited'
-    if (!window.localStorage.getItem(KEY)) {
+    if (!activeGame) return
+    const key = `purdle:visited:${activeGame}`
+    const seen =
+      window.localStorage.getItem(key) ||
+      (activeGame === 'purdle' && window.localStorage.getItem('purdle:visited'))
+    if (!seen) {
       setHelpOpen(true)
-      window.localStorage.setItem(KEY, '1')
+      window.localStorage.setItem(key, '1')
     }
-  }, [])
+  }, [activeGame])
 
+  // Auto-open stats when a Purdle game ends (only fires when on /play*).
+  const purdleStatus = useWordleStore((s) => s.status)
+  const purdleGuesses = useWordleStore((s) => s.guesses)
   useEffect(() => {
-    if (status === 'in-progress') return
-    if (guesses.length === 0) return
+    if (activeGame !== 'purdle') return
+    if (purdleStatus === 'in-progress') return
+    if (purdleGuesses.length === 0) return
     const t = setTimeout(() => setStatsOpen(true), 1800)
     return () => clearTimeout(t)
-  }, [status, guesses.length])
+  }, [activeGame, purdleStatus, purdleGuesses.length])
+
+  // Auto-open stats when a Quartet game ends.
+  const quartetStatus = useQuartetStore((s) => s.status)
+  const quartetSolved = useQuartetStore((s) => s.solvedGroupIndices.length)
+  useEffect(() => {
+    if (activeGame !== 'quartet') return
+    if (quartetStatus === 'in-progress') return
+    if (quartetSolved === 0 && quartetStatus !== 'lost') return
+    const t = setTimeout(() => setStatsOpen(true), 1800)
+    return () => clearTimeout(t)
+  }, [activeGame, quartetStatus, quartetSolved])
+
+  // Header's archive button: route-aware (Purdle archive vs Quartet archive).
+  const archivePath =
+    activeGame === 'quartet' ? '/quartet/archive' : '/play/archive'
 
   return (
     <div className="app-shell">
@@ -81,24 +128,45 @@ function Shell() {
         onOpenHelp={() => setHelpOpen(true)}
         onOpenStats={() => setStatsOpen(true)}
         onOpenSettings={() => setSettingsOpen(true)}
-        onOpenArchive={() => navigate('/play/archive')}
+        onOpenArchive={() => navigate(archivePath)}
       />
       <Routes>
         <Route path="/" element={<Home />} />
+
+        {/* Purdle (the word puzzle) */}
         <Route path="/play" element={<WordlePage />} />
         <Route path="/play/archive" element={<ArchivePage />} />
         <Route path="/play/archive/:date" element={<ReplayPage />} />
-        {/* Backwards-compat redirects from earlier URL shapes
-            (v1.1: /archive, v2-v3: /wordle/...). External bookmarks keep working. */}
+
+        {/* Quartet (16 words → 4 groups) */}
+        <Route path="/quartet" element={<QuartetPage />} />
+        <Route path="/quartet/archive" element={<QuartetArchive />} />
+        <Route path="/quartet/archive/:date" element={<QuartetReplay />} />
+
+        {/* Backwards-compat redirects from earlier URL shapes. */}
         <Route path="/wordle" element={<Navigate to="/play" replace />} />
-        <Route path="/wordle/archive" element={<RedirectArchive />} />
-        <Route path="/wordle/archive/:date" element={<RedirectArchiveDate />} />
-        <Route path="/archive" element={<RedirectArchive />} />
-        <Route path="/archive/:date" element={<RedirectArchiveDate />} />
+        <Route path="/wordle/archive" element={<RedirectPurdleArchive />} />
+        <Route path="/wordle/archive/:date" element={<RedirectPurdleArchiveDate />} />
+        <Route path="/archive" element={<RedirectPurdleArchive />} />
+        <Route path="/archive/:date" element={<RedirectPurdleArchiveDate />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <HelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
-      <StatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
+
+      {/* Game-specific modals: only the active game's Help/Stats render so the
+          icon-button callbacks open the relevant pair. SettingsModal is
+          platform-wide and always available. */}
+      {activeGame === 'quartet' ? (
+        <>
+          <QuartetHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
+          <QuartetStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
+        </>
+      ) : (
+        <>
+          <PurdleHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
+          <PurdleStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
+        </>
+      )}
       <SettingsModal
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}
@@ -107,11 +175,11 @@ function Shell() {
   )
 }
 
-function RedirectArchive() {
+function RedirectPurdleArchive() {
   return <Navigate to="/play/archive" replace />
 }
 
-function RedirectArchiveDate() {
+function RedirectPurdleArchiveDate() {
   const { date } = useParams<{ date: string }>()
   return <Navigate to={`/play/archive/${date ?? ''}`} replace />
 }

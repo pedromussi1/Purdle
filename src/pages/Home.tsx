@@ -28,12 +28,32 @@ export function Home() {
           </span>
         </Link>
 
+        <Link to="/quartet" className="home-card home-card--primary home-card--quartet">
+          <div className="home-card-body">
+            <div className="home-card-title">Quartet</div>
+            <div className="home-card-meta">
+              Today&apos;s puzzle · 16 words, 4 groups
+            </div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
         <Link to="/play/archive" className="home-card">
           <div className="home-card-body">
-            <div className="home-card-title">Past puzzles</div>
-            <div className="home-card-meta">
-              Browse the archive · play any day in replay mode
-            </div>
+            <div className="home-card-title">Purdle archive</div>
+            <div className="home-card-meta">Past Purdle puzzles · play any day</div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
+        <Link to="/quartet/archive" className="home-card">
+          <div className="home-card-body">
+            <div className="home-card-title">Quartet archive</div>
+            <div className="home-card-meta">Past Quartet puzzles · play any day</div>
           </div>
           <span className="home-card-arrow" aria-hidden>
             →

@@ -1,0 +1,224 @@
+/* ---------- Quartet game ---------- */
+.q-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  gap: var(--space-4);
+}
+
+.q-empty {
+  padding: var(--space-8) 0;
+  color: var(--color-text-muted);
+}
+
+/* Solved-group rows stack above the playable grid */
+.q-solved-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.q-solved {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: #1a1a1b;
+  text-align: center;
+}
+
+.q-solved--tier-1 {
+  background: #f9df6d;
+}
+.q-solved--tier-2 {
+  background: #a0c35a;
+}
+.q-solved--tier-3 {
+  background: #b0c4ef;
+}
+.q-solved--tier-4 {
+  background: #bb81c5;
+  color: #fff;
+}
+
+.q-solved-theme {
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.q-solved-words {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+@keyframes q-solve-pop {
+  0% {
+    transform: translateY(8px) scale(0.96);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-2px) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.q-solved--flash {
+  animation: q-solve-pop 0.5s ease;
+}
+
+/* Playable 4×4 grid */
+.q-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.q-tile {
+  background: var(--color-key-bg);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 3.2vw, 1rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: var(--space-3) var(--space-2);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  aspect-ratio: 1.4 / 1;
+  transition:
+    background-color 0.12s,
+    color 0.12s,
+    transform 0.12s;
+}
+
+.q-tile:hover:not(:disabled) {
+  background: var(--color-key-hover);
+}
+
+.q-tile--selected {
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+
+.q-tile--locked {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Mistakes indicator */
+.q-mistakes {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.q-mistakes-dots {
+  display: inline-flex;
+  gap: var(--space-2);
+}
+
+.q-mistake-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-text);
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
+}
+
+.q-mistake-dot--spent {
+  background: var(--color-border);
+  transform: scale(0.7);
+}
+
+/* Action buttons row */
+.q-controls {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.q-btn {
+  flex: 1 1 auto;
+  min-width: 100px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.q-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.q-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.q-btn--secondary:hover:not(:disabled) {
+  background: var(--color-key-bg);
+  border-color: var(--color-text-muted);
+}
+
+.q-btn--primary {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text);
+}
+
+.q-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+/* A second row of stat tiles (perfect solves + lifetime groups), shown only
+   in Quartet's StatsModal. */
+.stats-grid--secondary {
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: var(--space-4);
+}
+
+/* Quartet card on the home page — purple accent so it stands apart from
+   the green Purdle card. */
+.home-card--quartet {
+  background: #bb81c5;
+  border-color: #bb81c5;
+  color: #fff;
+}
+
+.home-card--quartet:hover {
+  filter: brightness(1.05);
+  border-color: #bb81c5;
+}

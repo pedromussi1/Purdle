@@ -1,0 +1,42 @@
+[
+  {
+    "groups": [
+      {"theme": "Citrus fruits", "words": ["lemon", "lime", "orange", "grapefruit"], "tier": 1},
+      {"theme": "Things that fly", "words": ["plane", "kite", "balloon", "drone"], "tier": 2},
+      {"theme": "Synonyms of happy", "words": ["glad", "merry", "joyful", "elated"], "tier": 3},
+      {"theme": "___ pool", "words": ["car", "dead", "swimming", "gene"], "tier": 4}
+    ]
+  },
+  {
+    "groups": [
+      {"theme": "Tree types", "words": ["oak", "maple", "pine", "birch"], "tier": 1},
+      {"theme": "Things in a desk drawer", "words": ["pen", "stapler", "tape", "ruler"], "tier": 2},
+      {"theme": "Compass directions", "words": ["north", "south", "east", "west"], "tier": 3},
+      {"theme": "___ shot", "words": ["long", "moon", "screen", "buck"], "tier": 4}
+    ]
+  },
+  {
+    "groups": [
+      {"theme": "Primary colors", "words": ["red", "blue", "yellow", "green"], "tier": 1},
+      {"theme": "Olympic events", "words": ["diving", "fencing", "rowing", "boxing"], "tier": 2},
+      {"theme": "Types of bread", "words": ["rye", "wheat", "white", "sourdough"], "tier": 3},
+      {"theme": "Things that have a tongue", "words": ["shoe", "boot", "fire", "bell"], "tier": 4}
+    ]
+  },
+  {
+    "groups": [
+      {"theme": "Musical instruments", "words": ["piano", "drum", "violin", "flute"], "tier": 1},
+      {"theme": "Big cats", "words": ["lion", "tiger", "leopard", "panther"], "tier": 2},
+      {"theme": "Things that are sticky", "words": ["glue", "tape", "honey", "syrup"], "tier": 3},
+      {"theme": "Words after 'sun'", "words": ["set", "rise", "light", "flower"], "tier": 4}
+    ]
+  },
+  {
+    "groups": [
+      {"theme": "Card games", "words": ["poker", "bridge", "rummy", "solitaire"], "tier": 1},
+      {"theme": "Pasta shapes", "words": ["penne", "fusilli", "ravioli", "rigatoni"], "tier": 2},
+      {"theme": "Things that ring", "words": ["bell", "phone", "alarm", "ear"], "tier": 3},
+      {"theme": "Words before 'house'", "words": ["light", "green", "dog", "ware"], "tier": 4}
+    ]
+  }
+]

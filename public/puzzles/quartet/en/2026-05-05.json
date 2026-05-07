@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-05",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Card games",
+      "words": [
+        "poker",
+        "bridge",
+        "rummy",
+        "solitaire"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Pasta shapes",
+      "words": [
+        "penne",
+        "fusilli",
+        "ravioli",
+        "rigatoni"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that ring",
+      "words": [
+        "bell",
+        "phone",
+        "alarm",
+        "ear"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words before 'house'",
+      "words": [
+        "light",
+        "green",
+        "dog",
+        "ware"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "fallback"
+}
