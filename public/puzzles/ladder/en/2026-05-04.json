@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-04",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "aping",
+  "end": "elope",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "aping",
+    "awing",
+    "swing",
+    "swine",
+    "swipe",
+    "slipe",
+    "slope",
+    "elope"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}

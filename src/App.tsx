@@ -36,9 +36,21 @@ import {
   syncOnSignIn as syncQuartetOnSignIn,
 } from './games/quartet/lib/cloudSync'
 
+import { LadderPage } from './games/ladder/LadderPage'
+import { LadderArchive } from './pages/LadderArchive'
+import { LadderReplay } from './pages/LadderReplay'
+import { HelpModal as LadderHelpModal } from './games/ladder/components/HelpModal'
+import { StatsModal as LadderStatsModal } from './games/ladder/components/StatsModal'
+import { useLadderStore } from './games/ladder/store'
+import {
+  attachCloudSync as attachLadderCloudSync,
+  syncOnSignIn as syncLadderOnSignIn,
+} from './games/ladder/lib/cloudSync'
+
 attachSettingsToDocument()
 attachPurdleCloudSync()
 attachQuartetCloudSync()
+attachLadderCloudSync()
 
 const BASENAME = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -50,11 +62,12 @@ function App() {
   )
 }
 
-type ActiveGame = 'purdle' | 'quartet' | null
+type ActiveGame = 'purdle' | 'quartet' | 'ladder' | null
 
 function activeGameFromPath(pathname: string): ActiveGame {
   if (pathname === '/play' || pathname.startsWith('/play/')) return 'purdle'
   if (pathname === '/quartet' || pathname.startsWith('/quartet/')) return 'quartet'
+  if (pathname === '/ladder' || pathname.startsWith('/ladder/')) return 'ladder'
   // Legacy URLs that redirect to /play* — treat as Purdle for modal purposes.
   if (pathname.startsWith('/wordle') || pathname.startsWith('/archive')) {
     return 'purdle'
@@ -71,18 +84,17 @@ function Shell() {
   const location = useLocation()
   const activeGame = activeGameFromPath(location.pathname)
 
-  // Auth bootstrap + cross-store sign-in sync.
+  // Auth bootstrap + cross-store sign-in sync (one fan-out call per game).
   useAuthBootstrap()
   const userId = useAuth((s) => s.user?.id)
   useEffect(() => {
     if (!userId) return
     void syncPurdleOnSignIn()
     void syncQuartetOnSignIn()
+    void syncLadderOnSignIn()
   }, [userId])
 
-  // First-visit help auto-open: scoped to whichever game the user lands on.
-  // For purdle, also respect the legacy 'purdle:visited' flag so existing
-  // players who already saw the Purdle help in v3 don't see it pop again.
+  // First-visit help auto-open: scoped per game.
   useEffect(() => {
     if (typeof window === 'undefined') return
     if (!activeGame) return
@@ -96,7 +108,7 @@ function Shell() {
     }
   }, [activeGame])
 
-  // Auto-open stats when a Purdle game ends (only fires when on /play*).
+  // Auto-open stats when a Purdle game ends.
   const purdleStatus = useWordleStore((s) => s.status)
   const purdleGuesses = useWordleStore((s) => s.guesses)
   useEffect(() => {
@@ -118,13 +130,24 @@ function Shell() {
     return () => clearTimeout(t)
   }, [activeGame, quartetStatus, quartetSolved])
 
-  // On the platform home page there's no active game, so the Help / Stats /
-  // Archive icons would have to fall back to *some* game's content — which
-  // is misleading. Better to hide them and let the user pick a game first
-  // (the home page itself has cards for both today's puzzles and both
-  // archives). Settings is platform-wide and always available.
+  // Auto-open stats when a Ladder game ends.
+  const ladderStatus = useLadderStore((s) => s.status)
+  const ladderChainLen = useLadderStore((s) => s.chain.length)
+  useEffect(() => {
+    if (activeGame !== 'ladder') return
+    if (ladderStatus === 'in-progress') return
+    if (ladderChainLen <= 1 && ladderStatus !== 'gave-up') return
+    const t = setTimeout(() => setStatsOpen(true), 1800)
+    return () => clearTimeout(t)
+  }, [activeGame, ladderStatus, ladderChainLen])
+
+  // Header's archive button: routes to the active game's archive.
   const archivePath =
-    activeGame === 'quartet' ? '/quartet/archive' : '/play/archive'
+    activeGame === 'quartet'
+      ? '/quartet/archive'
+      : activeGame === 'ladder'
+        ? '/ladder/archive'
+        : '/play/archive'
 
   return (
     <div className="app-shell">
@@ -147,6 +170,11 @@ function Shell() {
         <Route path="/quartet/archive" element={<QuartetArchive />} />
         <Route path="/quartet/archive/:date" element={<QuartetReplay />} />
 
+        {/* Ladder (chain start → end by changing one letter) */}
+        <Route path="/ladder" element={<LadderPage />} />
+        <Route path="/ladder/archive" element={<LadderArchive />} />
+        <Route path="/ladder/archive/:date" element={<LadderReplay />} />
+
         {/* Backwards-compat redirects from earlier URL shapes. */}
         <Route path="/wordle" element={<Navigate to="/play" replace />} />
         <Route path="/wordle/archive" element={<RedirectPurdleArchive />} />
@@ -157,15 +185,20 @@ function Shell() {
         <Route path="*" element={<NotFound />} />
       </Routes>
 
-      {/* Game-specific modals: only the active game's Help/Stats render so the
-          icon-button callbacks open the relevant pair. SettingsModal is
-          platform-wide and always available. */}
-      {activeGame === 'quartet' ? (
+      {/* Game-specific modals: only the active game's Help/Stats render. */}
+      {activeGame === 'quartet' && (
         <>
           <QuartetHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
           <QuartetStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
         </>
-      ) : (
+      )}
+      {activeGame === 'ladder' && (
+        <>
+          <LadderHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
+          <LadderStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
+        </>
+      )}
+      {(activeGame === 'purdle' || activeGame === null) && (
         <>
           <PurdleHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
           <PurdleStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />

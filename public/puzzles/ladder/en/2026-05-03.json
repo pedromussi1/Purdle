@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-03",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "limbo",
+  "end": "fiend",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "limbo",
+    "limbs",
+    "limns",
+    "liens",
+    "siens",
+    "sient",
+    "fient",
+    "fiend"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}

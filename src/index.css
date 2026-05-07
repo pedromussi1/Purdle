@@ -3,4 +3,5 @@
 @import './shared/styles/animations.css';
 @import './games/purdle/styles.css';
 @import './games/quartet/styles.css';
+@import './games/ladder/styles.css';
 @import './App.css';

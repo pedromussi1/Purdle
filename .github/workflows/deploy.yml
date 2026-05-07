@@ -8,7 +8,7 @@ on:
   # `push` events. Hook the deploy onto its completion so the new puzzle ships
   # to Pages without a manual nudge.
   workflow_run:
-    workflows: ["Daily puzzle", "Daily quartet"]
+    workflows: ["Daily puzzle", "Daily quartet", "Daily ladder"]
     types: [completed]
 
 permissions:

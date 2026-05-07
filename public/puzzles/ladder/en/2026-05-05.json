@@ -1,0 +1,19 @@
+{
+  "date": "2026-05-05",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "guild",
+  "end": "brine",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "guild",
+    "guile",
+    "guide",
+    "gride",
+    "bride",
+    "brine"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}

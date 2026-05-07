@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "flume",
+  "end": "bitty",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "flume",
+    "plume",
+    "plute",
+    "pluty",
+    "pouty",
+    "potty",
+    "botty",
+    "bitty"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}

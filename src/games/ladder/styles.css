@@ -1,0 +1,242 @@
+/* ---------- Word Ladder game ---------- */
+.l-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+
+.l-empty {
+  padding: var(--space-8) 0;
+  color: var(--color-text-muted);
+}
+
+/* Vertical chain */
+.l-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.l-row {
+  display: flex;
+  gap: 6px;
+}
+
+.l-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border-radius: var(--radius-sm);
+  background: var(--color-key-bg);
+  color: var(--color-text);
+  user-select: none;
+}
+
+.l-row--start .l-cell {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.l-row--target .l-cell {
+  background: var(--state-correct);
+  color: var(--state-text);
+}
+
+.l-row--chain .l-cell--changed {
+  background: var(--state-present);
+  color: var(--state-text);
+}
+
+.l-row--optimal-step .l-cell {
+  background: transparent;
+  border: 1px dashed var(--color-text-muted);
+  color: var(--color-text-muted);
+  font-size: 1.2rem;
+}
+
+.l-row--optimal-step .l-cell--changed {
+  border-color: var(--state-correct);
+  color: var(--state-correct);
+}
+
+.l-optimal-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) 0;
+  border-top: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--color-border);
+  width: 100%;
+}
+
+.l-optimal-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+/* Input row — looks like a chain row but cells are placeholders + cursor */
+.l-row--input {
+  margin-top: var(--space-1);
+}
+
+.l-cell--input {
+  background: transparent;
+  border: 2px dashed var(--color-border);
+  color: var(--color-text);
+}
+
+.l-cell--input.l-cell--filled {
+  border-style: solid;
+  border-color: var(--color-tile-filled-border);
+}
+
+.l-cell--input.l-cell--changed {
+  background: var(--state-present);
+  color: var(--state-text);
+  border-color: var(--state-present);
+}
+
+.l-cell--cursor {
+  border-style: solid;
+  border-color: var(--color-text);
+  animation: l-cursor-pulse 1s ease-in-out infinite;
+}
+
+@keyframes l-cursor-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes l-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+/* Re-mounting the input row via key=shakeKey triggers this animation. */
+.l-row--input {
+  animation: l-shake 0s ease;
+}
+
+/* Counter + buttons */
+.l-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  width: 100%;
+}
+
+.l-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.l-counter-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.l-counter-divider {
+  margin: 0 var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.l-button-row {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.l-btn {
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s, background-color 0.15s;
+}
+
+.l-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.l-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.l-btn--secondary:hover:not(:disabled) {
+  background: var(--color-key-bg);
+  border-color: var(--color-text-muted);
+}
+
+.l-btn--primary {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: 1px solid var(--color-text);
+}
+
+.l-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+@media (max-width: 480px) {
+  .l-cell {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+  .l-row--optimal-step .l-cell {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .l-page {
+    padding: var(--space-3);
+  }
+}
+
+/* Ladder card on the home page — blue accent so it stands apart from
+   Purdle (green) and Quartet (purple). */
+.home-card--ladder {
+  background: #4a90e2;
+  border-color: #4a90e2;
+  color: #fff;
+}
+
+.home-card--ladder:hover {
+  filter: brightness(1.05);
+  border-color: #4a90e2;
+}

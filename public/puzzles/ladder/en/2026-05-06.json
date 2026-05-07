@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-06",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cabal",
+  "end": "hardy",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "cabal",
+    "cabas",
+    "babas",
+    "balas",
+    "balds",
+    "bards",
+    "hards",
+    "hardy"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}

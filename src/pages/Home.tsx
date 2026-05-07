@@ -40,6 +40,18 @@ export function Home() {
           </span>
         </Link>
 
+        <Link to="/ladder" className="home-card home-card--primary home-card--ladder">
+          <div className="home-card-body">
+            <div className="home-card-title">Ladder</div>
+            <div className="home-card-meta">
+              Today&apos;s puzzle · chain start → end, one letter at a time
+            </div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
         <Link to="/play/archive" className="home-card">
           <div className="home-card-body">
             <div className="home-card-title">Purdle archive</div>
@@ -54,6 +66,16 @@ export function Home() {
           <div className="home-card-body">
             <div className="home-card-title">Quartet archive</div>
             <div className="home-card-meta">Past Quartet puzzles · play any day</div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
+        <Link to="/ladder/archive" className="home-card">
+          <div className="home-card-body">
+            <div className="home-card-title">Ladder archive</div>
+            <div className="home-card-meta">Past Ladder puzzles · play any day</div>
           </div>
           <span className="home-card-arrow" aria-hidden>
             →
