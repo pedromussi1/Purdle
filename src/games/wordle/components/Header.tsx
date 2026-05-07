@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 interface HeaderProps {
   onOpenHelp: () => void
   onOpenStats: () => void
@@ -37,7 +39,9 @@ export function Header({
           </svg>
         </IconButton>
       </div>
-      <h1 className="app-title">Purdle</h1>
+      <Link to="/" className="app-title" aria-label="Home">
+        Purdle
+      </Link>
       <div className="header-side header-side--right">
         <IconButton onClick={onOpenArchive} label="Past puzzles">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
