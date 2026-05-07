@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Modal } from '../../../shared/components/Modal'
 import { useStats } from '../stats'
 import { useLadderStore } from '../store'
+import { buildShareText } from '../lib/share'
 
 interface Props {
   open: boolean
@@ -11,6 +13,9 @@ export function StatsModal({ open, onClose }: Props) {
   const stats = useStats()
   const playAgain = useLadderStore((s) => s.playAgain)
   const status = useLadderStore((s) => s.status)
+  const puzzle = useLadderStore((s) => s.puzzle)
+  const chainLen = useLadderStore((s) => s.chain.length)
+  const [shareLabel, setShareLabel] = useState('Share')
 
   const winPct = stats.played
     ? Math.round((stats.won / stats.played) * 100)
@@ -19,6 +24,28 @@ export function StatsModal({ open, onClose }: Props) {
     ? (stats.totalExtraSteps / stats.won).toFixed(1)
     : '—'
   const canReplay = status !== 'in-progress'
+  const canShare =
+    (status === 'won' || status === 'gave-up') && puzzle !== null
+
+  async function onShare() {
+    if (!puzzle) return
+    const text = buildShareText({
+      date: puzzle.date,
+      start: puzzle.start,
+      end: puzzle.end,
+      playerSteps: chainLen - 1,
+      optimalSteps: puzzle.optimal_steps,
+      status: status === 'won' ? 'won' : 'gave-up',
+    })
+    try {
+      await navigator.clipboard.writeText(text)
+      setShareLabel('Copied!')
+      setTimeout(() => setShareLabel('Share'), 1500)
+    } catch {
+      setShareLabel('Copy failed')
+      setTimeout(() => setShareLabel('Share'), 1500)
+    }
+  }
 
   return (
     <Modal open={open} onClose={onClose} title="Statistics">
@@ -45,6 +72,15 @@ export function StatsModal({ open, onClose }: Props) {
           >
             Play again
           </button>
+          {canShare && (
+            <button
+              type="button"
+              className="primary-button"
+              onClick={onShare}
+            >
+              {shareLabel}
+            </button>
+          )}
         </div>
       )}
     </Modal>
