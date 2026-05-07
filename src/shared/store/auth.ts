@@ -20,7 +20,7 @@ export const useAuth = create<AuthState>((set) => ({
 
   signInWithProvider: async (provider) => {
     if (!supabase) return
-    // Bring the user back to /Purdle/ after the OAuth round-trip; the
+    // Bring the user back to the site root after the OAuth round-trip; the
     // Supabase client picks up the ?code=… on landing.
     const redirectTo = window.location.origin + import.meta.env.BASE_URL
     const { error } = await supabase.auth.signInWithOAuth({
