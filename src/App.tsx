@@ -7,22 +7,22 @@ import {
   useNavigate,
   useParams,
 } from 'react-router-dom'
-import { Header } from './games/wordle/components/Header'
-import { HelpModal } from './games/wordle/components/HelpModal'
-import { SettingsModal } from './games/wordle/components/SettingsModal'
-import { StatsModal } from './games/wordle/components/StatsModal'
-import { WordlePage } from './games/wordle/WordlePage'
+import { Header } from './games/purdle/components/Header'
+import { HelpModal } from './games/purdle/components/HelpModal'
+import { SettingsModal } from './games/purdle/components/SettingsModal'
+import { StatsModal } from './games/purdle/components/StatsModal'
+import { WordlePage } from './games/purdle/WordlePage'
 import { ArchivePage } from './pages/ArchivePage'
 import { ReplayPage } from './pages/ReplayPage'
 import { Home } from './pages/Home'
 import { NotFound } from './pages/NotFound'
-import { useWordleStore } from './games/wordle/store'
+import { useWordleStore } from './games/purdle/store'
 import { attachSettingsToDocument } from './shared/store/settings'
 import { useAuth, useAuthBootstrap } from './shared/store/auth'
 import {
   attachStatsCloudSync,
   syncOnSignIn,
-} from './games/wordle/lib/statsCloudSync'
+} from './games/purdle/lib/statsCloudSync'
 
 attachSettingsToDocument()
 attachStatsCloudSync()
@@ -81,14 +81,18 @@ function Shell() {
         onOpenHelp={() => setHelpOpen(true)}
         onOpenStats={() => setStatsOpen(true)}
         onOpenSettings={() => setSettingsOpen(true)}
-        onOpenArchive={() => navigate('/wordle/archive')}
+        onOpenArchive={() => navigate('/play/archive')}
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/wordle" element={<WordlePage />} />
-        <Route path="/wordle/archive" element={<ArchivePage />} />
-        <Route path="/wordle/archive/:date" element={<ReplayPage />} />
-        {/* Backwards-compat redirects from the v1.1 URL shape: */}
+        <Route path="/play" element={<WordlePage />} />
+        <Route path="/play/archive" element={<ArchivePage />} />
+        <Route path="/play/archive/:date" element={<ReplayPage />} />
+        {/* Backwards-compat redirects from earlier URL shapes
+            (v1.1: /archive, v2-v3: /wordle/...). External bookmarks keep working. */}
+        <Route path="/wordle" element={<Navigate to="/play" replace />} />
+        <Route path="/wordle/archive" element={<RedirectArchive />} />
+        <Route path="/wordle/archive/:date" element={<RedirectArchiveDate />} />
         <Route path="/archive" element={<RedirectArchive />} />
         <Route path="/archive/:date" element={<RedirectArchiveDate />} />
         <Route path="*" element={<NotFound />} />
@@ -104,12 +108,12 @@ function Shell() {
 }
 
 function RedirectArchive() {
-  return <Navigate to="/wordle/archive" replace />
+  return <Navigate to="/play/archive" replace />
 }
 
 function RedirectArchiveDate() {
   const { date } = useParams<{ date: string }>()
-  return <Navigate to={`/wordle/archive/${date ?? ''}`} replace />
+  return <Navigate to={`/play/archive/${date ?? ''}`} replace />
 }
 
 export default App

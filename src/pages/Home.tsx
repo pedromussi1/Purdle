@@ -18,9 +18,9 @@ export function Home() {
       </div>
 
       <div className="home-games">
-        <Link to="/wordle" className="home-card home-card--primary">
+        <Link to="/play" className="home-card home-card--primary">
           <div className="home-card-body">
-            <div className="home-card-title">Wordle</div>
+            <div className="home-card-title">Purdle</div>
             <div className="home-card-meta">Today&apos;s puzzle · 6 guesses</div>
           </div>
           <span className="home-card-arrow" aria-hidden>
@@ -28,7 +28,7 @@ export function Home() {
           </span>
         </Link>
 
-        <Link to="/wordle/archive" className="home-card">
+        <Link to="/play/archive" className="home-card">
           <div className="home-card-body">
             <div className="home-card-title">Past puzzles</div>
             <div className="home-card-meta">

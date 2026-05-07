@@ -1,5 +1,5 @@
 @import './shared/styles/tokens.css';
 @import './shared/styles/global.css';
 @import './shared/styles/animations.css';
-@import './games/wordle/styles.css';
+@import './games/purdle/styles.css';
 @import './App.css';

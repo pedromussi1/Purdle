@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import type { Puzzle } from '../games/wordle/types'
-import { DEFAULT_LANGUAGE } from '../games/wordle/types'
+import type { Puzzle } from '../games/purdle/types'
+import { DEFAULT_LANGUAGE } from '../games/purdle/types'
 import { todayUTC } from '../shared/lib/date'
 
 interface ManifestResponse {
@@ -63,7 +63,7 @@ export function ArchivePage() {
   return (
     <main className="archive">
       <div className="archive-header">
-        <Link to="/wordle" className="archive-back">
+        <Link to="/play" className="archive-back">
           &larr; Back to today&apos;s puzzle
         </Link>
         <h2 className="archive-title">Past puzzles</h2>
@@ -128,7 +128,7 @@ function ArchiveCard({ puzzle }: { puzzle: Puzzle }) {
       </div>
 
       <div className="archive-actions">
-        <Link to={`/wordle/archive/${puzzle.date}`} className="archive-play-btn">
+        <Link to={`/play/archive/${puzzle.date}`} className="archive-play-btn">
           Play
         </Link>
         <button
