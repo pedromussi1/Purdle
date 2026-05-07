@@ -32,22 +32,24 @@
   justify-content: center;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
-  color: #1a1a1b;
   text-align: center;
 }
 
 .q-solved--tier-1 {
-  background: #f9df6d;
+  background: var(--quartet-tier-1);
+  color: var(--quartet-tier-1-text);
 }
 .q-solved--tier-2 {
-  background: #a0c35a;
+  background: var(--quartet-tier-2);
+  color: var(--quartet-tier-2-text);
 }
 .q-solved--tier-3 {
-  background: #b0c4ef;
+  background: var(--quartet-tier-3);
+  color: var(--quartet-tier-3-text);
 }
 .q-solved--tier-4 {
-  background: #bb81c5;
-  color: #fff;
+  background: var(--quartet-tier-4);
+  color: var(--quartet-tier-4-text);
 }
 
 .q-solved-theme {
@@ -61,13 +63,16 @@
   letter-spacing: 0.06em;
 }
 
-@keyframes q-solve-pop {
+/* Solved-row entry: rises from below with a small overshoot. Triggered by
+   the transient `flashSolvedIndex` in the store, which is cleared after
+   the animation duration so subsequent re-renders don't replay it. */
+@keyframes q-solve-rise {
   0% {
-    transform: translateY(8px) scale(0.96);
+    transform: translateY(64px) scale(0.92);
     opacity: 0;
   }
-  60% {
-    transform: translateY(-2px) scale(1.02);
+  70% {
+    transform: translateY(-4px) scale(1.02);
     opacity: 1;
   }
   100% {
@@ -77,7 +82,7 @@
 }
 
 .q-solved--flash {
-  animation: q-solve-pop 0.5s ease;
+  animation: q-solve-rise 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* Playable 4×4 grid */
@@ -122,6 +127,44 @@
 .q-tile--locked {
   cursor: default;
   opacity: 0.6;
+}
+
+/* Tiles fade up + shrink before being removed from the grid (correct
+   submission). Pairs with the SolvedRow rise animation that fills the
+   space they vacate. */
+@keyframes q-tile-vanish {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) translateY(-24px);
+  }
+}
+
+.q-tile--vanishing {
+  animation: q-tile-vanish 0.32s ease forwards;
+  pointer-events: none;
+}
+
+/* Per-tile shake on a wrong submission — small horizontal jiggle, twice. */
+@keyframes q-tile-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.q-tile--shaking {
+  animation: q-tile-shake 0.32s ease 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .q-solved--flash,
+  .q-tile--vanishing,
+  .q-tile--shaking {
+    animation: none;
+  }
 }
 
 /* Mistakes indicator */
@@ -208,6 +251,56 @@
 .stats-grid--secondary {
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: var(--space-4);
+}
+
+/* ---------- Narrow-screen polish ---------- */
+@media (max-width: 480px) {
+  .q-page {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+  .q-tile {
+    /* Slightly tighter padding so longer words like "vamoose" fit on a 375px
+       phone without ellipsis tricks. */
+    padding: var(--space-2) 4px;
+    font-size: clamp(0.7rem, 3.6vw, 1rem);
+  }
+  .q-btn {
+    /* Drop the 100px min so all three buttons can sit on a single row at
+       375px without wrapping. */
+    min-width: 0;
+    padding: var(--space-3) var(--space-2);
+  }
+  .q-mistakes {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+  }
+  /* Stats modal: 4-up grid → 2-up so values don't get clipped on phones. */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  /* Modals: thinner padding + flush to the edges so there's more room for
+     the body content. */
+  .modal-backdrop {
+    padding: var(--space-2);
+  }
+  .modal-body,
+  .modal-header {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  /* Archive cards stack date and meta tags rather than crowding them. */
+  .archive {
+    padding: var(--space-3);
+  }
+  .archive-card-row {
+    gap: var(--space-2);
+  }
+  .home {
+    padding: var(--space-4) var(--space-3);
+  }
 }
 
 /* Quartet card on the home page — purple accent so it stands apart from

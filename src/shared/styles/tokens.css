@@ -34,6 +34,17 @@
   --state-absent: #787c7e;
   --state-text: #ffffff;
 
+  /* Quartet tier palette (yellow → purple). Per-tier text colour kept
+     separate so the contrast tweak for the dark tier survives palette swaps. */
+  --quartet-tier-1: #f9df6d;
+  --quartet-tier-2: #a0c35a;
+  --quartet-tier-3: #b0c4ef;
+  --quartet-tier-4: #bb81c5;
+  --quartet-tier-1-text: #1a1a1b;
+  --quartet-tier-2-text: #1a1a1b;
+  --quartet-tier-3-text: #1a1a1b;
+  --quartet-tier-4-text: #ffffff;
+
   --header-height: 56px;
 
   --font-base:
@@ -60,8 +71,21 @@
   --state-absent: #3a3a3c;
 }
 
-/* Color-blind palette (orange/blue) — applied on top of theme */
+/* Color-blind palette — applied on top of theme.
+   Purdle: orange/blue swap (Wordle's classic CB pair).
+   Quartet: Wong's 2011 categorical palette (yellow / vermillion / sky blue
+   / bluish-green) — designed to stay distinguishable across the major
+   forms of dichromatic vision. */
 [data-palette='cb'] {
   --state-correct: #f5793a;
   --state-present: #85c0f9;
+
+  --quartet-tier-1: #f0e442;
+  --quartet-tier-2: #d55e00;
+  --quartet-tier-3: #56b4e9;
+  --quartet-tier-4: #009e73;
+  --quartet-tier-1-text: #1a1a1b;
+  --quartet-tier-2-text: #ffffff;
+  --quartet-tier-3-text: #1a1a1b;
+  --quartet-tier-4-text: #ffffff;
 }

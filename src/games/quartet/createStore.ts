@@ -37,6 +37,13 @@ export interface QuartetState {
   // Transient: index of the most-recently-solved group, used to trigger a
   // one-shot pop animation. Cleared after ~600 ms.
   flashSolvedIndex: number | null
+  // Transient: words currently animating out of the grid after a correct
+  // submission. The store keeps them in `displayOrder` for ~320 ms so the
+  // WordTile vanish animation has DOM to play against, then removes them.
+  vanishingWords: string[]
+  // Transient: words shaking after a wrong submission. Cleared after the
+  // shake duration.
+  shakingWords: string[]
 
   setPuzzle: (puzzle: QuartetPuzzle) => void
   toggleWord: (word: string) => void
@@ -117,6 +124,8 @@ export function createQuartetStore({
     status: 'in-progress',
     toast: null,
     flashSolvedIndex: null,
+    vanishingWords: [],
+    shakingWords: [],
 
     setPuzzle: (puzzle) => {
       const s = get()
@@ -149,6 +158,8 @@ export function createQuartetStore({
         status: 'in-progress',
         toast: null,
         flashSolvedIndex: null,
+        vanishingWords: [],
+        shakingWords: [],
       })
     },
 
@@ -179,7 +190,6 @@ export function createQuartetStore({
         guessHistory,
         mistakes,
         status,
-        displayOrder,
       } = get()
       if (status !== 'in-progress' || !puzzle) return
       if (selected.length !== WORDS_PER_GROUP) {
@@ -210,21 +220,32 @@ export function createQuartetStore({
 
       if (solvedIdx !== -1) {
         const newSolved = [...solvedGroupIndices, solvedIdx]
-        const remaining = displayOrder.filter(
-          (w) => !puzzle.groups[solvedIdx].words.includes(w),
-        )
         const won = newSolved.length === GROUP_COUNT
+        const groupWords = puzzle.groups[solvedIdx].words
+        // Phase 1: mark the picked tiles as vanishing but keep them in
+        // displayOrder so the exit animation has DOM to play against. Solved
+        // row appears at the top with its rise animation simultaneously.
         set({
           solvedGroupIndices: newSolved,
           guessHistory: newGuessHistory,
           selected: [],
-          displayOrder: remaining,
           flashSolvedIndex: solvedIdx,
+          vanishingWords: groupWords,
           status: won ? 'won' : 'in-progress',
           toast: won
             ? winMessage(mistakes)
             : tierMessage(puzzle.groups[solvedIdx].tier),
         })
+        // Phase 2: after the vanish animation, drop the tiles from the grid
+        // and clear the transient flag.
+        setTimeout(() => {
+          set({
+            displayOrder: get().displayOrder.filter(
+              (w) => !groupWords.includes(w),
+            ),
+            vanishingWords: [],
+          })
+        }, 320)
         setTimeout(() => set({ flashSolvedIndex: null }), FLASH_DURATION_MS)
 
         if (won && trackStats) {
@@ -238,16 +259,20 @@ export function createQuartetStore({
         return
       }
 
-      // Wrong submission. Surface "one away" feedback if applicable.
+      // Wrong submission. Surface "one away" feedback if applicable, shake
+      // the picked tiles, then clear the selection after a beat.
       const oneAway = findOneAway(selected, puzzle.groups, solvedGroupIndices)
       const newMistakes = mistakes + 1
       const lost = newMistakes >= MAX_MISTAKES
       set({
         mistakes: newMistakes,
         guessHistory: newGuessHistory,
+        shakingWords: [...selected],
         status: lost ? 'lost' : 'in-progress',
         toast: lost ? 'Out of mistakes' : oneAway ? 'One away…' : 'Not quite',
       })
+      // Clear the shake class once the animation has played.
+      setTimeout(() => set({ shakingWords: [] }), 350)
 
       // Clear the failed selection after a short pause.
       setTimeout(() => {
@@ -280,6 +305,8 @@ export function createQuartetStore({
         status: 'in-progress',
         toast: null,
         flashSolvedIndex: null,
+        vanishingWords: [],
+        shakingWords: [],
       })
     },
   })
