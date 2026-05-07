@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 
+// Game-specific buttons (Help, Stats, Archive) are optional. When omitted —
+// e.g. on the platform-level home route where there's no active game — the
+// corresponding icon doesn't render. Settings stays platform-wide and is
+// always shown.
 interface HeaderProps {
-  onOpenHelp: () => void
-  onOpenStats: () => void
+  onOpenHelp?: () => void
+  onOpenStats?: () => void
   onOpenSettings: () => void
-  onOpenArchive: () => void
+  onOpenArchive?: () => void
 }
 
 export function Header({
@@ -16,61 +20,67 @@ export function Header({
   return (
     <header className="app-header">
       <div className="header-side">
-        <IconButton onClick={onOpenHelp} label="How to play">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <circle
-              cx="12"
-              cy="12"
-              r="10"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <text
-              x="12"
-              y="17"
-              textAnchor="middle"
-              fontSize="14"
-              fontWeight="700"
-              fill="currentColor"
-            >
-              ?
-            </text>
-          </svg>
-        </IconButton>
+        {onOpenHelp && (
+          <IconButton onClick={onOpenHelp} label="How to play">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <text
+                x="12"
+                y="17"
+                textAnchor="middle"
+                fontSize="14"
+                fontWeight="700"
+                fill="currentColor"
+              >
+                ?
+              </text>
+            </svg>
+          </IconButton>
+        )}
       </div>
       <Link to="/" className="app-title" aria-label="Home">
         Purdle
       </Link>
       <div className="header-side header-side--right">
-        <IconButton onClick={onOpenArchive} label="Past puzzles">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <rect
-              x="3"
-              y="5"
-              width="18"
-              height="16"
-              rx="2"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <path
-              d="M3 9h18M8 3v4M16 3v4"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
-        </IconButton>
-        <IconButton onClick={onOpenStats} label="Statistics">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <rect x="3" y="13" width="4" height="8" fill="currentColor" />
-            <rect x="10" y="8" width="4" height="13" fill="currentColor" />
-            <rect x="17" y="3" width="4" height="18" fill="currentColor" />
-          </svg>
-        </IconButton>
+        {onOpenArchive && (
+          <IconButton onClick={onOpenArchive} label="Past puzzles">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <rect
+                x="3"
+                y="5"
+                width="18"
+                height="16"
+                rx="2"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              />
+              <path
+                d="M3 9h18M8 3v4M16 3v4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </IconButton>
+        )}
+        {onOpenStats && (
+          <IconButton onClick={onOpenStats} label="Statistics">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <rect x="3" y="13" width="4" height="8" fill="currentColor" />
+              <rect x="10" y="8" width="4" height="13" fill="currentColor" />
+              <rect x="17" y="3" width="4" height="18" fill="currentColor" />
+            </svg>
+          </IconButton>
+        )}
         <IconButton onClick={onOpenSettings} label="Settings">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path

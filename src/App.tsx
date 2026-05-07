@@ -118,17 +118,21 @@ function Shell() {
     return () => clearTimeout(t)
   }, [activeGame, quartetStatus, quartetSolved])
 
-  // Header's archive button: route-aware (Purdle archive vs Quartet archive).
+  // On the platform home page there's no active game, so the Help / Stats /
+  // Archive icons would have to fall back to *some* game's content — which
+  // is misleading. Better to hide them and let the user pick a game first
+  // (the home page itself has cards for both today's puzzles and both
+  // archives). Settings is platform-wide and always available.
   const archivePath =
     activeGame === 'quartet' ? '/quartet/archive' : '/play/archive'
 
   return (
     <div className="app-shell">
       <Header
-        onOpenHelp={() => setHelpOpen(true)}
-        onOpenStats={() => setStatsOpen(true)}
+        onOpenHelp={activeGame ? () => setHelpOpen(true) : undefined}
+        onOpenStats={activeGame ? () => setStatsOpen(true) : undefined}
         onOpenSettings={() => setSettingsOpen(true)}
-        onOpenArchive={() => navigate(archivePath)}
+        onOpenArchive={activeGame ? () => navigate(archivePath) : undefined}
       />
       <Routes>
         <Route path="/" element={<Home />} />
