@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-08",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "plant",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "The word 'plant' comes from the Old English word 'plante', which itself is derived from Latin 'planta'. It originally referred to the sole of the foot before its meaning shifted to vegetation.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
