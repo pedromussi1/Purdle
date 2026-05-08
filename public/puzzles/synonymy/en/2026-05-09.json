@@ -3,21 +3,18 @@
   "game": "synonymy",
   "lang": "en",
   "schema_version": 1,
-  "start": "rigid",
-  "end": "twice",
-  "optimal_steps": 7,
+  "start": "money",
+  "end": "water",
+  "optimal_steps": 4,
   "optimal_path": [
-    "rigid",
-    "stiff",
-    "paced",
-    "tempo",
-    "clock",
-    "timed",
-    "times",
-    "twice"
+    "money",
+    "drugs",
+    "sober",
+    "drink",
+    "water"
   ],
   "n_optimal_paths": 4,
   "min_layer_width": 2,
   "threshold": 0.5,
-  "generated_by": "fallback"
+  "generated_by": "gemini-2.5-flash-lite"
 }
