@@ -28,6 +28,7 @@ import datetime as dt
 import hashlib
 import json
 import os
+import random
 import re
 import sys
 from dataclasses import dataclass
@@ -38,6 +39,8 @@ SCHEMA_VERSION = 1
 WORD_LENGTH = 5
 MIN_STEPS = 3
 MAX_STEPS = 7
+GEMINI_MAX_ATTEMPTS = 8
+GEMINI_VOCAB_SAMPLE = 50
 # Path-diversity gates: reject pairs whose start→end optimal subgraph has
 # a single chokepoint or only one chain (KNOCK→RANCH 2026-05-08 was the
 # motivating failure — one optimal path through SHOOT→RIFLE→KNIFE).
@@ -237,25 +240,32 @@ def path_diversity(start: str, end: str, graph: Graph) -> PathStats | None:
 
 # ---------- Gemini ----------
 
-GEMINI_PROMPT = """You pick the start and end of a Synonymy puzzle: two five-letter common English words connected through semantic similarity. Players will need to chain from start to end via "synonym steps" — each successive word must be related to the previous one in meaning.
+GEMINI_PROMPT = """You pick the start and end of a Synonymy puzzle: two five-letter common English words connected through semantic similarity. Players chain from start to end via "synonym steps" — each successive word must be related to the previous one in meaning.
 
-Constraints:
-- Both words MUST be exactly 5 lowercase letters.
-- Both MUST be common everyday English (Zipf >= 3.5), no proper nouns, no offensive content.
-- Pick pairs that have an interesting semantic journey between them — opposites ("happy"/"gloom"), category-spanning concepts ("dance"/"chair"), or thematic transformations. Avoid trivial near-synonym pairs.
-- Avoid pairs you've recently suggested: {recent_pairs}
-{extra_feedback}
+CRITICAL CONSTRAINTS — your suggestion will be REJECTED if any are violated:
+- Both words MUST be EXACTLY 5 letters. Count them. "happy"=5✓, "table"=5✓, "begin"=5✓, "finish"=6✗, "sleep"=5✓, "go"=2✗.
+- Both words MUST be in our valid vocabulary. Here are 50 words sampled from it to show you the level: {sample_words}. Pick words at this level of commonness or simpler. Words like "gloom" and "shaky" are NOT in our vocabulary even though they feel common — stay closer to the sample list.
+- No proper nouns, no offensive or politically charged content.
+- Pick pairs with an interesting semantic journey: opposites, category-spanning concepts, or thematic transformations. Avoid trivial near-synonyms.
+
+Avoid these recently used pairs: {recent_pairs}
+{rejection_history}
 
 Return STRICT JSON, no prose, no markdown:
 {{
-  "start": "<5 lowercase letters>",
-  "end": "<5 lowercase letters>",
-  "rationale": "<one short sentence on the semantic journey between them>"
+  "start": "<EXACTLY 5 lowercase letters>",
+  "end": "<EXACTLY 5 lowercase letters>",
+  "rationale": "<one short sentence on the semantic journey>"
 }}
 """
 
 
-def call_gemini(*, recent_pairs: list[tuple[str, str]], extra_feedback: str = "") -> dict | None:
+def call_gemini(
+    *,
+    recent_pairs: list[tuple[str, str]],
+    sample_words: list[str],
+    rejection_history: list[str],
+) -> dict | None:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         log("GEMINI_API_KEY not set; skipping LLM call", level="warn")
@@ -269,9 +279,19 @@ def call_gemini(*, recent_pairs: list[tuple[str, str]], extra_feedback: str = ""
 
     client = genai.Client(api_key=api_key)
     pairs_str = ", ".join(f"({a},{b})" for a, b in recent_pairs[-15:]) or "(none)"
+    sample_str = ", ".join(sample_words)
+    if rejection_history:
+        rejection_block = (
+            "Your previous attempts in THIS session were ALL rejected. Pick a "
+            "DIFFERENT pair, not a variation of any of these:\n  "
+            + "\n  ".join(rejection_history)
+        )
+    else:
+        rejection_block = ""
     prompt = GEMINI_PROMPT.format(
+        sample_words=sample_str,
         recent_pairs=pairs_str,
-        extra_feedback=("\n- " + extra_feedback) if extra_feedback else "",
+        rejection_history=rejection_block,
     )
     try:
         response = client.models.generate_content(
@@ -330,10 +350,15 @@ def validate_pair(
 
 
 def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[str, str, PathStats] | None:
-    feedback = ""
     pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
-    for attempt in range(5):
-        result = call_gemini(recent_pairs=pairs_for_prompt, extra_feedback=feedback)
+    sample_words = random.sample(graph.words, min(GEMINI_VOCAB_SAMPLE, len(graph.words)))
+    rejection_history: list[str] = []
+    for attempt in range(GEMINI_MAX_ATTEMPTS):
+        result = call_gemini(
+            recent_pairs=pairs_for_prompt,
+            sample_words=sample_words,
+            rejection_history=rejection_history,
+        )
         if result is None:
             return None
         start = (result.get("start") or "").lower().strip()
@@ -348,10 +373,7 @@ def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[st
             )
             return start, end, stats
         log(f"attempt {attempt + 1}: rejected — {rejection}", level="warn")
-        feedback = (
-            f"Your previous suggestion ({start!r}/{end!r}) was rejected: {rejection}. "
-            "Pick a different pair."
-        )
+        rejection_history.append(f"({start!r}, {end!r}) → {rejection}")
     return None
 
 
