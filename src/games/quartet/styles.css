@@ -109,6 +109,11 @@
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   aspect-ratio: 1.4 / 1;
+  /* Grid items default to min-width: auto which equals the intrinsic
+     content width — for a long word like GRAPEFRUIT this overflows the
+     1fr column and pushes the 4th column off-screen on iPhone. */
+  min-width: 0;
+  overflow: hidden;
   transition:
     background-color 0.12s,
     color 0.12s,
@@ -261,10 +266,12 @@
     gap: var(--space-3);
   }
   .q-tile {
-    /* Slightly tighter padding so longer words like "vamoose" fit on a 375px
-       phone without ellipsis tricks. */
+    /* Long words like GRAPEFRUIT need both tight horizontal padding and a
+       smaller font ceiling — otherwise they push the 4th column off
+       the 375px iPhone viewport. */
     padding: var(--space-2) 4px;
-    font-size: clamp(0.7rem, 3.6vw, 1rem);
+    font-size: clamp(0.62rem, 2.9vw, 0.95rem);
+    letter-spacing: 0.02em;
   }
   .q-btn {
     /* Drop the 100px min so all three buttons can sit on a single row at
