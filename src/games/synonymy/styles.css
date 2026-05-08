@@ -1,0 +1,221 @@
+/* ---------- Synonymy game ---------- */
+.s-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-4);
+  gap: var(--space-3);
+}
+
+.s-empty {
+  padding: var(--space-8) 0;
+  color: var(--color-text-muted);
+}
+
+.s-chain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+/* Each row is a single pill containing the whole word — Synonymy isn't
+   about letter changes, so per-letter cells (Ladder's pattern) would
+   carry no signal. Keep the visual hierarchy by varying the pill style
+   per role. */
+.s-row {
+  width: 100%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.s-word {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: clamp(0.95rem, 4vw, 1.15rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+
+.s-row--start .s-word {
+  background: #e85d04;
+  color: #fff;
+}
+
+.s-row--target .s-word {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px dashed var(--color-border-strong);
+}
+
+.s-row--chain .s-word {
+  background: var(--color-key-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-tile-filled-border);
+}
+
+.s-row--optimal-step .s-word {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1.5px dotted var(--color-border);
+  font-weight: 600;
+}
+
+/* Input pill — monospace with dots for empty positions and a subtle
+   pulse when waiting for the next letter. */
+.s-word--input {
+  background: var(--color-tile-empty);
+  color: var(--color-text);
+  border: 2px solid var(--color-text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  letter-spacing: 0.18em;
+}
+
+@keyframes s-row-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.s-row--input {
+  animation: s-row-shake 0.3s ease 0;
+}
+
+.s-optimal-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  margin: var(--space-3) 0;
+}
+
+.s-optimal-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+.s-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.s-counter {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.s-counter > span:nth-child(1),
+.s-counter > span:nth-child(4) {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.s-counter-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.s-counter-divider {
+  color: var(--color-text-muted);
+}
+
+.s-button-row {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+  max-width: 320px;
+  justify-content: center;
+}
+
+.s-btn {
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s, background-color 0.15s;
+}
+
+.s-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.s-btn--secondary {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.s-btn--secondary:hover:not(:disabled) {
+  background: var(--color-key-bg);
+}
+
+.s-btn--primary {
+  background: #e85d04;
+  color: #fff;
+  border: 1px solid #e85d04;
+}
+
+.s-btn--primary:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.s-graph-loading {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Synonymy card on the home page — orange accent, distinct from the
+   other three games. */
+.home-card--synonymy {
+  background: #e85d04;
+  border-color: #e85d04;
+  color: #fff;
+}
+
+.home-card--synonymy:hover {
+  filter: brightness(1.05);
+  border-color: #e85d04;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s-row--input { animation: none; }
+}
+
+@media (max-width: 480px) {
+  .s-page { padding: var(--space-3); }
+  .s-button-row { max-width: none; }
+}

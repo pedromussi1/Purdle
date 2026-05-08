@@ -47,10 +47,22 @@ import {
   syncOnSignIn as syncLadderOnSignIn,
 } from './games/ladder/lib/cloudSync'
 
+import { SynonymyPage } from './games/synonymy/SynonymyPage'
+import { SynonymyArchive } from './pages/SynonymyArchive'
+import { SynonymyReplay } from './pages/SynonymyReplay'
+import { HelpModal as SynonymyHelpModal } from './games/synonymy/components/HelpModal'
+import { StatsModal as SynonymyStatsModal } from './games/synonymy/components/StatsModal'
+import { useSynonymyStore } from './games/synonymy/store'
+import {
+  attachCloudSync as attachSynonymyCloudSync,
+  syncOnSignIn as syncSynonymyOnSignIn,
+} from './games/synonymy/lib/cloudSync'
+
 attachSettingsToDocument()
 attachPurdleCloudSync()
 attachQuartetCloudSync()
 attachLadderCloudSync()
+attachSynonymyCloudSync()
 
 const BASENAME = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -62,12 +74,13 @@ function App() {
   )
 }
 
-type ActiveGame = 'purdle' | 'quartet' | 'ladder' | null
+type ActiveGame = 'purdle' | 'quartet' | 'ladder' | 'synonymy' | null
 
 function activeGameFromPath(pathname: string): ActiveGame {
   if (pathname === '/play' || pathname.startsWith('/play/')) return 'purdle'
   if (pathname === '/quartet' || pathname.startsWith('/quartet/')) return 'quartet'
   if (pathname === '/ladder' || pathname.startsWith('/ladder/')) return 'ladder'
+  if (pathname === '/synonymy' || pathname.startsWith('/synonymy/')) return 'synonymy'
   // Legacy URLs that redirect to /play* — treat as Purdle for modal purposes.
   if (pathname.startsWith('/wordle') || pathname.startsWith('/archive')) {
     return 'purdle'
@@ -92,6 +105,7 @@ function Shell() {
     void syncPurdleOnSignIn()
     void syncQuartetOnSignIn()
     void syncLadderOnSignIn()
+    void syncSynonymyOnSignIn()
   }, [userId])
 
   // First-visit help auto-open: scoped per game.
@@ -141,13 +155,26 @@ function Shell() {
     return () => clearTimeout(t)
   }, [activeGame, ladderStatus, ladderChainLen])
 
+  // Auto-open stats when a Synonymy game ends.
+  const synonymyStatus = useSynonymyStore((s) => s.status)
+  const synonymyChainLen = useSynonymyStore((s) => s.chain.length)
+  useEffect(() => {
+    if (activeGame !== 'synonymy') return
+    if (synonymyStatus === 'in-progress') return
+    if (synonymyChainLen <= 1 && synonymyStatus !== 'gave-up') return
+    const t = setTimeout(() => setStatsOpen(true), 1800)
+    return () => clearTimeout(t)
+  }, [activeGame, synonymyStatus, synonymyChainLen])
+
   // Header's archive button: routes to the active game's archive.
   const archivePath =
     activeGame === 'quartet'
       ? '/quartet/archive'
       : activeGame === 'ladder'
         ? '/ladder/archive'
-        : '/play/archive'
+        : activeGame === 'synonymy'
+          ? '/synonymy/archive'
+          : '/play/archive'
 
   return (
     <div className="app-shell">
@@ -175,6 +202,11 @@ function Shell() {
         <Route path="/ladder/archive" element={<LadderArchive />} />
         <Route path="/ladder/archive/:date" element={<LadderReplay />} />
 
+        {/* Synonymy (chain start → end through embedding-similar words) */}
+        <Route path="/synonymy" element={<SynonymyPage />} />
+        <Route path="/synonymy/archive" element={<SynonymyArchive />} />
+        <Route path="/synonymy/archive/:date" element={<SynonymyReplay />} />
+
         {/* Backwards-compat redirects from earlier URL shapes. */}
         <Route path="/wordle" element={<Navigate to="/play" replace />} />
         <Route path="/wordle/archive" element={<RedirectPurdleArchive />} />
@@ -196,6 +228,12 @@ function Shell() {
         <>
           <LadderHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
           <LadderStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
+        </>
+      )}
+      {activeGame === 'synonymy' && (
+        <>
+          <SynonymyHelpModal open={helpOpen} onClose={() => setHelpOpen(false)} />
+          <SynonymyStatsModal open={statsOpen} onClose={() => setStatsOpen(false)} />
         </>
       )}
       {(activeGame === 'purdle' || activeGame === null) && (

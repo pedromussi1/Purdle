@@ -1,0 +1,20 @@
+{
+  "date": "2026-05-08",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "knock",
+  "end": "ranch",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "knock",
+    "shoot",
+    "rifle",
+    "knife",
+    "eaten",
+    "salad",
+    "ranch"
+  ],
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}

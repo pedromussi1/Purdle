@@ -52,6 +52,18 @@ export function Home() {
           </span>
         </Link>
 
+        <Link to="/synonymy" className="home-card home-card--primary home-card--synonymy">
+          <div className="home-card-body">
+            <div className="home-card-title">Synonymy</div>
+            <div className="home-card-meta">
+              Today&apos;s puzzle · chain start → end through synonyms
+            </div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
         <Link to="/play/archive" className="home-card">
           <div className="home-card-body">
             <div className="home-card-title">Purdle archive</div>
@@ -76,6 +88,16 @@ export function Home() {
           <div className="home-card-body">
             <div className="home-card-title">Ladder archive</div>
             <div className="home-card-meta">Past Ladder puzzles · play any day</div>
+          </div>
+          <span className="home-card-arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+
+        <Link to="/synonymy/archive" className="home-card">
+          <div className="home-card-body">
+            <div className="home-card-title">Synonymy archive</div>
+            <div className="home-card-meta">Past Synonymy puzzles · play any day</div>
           </div>
           <span className="home-card-arrow" aria-hidden>
             →
