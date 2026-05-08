@@ -547,6 +547,37 @@
   opacity: 0.85;
 }
 
+.home-card-status {
+  margin-top: 6px;
+  align-self: flex-start;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: inherit;
+}
+
+.home-card:not(.home-card--primary) .home-card-status {
+  background: var(--color-bg-muted, rgba(0, 0, 0, 0.06));
+  border-color: var(--color-border);
+}
+
+.home-card-status--won {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.55);
+}
+
+.home-card-status--lost,
+.home-card-status--gave-up {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.55);
+}
+
 .home-card-arrow {
   font-size: 1.4rem;
   font-weight: 700;

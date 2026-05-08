@@ -1,7 +1,26 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { todayUTC } from '../shared/lib/date'
+import {
+  readTodayStatus,
+  type TodayStatus,
+  type TodayStatusMap,
+} from './lib/todayStatus'
 
 export function Home() {
+  const [status, setStatus] = useState<TodayStatusMap>({})
+
+  useEffect(() => {
+    setStatus(readTodayStatus())
+    const onFocus = () => setStatus(readTodayStatus())
+    window.addEventListener('focus', onFocus)
+    document.addEventListener('visibilitychange', onFocus)
+    return () => {
+      window.removeEventListener('focus', onFocus)
+      document.removeEventListener('visibilitychange', onFocus)
+    }
+  }, [])
+
   return (
     <main className="home">
       <div className="home-hero">
@@ -18,91 +37,39 @@ export function Home() {
       </div>
 
       <div className="home-games">
-        <Link to="/play" className="home-card home-card--primary">
-          <div className="home-card-body">
-            <div className="home-card-title">Purdle</div>
-            <div className="home-card-meta">Today&apos;s puzzle · 6 guesses</div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
+        <GameCard
+          to="/play"
+          modifier="home-card--primary"
+          title="Purdle"
+          meta="Today's puzzle · 6 guesses"
+          status={status.purdle}
+        />
+        <GameCard
+          to="/quartet"
+          modifier="home-card--primary home-card--quartet"
+          title="Quartet"
+          meta="Today's puzzle · 16 words, 4 groups"
+          status={status.quartet}
+        />
+        <GameCard
+          to="/ladder"
+          modifier="home-card--primary home-card--ladder"
+          title="Ladder"
+          meta="Today's puzzle · chain start → end, one letter at a time"
+          status={status.ladder}
+        />
+        <GameCard
+          to="/synonymy"
+          modifier="home-card--primary home-card--synonymy"
+          title="Synonymy"
+          meta="Today's puzzle · chain start → end through synonyms"
+          status={status.synonymy}
+        />
 
-        <Link to="/quartet" className="home-card home-card--primary home-card--quartet">
-          <div className="home-card-body">
-            <div className="home-card-title">Quartet</div>
-            <div className="home-card-meta">
-              Today&apos;s puzzle · 16 words, 4 groups
-            </div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/ladder" className="home-card home-card--primary home-card--ladder">
-          <div className="home-card-body">
-            <div className="home-card-title">Ladder</div>
-            <div className="home-card-meta">
-              Today&apos;s puzzle · chain start → end, one letter at a time
-            </div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/synonymy" className="home-card home-card--primary home-card--synonymy">
-          <div className="home-card-body">
-            <div className="home-card-title">Synonymy</div>
-            <div className="home-card-meta">
-              Today&apos;s puzzle · chain start → end through synonyms
-            </div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/play/archive" className="home-card">
-          <div className="home-card-body">
-            <div className="home-card-title">Purdle archive</div>
-            <div className="home-card-meta">Past Purdle puzzles · play any day</div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/quartet/archive" className="home-card">
-          <div className="home-card-body">
-            <div className="home-card-title">Quartet archive</div>
-            <div className="home-card-meta">Past Quartet puzzles · play any day</div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/ladder/archive" className="home-card">
-          <div className="home-card-body">
-            <div className="home-card-title">Ladder archive</div>
-            <div className="home-card-meta">Past Ladder puzzles · play any day</div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
-
-        <Link to="/synonymy/archive" className="home-card">
-          <div className="home-card-body">
-            <div className="home-card-title">Synonymy archive</div>
-            <div className="home-card-meta">Past Synonymy puzzles · play any day</div>
-          </div>
-          <span className="home-card-arrow" aria-hidden>
-            →
-          </span>
-        </Link>
+        <ArchiveCard to="/play/archive" title="Purdle archive" meta="Past Purdle puzzles · play any day" />
+        <ArchiveCard to="/quartet/archive" title="Quartet archive" meta="Past Quartet puzzles · play any day" />
+        <ArchiveCard to="/ladder/archive" title="Ladder archive" meta="Past Ladder puzzles · play any day" />
+        <ArchiveCard to="/synonymy/archive" title="Synonymy archive" meta="Past Synonymy puzzles · play any day" />
       </div>
 
       <p className="home-foot">
@@ -117,6 +84,47 @@ export function Home() {
         for the architecture writeup.
       </p>
     </main>
+  )
+}
+
+interface GameCardProps {
+  to: string
+  modifier: string
+  title: string
+  meta: string
+  status: TodayStatus | undefined
+}
+
+function GameCard({ to, modifier, title, meta, status }: GameCardProps) {
+  return (
+    <Link to={to} className={`home-card ${modifier}`}>
+      <div className="home-card-body">
+        <div className="home-card-title">{title}</div>
+        <div className="home-card-meta">{meta}</div>
+        {status && (
+          <div className={`home-card-status home-card-status--${status.state}`}>
+            {status.detail}
+          </div>
+        )}
+      </div>
+      <span className="home-card-arrow" aria-hidden>
+        →
+      </span>
+    </Link>
+  )
+}
+
+function ArchiveCard({ to, title, meta }: { to: string; title: string; meta: string }) {
+  return (
+    <Link to={to} className="home-card">
+      <div className="home-card-body">
+        <div className="home-card-title">{title}</div>
+        <div className="home-card-meta">{meta}</div>
+      </div>
+      <span className="home-card-arrow" aria-hidden>
+        →
+      </span>
+    </Link>
   )
 }
 
