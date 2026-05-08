@@ -4,15 +4,20 @@
   "lang": "en",
   "schema_version": 1,
   "start": "beach",
-  "end": "kitty",
-  "optimal_steps": 4,
+  "end": "taken",
+  "optimal_steps": 7,
   "optimal_path": [
     "beach",
-    "ocean",
-    "shark",
-    "tiger",
-    "kitty"
+    "place",
+    "scene",
+    "image",
+    "photo",
+    "shots",
+    "takes",
+    "taken"
   ],
+  "n_optimal_paths": 9,
+  "min_layer_width": 2,
   "threshold": 0.5,
   "generated_by": "fallback"
 }

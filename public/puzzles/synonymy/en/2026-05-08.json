@@ -4,17 +4,18 @@
   "lang": "en",
   "schema_version": 1,
   "start": "knock",
-  "end": "ranch",
-  "optimal_steps": 6,
+  "end": "erect",
+  "optimal_steps": 5,
   "optimal_path": [
     "knock",
     "shoot",
     "rifle",
     "knife",
-    "eaten",
-    "salad",
-    "ranch"
+    "screw",
+    "erect"
   ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
   "threshold": 0.5,
   "generated_by": "fallback"
 }

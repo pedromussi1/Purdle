@@ -4,18 +4,19 @@
   "lang": "en",
   "schema_version": 1,
   "start": "above",
-  "end": "joker",
-  "optimal_steps": 7,
+  "end": "decor",
+  "optimal_steps": 6,
   "optimal_path": [
     "above",
     "below",
     "where",
     "place",
-    "scene",
-    "movie",
-    "comic",
-    "joker"
+    "rooms",
+    "walls",
+    "decor"
   ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
   "threshold": 0.5,
   "generated_by": "fallback"
 }

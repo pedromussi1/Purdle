@@ -4,17 +4,19 @@
   "lang": "en",
   "schema_version": 1,
   "start": "funky",
-  "end": "tempo",
+  "end": "drawn",
   "optimal_steps": 6,
   "optimal_path": [
     "funky",
-    "nasty",
-    "crude",
-    "shale",
-    "rocks",
-    "music",
-    "tempo"
+    "shady",
+    "sunny",
+    "shade",
+    "color",
+    "paint",
+    "drawn"
   ],
+  "n_optimal_paths": 9,
+  "min_layer_width": 2,
   "threshold": 0.5,
   "generated_by": "fallback"
 }

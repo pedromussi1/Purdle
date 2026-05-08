@@ -38,6 +38,11 @@ SCHEMA_VERSION = 1
 WORD_LENGTH = 5
 MIN_STEPS = 3
 MAX_STEPS = 7
+# Path-diversity gates: reject pairs whose start→end optimal subgraph has
+# a single chokepoint or only one chain (KNOCK→RANCH 2026-05-08 was the
+# motivating failure — one optimal path through SHOOT→RIFLE→KNIFE).
+MIN_OPTIMAL_PATHS = 3
+MIN_LAYER_WIDTH = 2
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
 NOVELTY_LOOKBACK_DAYS = 30
@@ -126,33 +131,6 @@ def load_recent(out_dir: Path) -> list[dict]:
 
 # ---------- BFS ----------
 
-def bfs_shortest_path(start: str, end: str, graph: Graph) -> list[str] | None:
-    """Returns the shortest path of words from start to end, or None if
-    unreachable in the synonym graph."""
-    if start not in graph.word_to_idx or end not in graph.word_to_idx:
-        return None
-    s, t = graph.word_to_idx[start], graph.word_to_idx[end]
-    if s == t:
-        return [start]
-    visited = {s}
-    parents: dict[int, int | None] = {s: None}
-    queue: collections.deque[int] = collections.deque([s])
-    while queue:
-        cur = queue.popleft()
-        for n in graph.neighbours[cur]:
-            if n in visited:
-                continue
-            visited.add(n)
-            parents[n] = cur
-            if n == t:
-                path_idx: list[int] = [n]
-                while parents[path_idx[-1]] is not None:
-                    path_idx.append(parents[path_idx[-1]])  # type: ignore[arg-type]
-                return [graph.words[i] for i in reversed(path_idx)]
-            queue.append(n)
-    return None
-
-
 def bfs_reachable(start: str, graph: Graph, max_dist: int) -> dict[str, int]:
     """Single-source BFS: word -> shortest distance from start, up to max_dist."""
     if start not in graph.word_to_idx:
@@ -170,6 +148,91 @@ def bfs_reachable(start: str, graph: Graph, max_dist: int) -> dict[str, int]:
             dist[n] = dist[cur] + 1
             queue.append(n)
     return {graph.words[i]: d for i, d in dist.items()}
+
+
+@dataclass
+class PathStats:
+    length: int
+    n_optimal_paths: int
+    min_layer_width: int  # minimum number of words at any intermediate BFS layer
+    one_path: list[str]
+
+
+def path_diversity(start: str, end: str, graph: Graph) -> PathStats | None:
+    """For the start→end pair, computes the optimal-subgraph statistics:
+    shortest distance L, number of distinct optimal paths, and the
+    narrowest intermediate BFS layer (chokepoint width). Returns None if
+    end is unreachable from start."""
+    if start not in graph.word_to_idx or end not in graph.word_to_idx:
+        return None
+    s, t = graph.word_to_idx[start], graph.word_to_idx[end]
+    if s == t:
+        return None
+
+    # Forward BFS from start.
+    dist_s: dict[int, int] = {s: 0}
+    queue: collections.deque[int] = collections.deque([s])
+    while queue:
+        u = queue.popleft()
+        for v in graph.neighbours[u]:
+            if v not in dist_s:
+                dist_s[v] = dist_s[u] + 1
+                queue.append(v)
+    if t not in dist_s:
+        return None
+    L = dist_s[t]
+
+    # Backward BFS from end, pruned at distance L.
+    dist_t: dict[int, int] = {t: 0}
+    queue = collections.deque([t])
+    while queue:
+        u = queue.popleft()
+        if dist_t[u] >= L:
+            continue
+        for v in graph.neighbours[u]:
+            if v not in dist_t:
+                dist_t[v] = dist_t[u] + 1
+                queue.append(v)
+
+    # Vertex v lies on an optimal path iff dist_s[v] + dist_t[v] == L.
+    on_path = [v for v in dist_s if v in dist_t and dist_s[v] + dist_t[v] == L]
+
+    # DP: count[v] = number of optimal paths from s to v.
+    on_path.sort(key=lambda v: dist_s[v])
+    count: dict[int, int] = {s: 1}
+    for v in on_path:
+        if v == s:
+            continue
+        c = 0
+        for u in graph.neighbours[v]:
+            if u in count and dist_s.get(u, -1) == dist_s[v] - 1:
+                c += count[u]
+        count[v] = c
+    n_paths = count.get(t, 0)
+
+    # Layer widths: count words on optimal paths at each BFS depth.
+    layer_counts: dict[int, int] = {}
+    for v in on_path:
+        layer_counts[dist_s[v]] = layer_counts.get(dist_s[v], 0) + 1
+    if L < 2:
+        min_intermediate = layer_counts.get(0, 1)
+    else:
+        min_intermediate = min(layer_counts.get(d, 0) for d in range(1, L))
+
+    # Reconstruct one optimal path for the puzzle's `optimal_path` field.
+    path_idx = [t]
+    while path_idx[-1] != s:
+        cur = path_idx[-1]
+        for u in graph.neighbours[cur]:
+            if u in count and dist_s.get(u, -1) == dist_s[cur] - 1:
+                path_idx.append(u)
+                break
+        else:
+            return None  # malformed — give up
+    path_idx.reverse()
+    one_path = [graph.words[i] for i in path_idx]
+
+    return PathStats(L, n_paths, min_intermediate, one_path)
 
 
 # ---------- Gemini ----------
@@ -231,7 +294,7 @@ def validate_pair(
     graph: Graph,
     *,
     recent_pairs: set[tuple[str, str]],
-) -> tuple[str | None, list[str] | None]:
+) -> tuple[str | None, PathStats | None]:
     s = start.lower().strip()
     e = end.lower().strip()
     if not (re.fullmatch(r"[a-z]{5}", s) and re.fullmatch(r"[a-z]{5}", e)):
@@ -244,18 +307,29 @@ def validate_pair(
         return f"end {e!r} not in synonym graph", None
     if (s, e) in recent_pairs or (e, s) in recent_pairs:
         return f"({s}, {e}) appeared recently", None
-    path = bfs_shortest_path(s, e, graph)
-    if path is None:
+    stats = path_diversity(s, e, graph)
+    if stats is None:
         return f"no semantic chain connects {s!r} and {e!r}", None
-    steps = len(path) - 1
-    if steps < MIN_STEPS:
-        return f"too easy: only {steps} steps (min {MIN_STEPS})", None
-    if steps > MAX_STEPS:
-        return f"too hard: needs {steps} steps (max {MAX_STEPS})", None
-    return None, path
+    if stats.length < MIN_STEPS:
+        return f"too easy: only {stats.length} steps (min {MIN_STEPS})", None
+    if stats.length > MAX_STEPS:
+        return f"too hard: needs {stats.length} steps (max {MAX_STEPS})", None
+    if stats.min_layer_width < MIN_LAYER_WIDTH:
+        return (
+            f"corridor: narrowest intermediate layer has "
+            f"{stats.min_layer_width} word(s) (min {MIN_LAYER_WIDTH})",
+            None,
+        )
+    if stats.n_optimal_paths < MIN_OPTIMAL_PATHS:
+        return (
+            f"too narrow: only {stats.n_optimal_paths} optimal path(s) "
+            f"(min {MIN_OPTIMAL_PATHS})",
+            None,
+        )
+    return None, stats
 
 
-def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[str, str, list[str]] | None:
+def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[str, str, PathStats] | None:
     feedback = ""
     pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
     for attempt in range(5):
@@ -264,10 +338,15 @@ def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[st
             return None
         start = (result.get("start") or "").lower().strip()
         end = (result.get("end") or "").lower().strip()
-        rejection, path = validate_pair(start, end, graph, recent_pairs=recent_pairs)
-        if rejection is None and path is not None:
-            log(f"attempt {attempt + 1}: accepted ({start} → {end}, {len(path) - 1} steps)", level="ok")
-            return start, end, path
+        rejection, stats = validate_pair(start, end, graph, recent_pairs=recent_pairs)
+        if rejection is None and stats is not None:
+            log(
+                f"attempt {attempt + 1}: accepted ({start} → {end}, "
+                f"{stats.length} steps, {stats.n_optimal_paths} paths, "
+                f"min layer {stats.min_layer_width})",
+                level="ok",
+            )
+            return start, end, stats
         log(f"attempt {attempt + 1}: rejected — {rejection}", level="warn")
         feedback = (
             f"Your previous suggestion ({start!r}/{end!r}) was rejected: {rejection}. "
@@ -277,9 +356,9 @@ def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[st
 
 
 def fallback_pair(date: str, answers: list[str], graph: Graph,
-                  recent_pairs: set[tuple[str, str]]) -> tuple[str, list[str]]:
+                  recent_pairs: set[tuple[str, str]]) -> tuple[str, str, PathStats]:
     """Deterministic pair selection by hashing the date. Walks the seed
-    space until BFS produces a valid (3-7 step) path."""
+    space until path-diversity validation accepts a pair."""
     candidates = [w for w in answers if w in graph.word_to_idx]
     if not candidates:
         sys.exit("no answer-list words in synonym graph — graph mismatch?")
@@ -296,12 +375,22 @@ def fallback_pair(date: str, answers: list[str], graph: Graph,
         ]
         if not valid_ends:
             continue
-        j = (seed * 31 + offset) % len(valid_ends)
-        end = valid_ends[j]
-        path = bfs_shortest_path(start, end, graph)
-        if path is not None:
-            log(f"fallback pair: {start} → {end} ({len(path) - 1} steps)")
-            return f"{start},{end}", path
+        en = len(valid_ends)
+        for k in range(en):
+            j = (seed * 31 + offset + k) % en
+            end = valid_ends[j]
+            stats = path_diversity(start, end, graph)
+            if stats is None:
+                continue
+            if stats.min_layer_width < MIN_LAYER_WIDTH:
+                continue
+            if stats.n_optimal_paths < MIN_OPTIMAL_PATHS:
+                continue
+            log(
+                f"fallback pair: {start} → {end} ({stats.length} steps, "
+                f"{stats.n_optimal_paths} paths, min layer {stats.min_layer_width})"
+            )
+            return start, end, stats
     sys.exit("fallback exhausted — no valid pair found")
 
 
@@ -356,31 +445,33 @@ def main() -> int:
             recent_pairs.add((s, e))
     log(f"loaded {len(recent_pairs)} recent pairs for dedup")
 
-    selected: tuple[str, str, list[str]] | None = None
+    selected: tuple[str, str, PathStats] | None = None
     if os.environ.get("GEMINI_API_KEY"):
         selected = attempt_gemini(graph, recent_pairs)
 
     generator = "gemini-2.5-flash-lite"
     if selected is None:
         log("using deterministic fallback")
-        _, path = fallback_pair(args.date, answers, graph, recent_pairs)
-        start, end = path[0], path[-1]
+        start, end, stats = fallback_pair(args.date, answers, graph, recent_pairs)
         generator = "fallback"
     else:
-        start, end, path = selected
+        start, end, stats = selected
 
     payload = {
         "start": start,
         "end": end,
-        "optimal_steps": len(path) - 1,
-        "optimal_path": path,
+        "optimal_steps": stats.length,
+        "optimal_path": stats.one_path,
+        "n_optimal_paths": stats.n_optimal_paths,
+        "min_layer_width": stats.min_layer_width,
         "threshold": graph.threshold,
         "generated_by": generator,
     }
     out = write_puzzle(args, payload)
     update_manifest(args.out_dir)
     log(
-        f"wrote {out.relative_to(ROOT)} → {start} → {end} in {payload['optimal_steps']} optimal steps",
+        f"wrote {out.relative_to(ROOT)} → {start} → {end} in "
+        f"{stats.length} optimal steps ({stats.n_optimal_paths} paths)",
         level="ok",
     )
     return 0

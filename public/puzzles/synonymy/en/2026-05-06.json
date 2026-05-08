@@ -4,15 +4,19 @@
   "lang": "en",
   "schema_version": 1,
   "start": "shoot",
-  "end": "snack",
-  "optimal_steps": 4,
+  "end": "inbox",
+  "optimal_steps": 6,
   "optimal_path": [
     "shoot",
-    "rifle",
-    "knife",
-    "eaten",
-    "snack"
+    "knock",
+    "blows",
+    "blown",
+    "threw",
+    "sends",
+    "inbox"
   ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
   "threshold": 0.5,
   "generated_by": "fallback"
 }
