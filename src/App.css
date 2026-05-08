@@ -1,7 +1,11 @@
 .app-shell {
   display: flex;
   flex-direction: column;
+  /* iOS Safari: 100vh ignores the dynamic bottom toolbar, so the keyboard
+     ends up rendered below it on first paint. 100dvh (dynamic viewport
+     height) tracks the actual visible area as the toolbar shows/hides. */
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .app-header {

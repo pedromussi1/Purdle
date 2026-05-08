@@ -8,6 +8,9 @@
   max-width: 500px;
   margin: 0 auto;
   padding: var(--space-4);
+  /* Add the iOS home-indicator inset to the bottom padding so the
+     keyboard never sits flush against the system gesture area. */
+  padding-bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
   gap: var(--space-6);
 }
 
@@ -285,6 +288,7 @@
   width: 100%;
   max-width: 480px;
   max-height: calc(100vh - var(--space-8));
+  max-height: calc(100dvh - var(--space-8));
   overflow-y: auto;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
