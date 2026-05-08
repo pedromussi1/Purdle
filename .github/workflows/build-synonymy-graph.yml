@@ -1,0 +1,52 @@
+name: Build synonymy graph
+
+on:
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: "Cosine similarity threshold for neighbour-graph edges"
+        required: false
+        default: "0.5"
+      max_neighbours:
+        description: "Cap on neighbours per word (top-K by similarity)"
+        required: false
+        default: "40"
+
+permissions:
+  contents: write
+
+# One-shot job: rerun manually only when the dictionary changes or the
+# threshold needs retuning. The output `public/words/synonymy-graph.json`
+# is committed back to the repo and shipped as a static asset.
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Build synonym graph
+        run: |
+          python scripts/build_synonymy_graph.py \
+            --threshold ${{ github.event.inputs.threshold }} \
+            --max-neighbours ${{ github.event.inputs.max_neighbours }}
+
+      - name: Commit graph
+        run: |
+          git config user.name "purdle-bot"
+          git config user.email "actions@github.com"
+          git add public/words/synonymy-graph.json
+          if git diff --staged --quiet; then
+            echo "Graph unchanged; nothing to commit."
+          else
+            git commit -m "synonymy: rebuild graph (threshold=${{ github.event.inputs.threshold }})"
+            git push
+          fi
