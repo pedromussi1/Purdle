@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-09",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "watch",
+  "difficulty": 2,
+  "theme": "time",
+  "etymology": "The word 'watch' comes from the Old English word 'w\u00e6cce', meaning 'a state of wakefulness' or 'vigil'. It originally referred to the act of staying awake to guard or observe something.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
