@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-09",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Weather",
+      "words": [
+        "rain",
+        "snow",
+        "wind",
+        "hail"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things in a kitchen",
+      "words": [
+        "spoon",
+        "fork",
+        "knife",
+        "plate"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a story",
+      "words": [
+        "plot",
+        "setting",
+        "character",
+        "theme"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words that can precede 'box'",
+      "words": [
+        "mail",
+        "gift",
+        "phone",
+        "trash"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
