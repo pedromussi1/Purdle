@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-09",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "risen",
+  "end": "fever",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "risen",
+    "rises",
+    "roses",
+    "loses",
+    "loves",
+    "lover",
+    "lever",
+    "fever"
+  ],
+  "difficulty_similarity": 0.1954643577337265,
+  "generated_by": "fallback"
+}
