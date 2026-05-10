@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-10",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "fruit",
+  "difficulty": 2,
+  "theme": "food",
+  "etymology": "The word 'fruit' comes from the Latin word 'fructus', meaning 'enjoyment, pleasure, delight, profit, produce'. It originally referred to the produce of trees and plants, especially those yielding sweet edible products.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
