@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-10",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "vocal",
+  "end": "royal",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "vocal",
+    "local",
+    "loyal",
+    "royal"
+  ],
+  "difficulty_similarity": 0.2428060919046402,
+  "generated_by": "fallback"
+}
