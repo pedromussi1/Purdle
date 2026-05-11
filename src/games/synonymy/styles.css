@@ -93,6 +93,33 @@
 
 .s-row--input {
   animation: s-row-shake 0.3s ease 0;
+  /* Tappable on mobile: tap anywhere on the input pill to focus the
+     hidden <input>, which brings up iOS's keyboard. */
+  position: relative;
+  cursor: text;
+}
+
+/* Transparent input layered over the input pill. Captures focus so iOS
+   shows the virtual keyboard. The visible pill renders the actual
+   currentInput value. */
+.s-input-hidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 16px; /* >=16px prevents iOS auto-zoom on focus */
+  z-index: 1;
+}
+
+.s-input-hidden:focus {
+  outline: none;
 }
 
 .s-optimal-stack {

@@ -29,6 +29,10 @@ export interface LadderState {
   pressLetter: (letter: string) => void
   pressBackspace: () => void
   pressEnter: () => void
+  // Mobile-input path: the hidden <input> reports its full value on every
+  // change (typed letter, swipe-deleted chars, autocorrect-completed words).
+  // Filters to letters, lowercases, truncates at WORD_LENGTH.
+  setCurrentInput: (value: string) => void
   giveUp: () => void
   playAgain: () => void
   resetToast: () => void
@@ -87,6 +91,16 @@ export function createLadderStore({
       const { currentInput, status } = get()
       if (status !== 'in-progress') return
       set({ currentInput: currentInput.slice(0, -1) })
+    },
+
+    setCurrentInput: (value) => {
+      const { status } = get()
+      if (status !== 'in-progress') return
+      const cleaned = value
+        .toLowerCase()
+        .replace(/[^a-z]/g, '')
+        .slice(0, WORD_LENGTH)
+      set({ currentInput: cleaned })
     },
 
     pressEnter: () => {

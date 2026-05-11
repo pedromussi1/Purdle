@@ -1,11 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useStore } from '../StoreContext'
 import { WORD_LENGTH } from '../types'
 
-// Read-only display of the current input as 5 cells, with a blinking cursor
-// on the next-empty position. Players type via the physical keyboard; we
-// don't show a separate text-input widget because the cell display matches
-// the rest of the game's visual language.
+// The next-word input. We render a styled cell row for visual consistency
+// with the rest of the chain, but we ALSO mount a transparent <input>
+// underneath that captures taps on mobile — without it, iOS has no
+// keyboard target and the player cannot type. The physical-keyboard
+// handler stays for desktop play.
 export function Input() {
   const status = useStore((s) => s.status)
   const currentInput = useStore((s) => s.currentInput)
@@ -17,12 +18,19 @@ export function Input() {
   const pressLetter = useStore((s) => s.pressLetter)
   const pressBackspace = useStore((s) => s.pressBackspace)
   const pressEnter = useStore((s) => s.pressEnter)
+  const setCurrentInput = useStore((s) => s.setCurrentInput)
+
+  const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
     if (status !== 'in-progress') return
     function onKey(e: KeyboardEvent) {
       if (e.metaKey || e.ctrlKey || e.altKey) return
       if (document.querySelector('[aria-modal="true"]')) return
+      // If focus is on the hidden <input>, the input's own onChange/
+      // onKeyDown drives the store. Skip the global handler so we don't
+      // double-process keystrokes on desktop.
+      if (document.activeElement === inputRef.current) return
       if (e.key === 'Enter') {
         pressEnter()
       } else if (e.key === 'Backspace') {
@@ -37,10 +45,6 @@ export function Input() {
 
   if (status !== 'in-progress') return null
 
-  // Highlight the position that's currently differing (so the player can see
-  // which letter they're changing). If currentInput matches previous in all
-  // typed positions, no highlight; if exactly one position differs, highlight
-  // it; if more than one differs, the latest typed position is the focus.
   let focusIdx: number | null = null
   if (previous) {
     const diffs: number[] = []
@@ -61,7 +65,28 @@ export function Input() {
       key={shakeKey}
       className="l-row l-row--input"
       aria-label="next word"
+      onClick={() => inputRef.current?.focus()}
     >
+      <input
+        ref={inputRef}
+        className="l-input-hidden"
+        type="text"
+        inputMode="text"
+        autoCapitalize="characters"
+        autoComplete="off"
+        autoCorrect="off"
+        spellCheck={false}
+        maxLength={WORD_LENGTH}
+        value={currentInput}
+        aria-label="Type the next word"
+        onChange={(e) => setCurrentInput(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault()
+            pressEnter()
+          }
+        }}
+      />
       {cells.map((ch, i) => {
         const filled = ch !== null
         const cls =

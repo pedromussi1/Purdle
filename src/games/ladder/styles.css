@@ -95,6 +95,33 @@
 /* Input row — looks like a chain row but cells are placeholders + cursor */
 .l-row--input {
   margin-top: var(--space-1);
+  /* Tappable on mobile: tap anywhere on the row to focus the hidden
+     input, which brings up iOS's keyboard. */
+  position: relative;
+  cursor: text;
+}
+
+/* Transparent input layered over the cell row. Captures focus so iOS
+   shows the virtual keyboard, but stays visually invisible — the cells
+   render the actual current-input value. */
+.l-input-hidden {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 16px; /* >=16px prevents iOS auto-zoom on focus */
+  z-index: 1;
+}
+
+.l-input-hidden:focus {
+  outline: none;
 }
 
 .l-cell--input {
