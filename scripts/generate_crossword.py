@@ -49,13 +49,42 @@ MIN_ZIPF_BY_LEN = {3: 4.5, 4: 4.0, 5: 3.5}
 # answer set). Much cleaner than valid-guesses.txt which accepts obscure
 # words like 'kieve' and 'oxids'.
 WORDLE_5LETTER_PATH = ROOT / "scripts" / "answer_list.txt"
-# Small blocklist of words we never want to see — proper nouns, initialisms,
-# slurs, awkward fragments, etc. that slip through Zipf + vowel filtering.
+# Words we never want to see in a crossword — wordfreq doesn't separate
+# proper nouns from common nouns, so they sneak through the Zipf filter.
+# Categories: initialisms, geographic/political proper nouns, common first
+# names, brand/product names, religious figures.
 BLOCKLIST = {
-    "lgbt", "ariel", "isis", "iraq", "iran", "usa", "uk", "eu", "un",
-    "ussr", "nato", "nasa", "fbi", "cia", "irs", "obama", "trump",
-    "biden", "putin", "covid", "amazon", "google", "apple", "nike",
-    "jesus", "allah", "islam", "judaism", "satan",
+    # Initialisms / acronyms
+    "lgbt", "isis", "usa", "uk", "eu", "un", "ussr", "nato", "nasa",
+    "fbi", "cia", "irs", "ipad", "irc", "ftp", "html", "ceo", "cfo",
+    # Geographic / political proper nouns
+    "iraq", "iran", "cuba", "asia", "utah", "ohio", "iowa", "maui",
+    "peru", "oman", "rome", "eden", "troy", "yale", "ucla", "tokyo",
+    "paris", "chile", "china", "india", "italy", "japan", "libya",
+    "syria", "egypt", "kenya", "haiti", "wales", "texas", "spain",
+    "miami", "boise", "tulsa", "boston", "berlin", "vienna", "kabul",
+    # Political figures
+    "obama", "trump", "biden", "putin", "ariel",
+    # Common first names (3-letter)
+    "bob", "joe", "tim", "dan", "jim", "sam", "mel", "max", "ned",
+    "ted", "ken", "len", "eli", "ali", "eve", "ada", "amy", "ben",
+    "ron", "ivy", "rob", "tom", "vic", "viv", "kim",
+    # Common first names (4-letter)
+    "matt", "mike", "john", "bill", "tony", "dave", "mary", "jane",
+    "lisa", "anne", "ryan", "paul", "mark", "drew", "kate", "anna",
+    "emma", "lily", "jack", "fred", "adam", "noah", "luke", "evan",
+    "alex", "sean", "todd", "kyle", "brad", "carl", "earl", "neil",
+    "olga", "rosa", "pamela", "judy", "amber",
+    # Common first names (5-letter)
+    "bobby", "peter", "harry", "sarah", "david", "james", "henry",
+    "frank", "jerry", "kevin", "kenny", "danny", "billy", "tommy",
+    # Brand names
+    "covid", "amazon", "google", "apple", "nike", "sony", "ford",
+    "jeep", "gucci", "uber", "lyft", "tesla", "intel", "cisco",
+    # Religious / mythological figures
+    "jesus", "allah", "islam", "judaism", "satan", "buddha",
+    "thor", "zeus", "odin", "hera", "loki", "mars", "venus",
+    "apollo",
 }
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 GEMINI_FILL_ATTEMPTS = 5
