@@ -1,0 +1,19 @@
+{
+  "date": "2026-05-11",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "naval",
+  "end": "swamp",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "naval",
+    "shore",
+    "marsh",
+    "swamp"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
