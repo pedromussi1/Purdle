@@ -1,0 +1,19 @@
+{
+  "date": "2026-05-11",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "needy",
+  "end": "sandy",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "needy",
+    "needs",
+    "seeds",
+    "sends",
+    "sands",
+    "sandy"
+  ],
+  "difficulty_similarity": 0.2995387017726898,
+  "generated_by": "fallback"
+}
