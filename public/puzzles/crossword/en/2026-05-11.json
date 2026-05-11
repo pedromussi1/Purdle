@@ -1,0 +1,185 @@
+{
+  "date": "2026-05-11",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "w",
+      "h",
+      "a",
+      "t",
+      "#"
+    ],
+    [
+      "e",
+      "a",
+      "t",
+      "e",
+      "n"
+    ],
+    [
+      "s",
+      "t",
+      "o",
+      "r",
+      "e"
+    ],
+    [
+      "t",
+      "e",
+      "n",
+      "s",
+      "e"
+    ],
+    [
+      "#",
+      "r",
+      "e",
+      "e",
+      "d"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "what",
+      "clue": "Inquire about reason"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "eaten",
+      "clue": "Consumed a sandwich, perhaps"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "store",
+      "clue": "Keep for later use"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "tense",
+      "clue": "Anxious, maybe"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "reed",
+      "clue": "Tall marsh grass"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "west",
+      "clue": "Cardinal direction of sunset"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "hater",
+      "clue": "One who loves to dislike"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "atone",
+      "clue": "Make amends"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "terse",
+      "clue": "Brief and to the point"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "need",
+      "clue": "Lack of something essential item"
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
