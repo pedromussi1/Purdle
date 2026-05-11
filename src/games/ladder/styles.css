@@ -90,6 +90,41 @@
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
   font-weight: 700;
+  /* Fade the label in first, before the staggered rows. */
+  animation: l-optimal-label-fade 0.25s ease both;
+}
+
+@keyframes l-optimal-label-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered reveal: each optimal-step row fades + slides in 280ms after
+   the previous one, so the player watches the AI's solve unfold rather
+   than seeing the whole thing pop. */
+@keyframes l-optimal-row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.l-row--optimal-step {
+  opacity: 0;
+  animation: l-optimal-row-reveal 0.32s ease both;
+  animation-delay: calc(0.18s + var(--reveal-i, 0) * 0.28s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .l-optimal-label,
+  .l-row--optimal-step {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* Input row — looks like a chain row but cells are placeholders + cursor */

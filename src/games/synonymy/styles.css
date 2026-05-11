@@ -129,6 +129,9 @@
   gap: var(--space-2);
   width: 100%;
   margin: var(--space-3) 0;
+  padding: var(--space-3) 0;
+  border-top: 1px dashed var(--color-border);
+  border-bottom: 1px dashed var(--color-border);
 }
 
 .s-optimal-label {
@@ -137,6 +140,37 @@
   text-transform: uppercase;
   color: var(--color-text-muted);
   font-weight: 700;
+  animation: s-optimal-label-fade 0.25s ease both;
+}
+
+@keyframes s-optimal-label-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes s-optimal-row-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.s-row--optimal-step {
+  opacity: 0;
+  animation: s-optimal-row-reveal 0.32s ease both;
+  animation-delay: calc(0.18s + var(--reveal-i, 0) * 0.28s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s-optimal-label,
+  .s-row--optimal-step {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .s-controls {
