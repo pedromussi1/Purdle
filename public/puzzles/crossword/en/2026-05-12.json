@@ -1,0 +1,185 @@
+{
+  "date": "2026-05-12",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "m",
+      "a",
+      "r",
+      "s",
+      "#"
+    ],
+    [
+      "a",
+      "b",
+      "a",
+      "t",
+      "e"
+    ],
+    [
+      "t",
+      "o",
+      "d",
+      "a",
+      "y"
+    ],
+    [
+      "t",
+      "r",
+      "i",
+      "t",
+      "e"
+    ],
+    [
+      "#",
+      "t",
+      "i",
+      "e",
+      "s"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "mars",
+      "clue": "Red planet"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "abate",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "today",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "trite",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "ties",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "matt",
+      "clue": "Non-shiny finish"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "abort",
+      "clue": "Pull plug on project"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "radii",
+      "clue": "Lines from center to edge"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "state",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "eyes",
+      "clue": "Orbs for seeing"
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
