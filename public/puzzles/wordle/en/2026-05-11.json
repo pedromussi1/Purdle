@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-11",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "table",
+  "difficulty": 1,
+  "theme": "furniture",
+  "etymology": "The word 'table' comes from the Latin word 'tabula', meaning 'board' or 'plank'. Early tables were likely simple wooden planks supported by legs or trestles. It has been a fundamental piece of furniture for centuries, used for dining, working, and displaying items.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
