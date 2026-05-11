@@ -55,7 +55,13 @@ jobs:
             echo "No new puzzle file to commit."
           else
             git commit -m "puzzle: $(date -u +%F)"
-            git push
+            # Pull-rebase before push to survive races with the other
+            # daily crons when GH Actions delays them into the same window.
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "push attempt $i failed; retrying after 5s"
+              sleep 5
+            done
           fi
 
       - name: Heartbeat Supabase
