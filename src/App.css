@@ -62,3 +62,59 @@
 .icon-button:hover {
   background: var(--color-key-bg);
 }
+
+/* iOS install hint — pinned to the bottom above the home indicator. Only
+   appears for iOS Safari users who haven't installed Purdle yet. */
+.ios-install-hint {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #3a3a3a;
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  font-size: 0.85rem;
+  animation: ios-install-hint-rise 0.32s ease both;
+}
+
+@keyframes ios-install-hint-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ios-install-hint-text {
+  flex: 1;
+  line-height: 1.35;
+}
+
+.ios-install-hint-icon {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1rem;
+  margin: 0 2px;
+}
+
+.ios-install-hint-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ios-install-hint-close:hover,
+.ios-install-hint-close:active {
+  background: rgba(255, 255, 255, 0.1);
+}

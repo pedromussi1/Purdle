@@ -9,6 +9,7 @@ import {
   useParams,
 } from 'react-router-dom'
 import { Header } from './shared/components/Header'
+import { IOSInstallHint } from './shared/components/IOSInstallHint'
 import { HelpModal as PurdleHelpModal } from './games/purdle/components/HelpModal'
 import { SettingsModal } from './games/purdle/components/SettingsModal'
 import { StatsModal as PurdleStatsModal } from './games/purdle/components/StatsModal'
@@ -246,6 +247,7 @@ function Shell() {
         open={settingsOpen}
         onClose={() => setSettingsOpen(false)}
       />
+      <IOSInstallHint />
     </div>
   )
 }
