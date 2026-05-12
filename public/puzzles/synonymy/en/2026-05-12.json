@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-12",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "legal",
+  "end": "blood",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "legal",
+    "crime",
+    "drugs",
+    "sober",
+    "drank",
+    "juice",
+    "blood"
+  ],
+  "n_optimal_paths": 13,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
