@@ -1,0 +1,18 @@
+{
+  "date": "2026-05-13",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "dread",
+  "end": "blend",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "dread",
+    "bread",
+    "breed",
+    "bleed",
+    "blend"
+  ],
+  "difficulty_similarity": 0.3337351977825165,
+  "generated_by": "fallback"
+}
