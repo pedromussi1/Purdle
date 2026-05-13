@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-13",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "house",
+  "difficulty": 2,
+  "theme": "dwelling",
+  "etymology": "The word 'house' comes from the Old English 'hus'. Its origins can be traced back to Proto-Germanic and even Proto-Indo-European roots related to shelter and protection. It's a fundamental word with ancient connections to human dwelling.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
