@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-15",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trust",
+  "end": "brush",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "trust",
+    "crust",
+    "crush",
+    "brush"
+  ],
+  "difficulty_similarity": 0.208693727850914,
+  "generated_by": "fallback"
+}
