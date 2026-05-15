@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-15",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Units of Time",
+      "words": [
+        "minute",
+        "hour",
+        "second",
+        "day"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Angles",
+      "words": [
+        "acute",
+        "obtuse",
+        "right",
+        "straight"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of Fruit Folds",
+      "words": [
+        "apple",
+        "plum",
+        "peach",
+        "pear"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that are Bent",
+      "words": [
+        "bow",
+        "crane",
+        "curved",
+        "angled"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
