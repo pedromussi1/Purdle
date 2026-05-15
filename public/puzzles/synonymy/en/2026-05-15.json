@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-15",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trust",
+  "end": "actor",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "trust",
+    "loyal",
+    "pride",
+    "honor",
+    "award",
+    "oscar",
+    "actor"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
