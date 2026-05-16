@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-16",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "maker",
+  "end": "tiger",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "maker",
+    "makes",
+    "takes",
+    "tales",
+    "tiles",
+    "times",
+    "timer",
+    "tiger"
+  ],
+  "difficulty_similarity": 0.2825867831707001,
+  "generated_by": "fallback"
+}
