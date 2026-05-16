@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-16",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "bread",
+  "difficulty": 2,
+  "theme": "food",
+  "etymology": "The word 'bread' comes from the Old English 'br\u0113ad', meaning a piece or crumb. It is related to the Old High German 'br\u014dt', also meaning bread. The origin is uncertain, but it likely refers to the action of breaking bread.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
