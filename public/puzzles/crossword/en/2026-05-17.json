@@ -1,0 +1,185 @@
+{
+  "date": "2026-05-17",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "c",
+      "a",
+      "s",
+      "h",
+      "#"
+    ],
+    [
+      "a",
+      "l",
+      "l",
+      "o",
+      "t"
+    ],
+    [
+      "l",
+      "l",
+      "a",
+      "m",
+      "a"
+    ],
+    [
+      "m",
+      "o",
+      "t",
+      "e",
+      "l"
+    ],
+    [
+      "#",
+      "w",
+      "e",
+      "r",
+      "e"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "cash",
+      "clue": "Bread, for short"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "allot",
+      "clue": "Distribute shares"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "llama",
+      "clue": "Andean pack animal"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "motel",
+      "clue": "Roadside lodging"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "were",
+      "clue": "Past tense of 'to be'"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "calm",
+      "clue": "Peaceful state"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "allow",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "slate",
+      "clue": "Roofing material"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "homer",
+      "clue": "Baseball round-tripper"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "tale",
+      "clue": "4-letter word"
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
