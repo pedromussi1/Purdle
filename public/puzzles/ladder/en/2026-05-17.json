@@ -1,0 +1,18 @@
+{
+  "date": "2026-05-17",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "alien",
+  "end": "allow",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "alien",
+    "allen",
+    "alley",
+    "alloy",
+    "allow"
+  ],
+  "difficulty_similarity": 0.18906408548355103,
+  "generated_by": "fallback"
+}
