@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-17",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "agony",
+  "end": "visit",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "agony",
+    "tears",
+    "dying",
+    "crash",
+    "wreck",
+    "drive",
+    "trips",
+    "visit"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
