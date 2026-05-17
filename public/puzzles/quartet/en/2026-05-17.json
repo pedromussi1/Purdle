@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-17",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Trees",
+      "words": [
+        "oak",
+        "pine",
+        "maple",
+        "birch"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things Made of Glass",
+      "words": [
+        "cup",
+        "mirror",
+        "window",
+        "lens"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Forms of Communication",
+      "words": [
+        "letter",
+        "phone",
+        "email",
+        "talk"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Meaning 'A Lot'",
+      "words": [
+        "much",
+        "many",
+        "plenty",
+        "tons"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
