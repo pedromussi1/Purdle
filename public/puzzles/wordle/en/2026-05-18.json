@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-18",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "brave",
+  "difficulty": 2,
+  "theme": "character",
+  "etymology": "The word 'brave' comes from the Italian word 'bravo,' meaning 'bold' or 'fierce.' It was first used in English to describe warriors who were courageous in battle. It can also mean 'a boast' or 'a showy display.'",
+  "generated_by": "gemini-2.5-flash-lite"
+}
