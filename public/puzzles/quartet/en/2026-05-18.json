@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-18",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Parts of a Clock",
+      "words": [
+        "hand",
+        "face",
+        "number",
+        "alarm"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things That Boil",
+      "words": [
+        "egg",
+        "water",
+        "soup",
+        "rage"
+      ],
+      "tier": 4
+    },
+    {
+      "theme": "Tools for Writing",
+      "words": [
+        "pen",
+        "pencil",
+        "chalk",
+        "quill"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Found on a Battlefield",
+      "words": [
+        "mud",
+        "trench",
+        "canon",
+        "scar"
+      ],
+      "tier": 3
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
