@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-18",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "slope",
+  "end": "birch",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "slope",
+    "steep",
+    "hills",
+    "trail",
+    "woods",
+    "birch"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
