@@ -1,0 +1,185 @@
+{
+  "date": "2026-05-18",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "h",
+      "a",
+      "r",
+      "m",
+      "#"
+    ],
+    [
+      "a",
+      "f",
+      "o",
+      "o",
+      "t"
+    ],
+    [
+      "t",
+      "o",
+      "u",
+      "c",
+      "h"
+    ],
+    [
+      "s",
+      "u",
+      "s",
+      "h",
+      "i"
+    ],
+    [
+      "#",
+      "l",
+      "e",
+      "a",
+      "n"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "harm",
+      "clue": "Cause hurt"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "afoot",
+      "clue": "Underway or in motion"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "touch",
+      "clue": "Feel with fingertips"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "sushi",
+      "clue": "Japanese rice roll"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "lean",
+      "clue": "Tend toward"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "hats",
+      "clue": "Head toppers"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "afoul",
+      "clue": "Caught in a tangle"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "rouse",
+      "clue": "Wake up, perhaps with a shout"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "mocha",
+      "clue": "Coffee with chocolate"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "thin",
+      "clue": "4-letter word"
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
