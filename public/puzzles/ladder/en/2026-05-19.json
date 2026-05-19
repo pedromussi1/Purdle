@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "relax",
+  "end": "reply",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "relax",
+    "relay",
+    "repay",
+    "reply"
+  ],
+  "difficulty_similarity": 0.2378796637058258,
+  "generated_by": "fallback"
+}
