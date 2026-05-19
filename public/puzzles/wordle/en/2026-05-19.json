@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-19",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "ghost",
+  "difficulty": 3,
+  "theme": "supernatural",
+  "etymology": "The word 'ghost' comes from the Old English word 'gast', meaning 'spirit' or 'soul'. It is related to the German word 'geist', also meaning 'spirit' or 'ghost'. In folklore, ghosts are often depicted as spirits of deceased people who linger in the earthly realm.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
