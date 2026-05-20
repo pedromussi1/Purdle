@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-20",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "daisy",
+  "end": "faint",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "daisy",
+    "dairy",
+    "hairy",
+    "hairs",
+    "pairs",
+    "pains",
+    "paint",
+    "faint"
+  ],
+  "difficulty_similarity": 0.19112274050712585,
+  "generated_by": "fallback"
+}
