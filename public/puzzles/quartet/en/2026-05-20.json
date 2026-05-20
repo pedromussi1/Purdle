@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-20",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Colors",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with Buttons",
+      "words": [
+        "shirt",
+        "remote",
+        "keyboard",
+        "elevator"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of Ships",
+      "words": [
+        "boat",
+        "liner",
+        "frigate",
+        "carrier"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Related to Finance",
+      "words": [
+        "bank",
+        "stock",
+        "credit",
+        "money"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
