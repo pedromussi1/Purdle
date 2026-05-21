@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-21",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Cooking Utensils",
+      "words": [
+        "fork",
+        "spoon",
+        "knife",
+        "plate"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that flow",
+      "words": [
+        "river",
+        "road",
+        "music",
+        "hair"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a Letter",
+      "words": [
+        "stamp",
+        "address",
+        "seal",
+        "post"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things associated with 'foot'",
+      "words": [
+        "heel",
+        "sole",
+        "arch",
+        "step"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
