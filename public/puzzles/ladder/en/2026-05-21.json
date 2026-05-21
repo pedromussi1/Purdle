@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "worst",
+  "end": "mouse",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "worst",
+    "worse",
+    "morse",
+    "mouse"
+  ],
+  "difficulty_similarity": 0.198500394821167,
+  "generated_by": "fallback"
+}
