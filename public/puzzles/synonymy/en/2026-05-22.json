@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-22",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "plate",
+  "end": "fatal",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "plate",
+    "steak",
+    "grill",
+    "smoke",
+    "death",
+    "fatal"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
