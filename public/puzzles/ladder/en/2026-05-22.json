@@ -1,0 +1,20 @@
+{
+  "date": "2026-05-22",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "plate",
+  "end": "snack",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "plate",
+    "slate",
+    "state",
+    "stare",
+    "stark",
+    "stack",
+    "snack"
+  ],
+  "difficulty_similarity": 0.30694904923439026,
+  "generated_by": "fallback"
+}
