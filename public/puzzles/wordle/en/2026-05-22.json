@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-22",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "snake",
+  "difficulty": 2,
+  "theme": "animal",
+  "etymology": "The word 'snake' comes from the Old English word 'snaca'. It is related to the verb 'sneak', referring to the animal's slithering movement.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
