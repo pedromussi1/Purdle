@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-23",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "crane",
+  "end": "graph",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "crane",
+    "crank",
+    "crack",
+    "track",
+    "trace",
+    "grace",
+    "grape",
+    "graph"
+  ],
+  "difficulty_similarity": 0.1613621562719345,
+  "generated_by": "fallback"
+}
