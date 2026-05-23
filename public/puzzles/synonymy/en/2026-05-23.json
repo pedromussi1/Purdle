@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-23",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "craft",
+  "end": "watch",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "craft",
+    "maker",
+    "makes",
+    "piece",
+    "image",
+    "video",
+    "watch"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
