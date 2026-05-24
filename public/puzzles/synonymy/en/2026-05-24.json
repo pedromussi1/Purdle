@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-24",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sound",
+  "end": "store",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "sound",
+    "solid",
+    "shape",
+    "sides",
+    "areas",
+    "towns",
+    "shops",
+    "store"
+  ],
+  "n_optimal_paths": 9,
+  "min_layer_width": 3,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
