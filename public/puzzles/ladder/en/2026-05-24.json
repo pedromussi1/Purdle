@@ -1,0 +1,18 @@
+{
+  "date": "2026-05-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sound",
+  "end": "court",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "sound",
+    "mound",
+    "mount",
+    "count",
+    "court"
+  ],
+  "difficulty_similarity": 0.3511228561401367,
+  "generated_by": "fallback"
+}
