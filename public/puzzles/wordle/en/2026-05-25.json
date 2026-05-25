@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-25",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "plane",
+  "difficulty": 2,
+  "theme": "transport",
+  "etymology": "The word 'plane' comes from the Latin word 'planus', meaning flat. It was originally used to describe a flat surface or a drawing of one, and later came to refer to an airplane.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
