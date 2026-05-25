@@ -1,0 +1,20 @@
+{
+  "date": "2026-05-25",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "chunk",
+  "end": "sheep",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "chunk",
+    "chuck",
+    "check",
+    "cheek",
+    "cheer",
+    "sheer",
+    "sheep"
+  ],
+  "difficulty_similarity": 0.2581210732460022,
+  "generated_by": "fallback"
+}
