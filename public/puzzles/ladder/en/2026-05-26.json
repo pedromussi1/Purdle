@@ -1,0 +1,20 @@
+{
+  "date": "2026-05-26",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "there",
+  "end": "shall",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "there",
+    "where",
+    "whore",
+    "shore",
+    "share",
+    "shale",
+    "shall"
+  ],
+  "difficulty_similarity": 0.28527015447616577,
+  "generated_by": "fallback"
+}
