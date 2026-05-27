@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-27",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "tract",
+  "end": "grade",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "tract",
+    "trace",
+    "grace",
+    "grade"
+  ],
+  "difficulty_similarity": 0.21250973641872406,
+  "generated_by": "fallback"
+}
