@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-27",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Doors",
+      "words": [
+        "slide",
+        "swing",
+        "pivot",
+        "revolve"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a Game",
+      "words": [
+        "board",
+        "piece",
+        "card",
+        "die"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things on a Keyboard",
+      "words": [
+        "shift",
+        "space",
+        "enter",
+        "escape"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with 'Hand'",
+      "words": [
+        "watch",
+        "shake",
+        "stand",
+        "wave"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
