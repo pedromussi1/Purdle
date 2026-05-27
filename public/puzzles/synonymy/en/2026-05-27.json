@@ -1,0 +1,22 @@
+{
+  "date": "2026-05-27",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trade",
+  "end": "couch",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "trade",
+    "deals",
+    "items",
+    "boxes",
+    "slots",
+    "seats",
+    "couch"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
