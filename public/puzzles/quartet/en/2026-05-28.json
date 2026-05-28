@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-28",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Parts of a Race",
+      "words": [
+        "start",
+        "middle",
+        "finish",
+        "lap"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things on a Stage",
+      "words": [
+        "curtain",
+        "spotlight",
+        "props",
+        "backdrop"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of Lights",
+      "words": [
+        "lamp",
+        "bulb",
+        "torch",
+        "lantern"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that Spark",
+      "words": [
+        "fire",
+        "flint",
+        "steel",
+        "lighter"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
