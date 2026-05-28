@@ -1,0 +1,21 @@
+{
+  "date": "2026-05-28",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "shaft",
+  "end": "cease",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "shaft",
+    "wheel",
+    "pedal",
+    "brake",
+    "stops",
+    "cease"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
