@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-28",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "grape",
+  "difficulty": 2,
+  "theme": "food",
+  "etymology": "The word 'grape' comes from the Old French word 'grape', which likely originated from a Germanic word meaning 'hook' or 'clasp'. This might refer to how grapes grow in bunches, clinging together.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
