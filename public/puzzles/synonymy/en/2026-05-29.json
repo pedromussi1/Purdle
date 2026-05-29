@@ -1,0 +1,23 @@
+{
+  "date": "2026-05-29",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "thank",
+  "end": "upset",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "thank",
+    "noted",
+    "known",
+    "knows",
+    "jokes",
+    "laugh",
+    "angry",
+    "upset"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
