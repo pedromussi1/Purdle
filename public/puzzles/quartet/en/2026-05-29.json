@@ -1,0 +1,49 @@
+{
+  "date": "2026-05-29",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Paint",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Kitchen Utensils",
+      "words": [
+        "fork",
+        "knife",
+        "spoon",
+        "whisk"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Found in a Garden",
+      "words": [
+        "soil",
+        "seed",
+        "plant",
+        "sprout"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Parts of a River",
+      "words": [
+        "bank",
+        "flow",
+        "mouth",
+        "current"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
