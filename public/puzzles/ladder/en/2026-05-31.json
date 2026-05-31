@@ -1,0 +1,17 @@
+{
+  "date": "2026-05-31",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "beach",
+  "end": "pence",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "beach",
+    "peach",
+    "peace",
+    "pence"
+  ],
+  "difficulty_similarity": 0.1848210245370865,
+  "generated_by": "fallback"
+}
