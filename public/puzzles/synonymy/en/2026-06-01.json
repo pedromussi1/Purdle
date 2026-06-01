@@ -1,0 +1,19 @@
+{
+  "date": "2026-06-01",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "condo",
+  "end": "hotel",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "condo",
+    "house",
+    "rooms",
+    "hotel"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
