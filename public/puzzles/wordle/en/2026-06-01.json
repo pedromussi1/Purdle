@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-01",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "smile",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "The word 'smile' comes from the Old English word 'sm\u012blian'. It likely originated from a word meaning 'to laugh' or 'to grin'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
