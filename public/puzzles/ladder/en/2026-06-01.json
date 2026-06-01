@@ -1,0 +1,18 @@
+{
+  "date": "2026-06-01",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "couch",
+  "end": "route",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "couch",
+    "cough",
+    "rough",
+    "rouge",
+    "route"
+  ],
+  "difficulty_similarity": 0.16899414360523224,
+  "generated_by": "fallback"
+}
