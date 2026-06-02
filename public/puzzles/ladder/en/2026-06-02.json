@@ -1,0 +1,18 @@
+{
+  "date": "2026-06-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "coach",
+  "end": "porch",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "coach",
+    "couch",
+    "touch",
+    "torch",
+    "porch"
+  ],
+  "difficulty_similarity": 0.20528988540172577,
+  "generated_by": "fallback"
+}
