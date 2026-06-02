@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "climb",
+  "difficulty": 2,
+  "theme": "action",
+  "etymology": "The word 'climb' has Old English roots, stemming from 'climban'. It's related to similar words in other Germanic languages that mean to ascend. The evolution of the word reflects the fundamental human action of moving upward.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
