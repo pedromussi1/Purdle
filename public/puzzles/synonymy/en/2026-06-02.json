@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-02",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "coach",
+  "end": "muddy",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "coach",
+    "agent",
+    "robot",
+    "rover",
+    "wheel",
+    "paved",
+    "muddy"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 3,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
