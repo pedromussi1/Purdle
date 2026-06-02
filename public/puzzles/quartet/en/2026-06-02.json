@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-02",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Clothing items",
+      "words": [
+        "shirt",
+        "pants",
+        "dress",
+        "skirt"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Actions with a ball",
+      "words": [
+        "throw",
+        "catch",
+        "kick",
+        "bounce"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that can be measured",
+      "words": [
+        "weight",
+        "length",
+        "speed",
+        "volume"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words with double meaning",
+      "words": [
+        "bank",
+        "bat",
+        "crane",
+        "watch"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
