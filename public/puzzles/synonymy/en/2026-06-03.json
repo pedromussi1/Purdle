@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-03",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "anger",
+  "end": "hopes",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "anger",
+    "hurts",
+    "cried",
+    "loved",
+    "hoped",
+    "hopes"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
