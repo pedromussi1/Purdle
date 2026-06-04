@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-04",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "penny",
+  "end": "sunny",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "penny",
+    "benny",
+    "bunny",
+    "sunny"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}
