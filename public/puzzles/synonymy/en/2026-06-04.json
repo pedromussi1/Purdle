@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-04",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "penny",
+  "end": "ready",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "penny",
+    "cents",
+    "value",
+    "price",
+    "trade",
+    "shiny",
+    "ready"
+  ],
+  "n_optimal_paths": 10,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
