@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-05",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sugar",
+  "difficulty": 2,
+  "theme": "food",
+  "etymology": "Sugar comes from the Sanskrit word 'sharkara,' meaning 'grit' or 'sand.' This refers to the early forms of granulated sugar that were produced.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
