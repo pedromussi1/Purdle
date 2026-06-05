@@ -1,0 +1,18 @@
+{
+  "date": "2026-06-05",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "ditch",
+  "end": "marsh",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "ditch",
+    "mitch",
+    "match",
+    "march",
+    "marsh"
+  ],
+  "difficulty_similarity": 0.2646290361881256,
+  "generated_by": "fallback"
+}
