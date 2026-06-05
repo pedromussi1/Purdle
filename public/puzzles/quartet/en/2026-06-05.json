@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-05",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "types of dance",
+      "words": [
+        "waltz",
+        "tango",
+        "ballet",
+        "salsa"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "things that grow",
+      "words": [
+        "plant",
+        "beard",
+        "mold",
+        "crystal"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "common greetings",
+      "words": [
+        "hello",
+        "hi",
+        "yo",
+        "howdy"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "parts of a wave",
+      "words": [
+        "crest",
+        "trough",
+        "face",
+        "break"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
