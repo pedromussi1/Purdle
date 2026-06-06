@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-06",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Fruit",
+      "words": [
+        "apple",
+        "banana",
+        "orange",
+        "grape"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things That Float",
+      "words": [
+        "boat",
+        "wood",
+        "cork",
+        "leaf"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Sources of Light",
+      "words": [
+        "sun",
+        "lamp",
+        "star",
+        "fire"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Onomatopoeia",
+      "words": [
+        "buzz",
+        "meow",
+        "woof",
+        "hiss"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
