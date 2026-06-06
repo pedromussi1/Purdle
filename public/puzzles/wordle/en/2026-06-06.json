@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-06",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "chair",
+  "difficulty": 2,
+  "theme": "furniture",
+  "etymology": "The word 'chair' comes from the Greek word 'kathedra', meaning 'seat'. It originally referred to a seat with a back and arms, but the meaning evolved over time to include simpler seats as well.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
