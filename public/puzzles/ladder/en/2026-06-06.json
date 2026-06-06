@@ -1,0 +1,18 @@
+{
+  "date": "2026-06-06",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "flank",
+  "end": "snack",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "flank",
+    "blank",
+    "black",
+    "slack",
+    "snack"
+  ],
+  "difficulty_similarity": null,
+  "generated_by": "fallback"
+}
