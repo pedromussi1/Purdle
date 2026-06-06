@@ -1,0 +1,23 @@
+{
+  "date": "2026-06-06",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "first",
+  "end": "cheek",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "first",
+    "began",
+    "stops",
+    "kills",
+    "eaten",
+    "taste",
+    "mouth",
+    "cheek"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
