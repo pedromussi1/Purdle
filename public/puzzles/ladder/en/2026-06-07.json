@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-07",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "flare",
+  "end": "blade",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "flare",
+    "flame",
+    "blame",
+    "blade"
+  ],
+  "difficulty_similarity": 0.3125499188899994,
+  "generated_by": "fallback"
+}
