@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-07",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "robot",
+  "difficulty": 3,
+  "theme": "technology",
+  "etymology": "The word 'robot' comes from the Czech word 'robota,' meaning forced labor or drudgery. It was first popularized in Karel \u010capek's 1920 play R.U.R. (Rossum's Universal Robots).",
+  "generated_by": "gemini-2.5-flash-lite"
+}
