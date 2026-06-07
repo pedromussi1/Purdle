@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-07",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Sweeteners",
+      "words": [
+        "sugar",
+        "honey",
+        "syrup",
+        "nectar"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Knots",
+      "words": [
+        "bow",
+        "knot",
+        "loop",
+        "hitch"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a Book",
+      "words": [
+        "spine",
+        "cover",
+        "pages",
+        "binding"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that can be _",
+      "words": [
+        "bent",
+        "broken",
+        "caught",
+        "held"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
