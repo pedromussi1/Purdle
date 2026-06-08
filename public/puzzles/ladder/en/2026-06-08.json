@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "decay",
+  "end": "relax",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "decay",
+    "delay",
+    "relay",
+    "relax"
+  ],
+  "difficulty_similarity": 0.1686602532863617,
+  "generated_by": "fallback"
+}
