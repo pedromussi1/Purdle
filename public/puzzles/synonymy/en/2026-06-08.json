@@ -1,0 +1,20 @@
+{
+  "date": "2026-06-08",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "ocean",
+  "end": "seeds",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "ocean",
+    "water",
+    "juice",
+    "fruit",
+    "seeds"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 4,
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
