@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-09",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sword",
+  "end": "tiger",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "sword",
+    "knife",
+    "flesh",
+    "penis",
+    "pussy",
+    "kitty",
+    "tiger"
+  ],
+  "n_optimal_paths": 11,
+  "min_layer_width": 3,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
