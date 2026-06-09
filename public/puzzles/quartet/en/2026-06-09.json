@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-09",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Geometric Shapes",
+      "words": [
+        "square",
+        "circle",
+        "triangle",
+        "oval"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Waves",
+      "words": [
+        "sound",
+        "water",
+        "light",
+        "heat"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Found in a Kitchen",
+      "words": [
+        "spoon",
+        "fork",
+        "knife",
+        "plate"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things That Have a Face",
+      "words": [
+        "clock",
+        "watch",
+        "building",
+        "mountain"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
