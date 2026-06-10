@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-10",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "organ",
+  "end": "later",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "organ",
+    "human",
+    "robot",
+    "motor",
+    "speed",
+    "delay",
+    "later"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
