@@ -1,0 +1,19 @@
+{
+  "date": "2026-06-11",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "prime",
+  "end": "trace",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "prime",
+    "price",
+    "prick",
+    "trick",
+    "track",
+    "trace"
+  ],
+  "difficulty_similarity": 0.21078462898731232,
+  "generated_by": "fallback"
+}
