@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-12",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "candy",
+  "end": "boxer",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "candy",
+    "handy",
+    "hands",
+    "bands",
+    "bonds",
+    "bones",
+    "boxes",
+    "boxer"
+  ],
+  "difficulty_similarity": 0.21757550537586212,
+  "generated_by": "fallback"
+}
