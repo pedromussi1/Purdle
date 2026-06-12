@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-12",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "crane",
+  "difficulty": 2,
+  "theme": "animal",
+  "etymology": "The word 'crane' comes from the Old English word 'cranuc'. It is believed to be an imitative word, mimicking the cry of the bird.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
