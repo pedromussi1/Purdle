@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-12",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Building Blocks",
+      "words": [
+        "brick",
+        "stone",
+        "wood",
+        "steel"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things to Fill",
+      "words": [
+        "jar",
+        "bag",
+        "box",
+        "can"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Units of Measurement",
+      "words": [
+        "inch",
+        "foot",
+        "yard",
+        "mile"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that can be bent",
+      "words": [
+        "wire",
+        "pipe",
+        "rod",
+        "bar"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
