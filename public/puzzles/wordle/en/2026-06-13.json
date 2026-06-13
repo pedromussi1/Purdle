@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-13",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "happy",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "The word 'happy' comes from the Middle English word 'hap', meaning 'luck' or 'chance'. It originally meant fortunate or lucky, but evolved to mean feeling or showing pleasure or contentment.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
