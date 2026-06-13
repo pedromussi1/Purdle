@@ -1,0 +1,20 @@
+{
+  "date": "2026-06-13",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "blast",
+  "end": "chose",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "blast",
+    "beast",
+    "least",
+    "lease",
+    "cease",
+    "chase",
+    "chose"
+  ],
+  "difficulty_similarity": 0.32736942172050476,
+  "generated_by": "fallback"
+}
