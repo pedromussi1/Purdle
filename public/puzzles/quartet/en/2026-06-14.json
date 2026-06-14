@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-14",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Primary colors",
+      "words": [
+        "red",
+        "blue",
+        "yellow",
+        "green"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Olympic events",
+      "words": [
+        "diving",
+        "fencing",
+        "rowing",
+        "boxing"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of bread",
+      "words": [
+        "rye",
+        "wheat",
+        "white",
+        "sourdough"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that have a tongue",
+      "words": [
+        "shoe",
+        "boot",
+        "fire",
+        "bell"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "fallback"
+}
