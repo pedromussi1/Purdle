@@ -1,0 +1,22 @@
+{
+  "date": "2026-06-14",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "truce",
+  "end": "error",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "truce",
+    "clash",
+    "smash",
+    "wreck",
+    "crash",
+    "fails",
+    "error"
+  ],
+  "n_optimal_paths": 7,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
