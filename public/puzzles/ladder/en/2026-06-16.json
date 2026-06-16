@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-16",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "surge",
+  "end": "pulse",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "surge",
+    "purge",
+    "purse",
+    "pulse"
+  ],
+  "difficulty_similarity": 0.51937335729599,
+  "generated_by": "fallback"
+}
