@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-16",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Parts of a Tree",
+      "words": [
+        "bark",
+        "root",
+        "branch",
+        "leaf"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things You Read",
+      "words": [
+        "poem",
+        "novel",
+        "story",
+        "letter"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that are Wet",
+      "words": [
+        "rain",
+        "sweat",
+        "tear",
+        "damp"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Opposites of Full",
+      "words": [
+        "bare",
+        "void",
+        "lean",
+        "scant"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
