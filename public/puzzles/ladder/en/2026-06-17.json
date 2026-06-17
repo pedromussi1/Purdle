@@ -1,0 +1,18 @@
+{
+  "date": "2026-06-17",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "miner",
+  "end": "rider",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "miner",
+    "liner",
+    "liver",
+    "river",
+    "rider"
+  ],
+  "difficulty_similarity": 0.32950523495674133,
+  "generated_by": "fallback"
+}
