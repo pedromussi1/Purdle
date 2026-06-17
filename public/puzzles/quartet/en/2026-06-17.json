@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-17",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Writing Implements",
+      "words": [
+        "pencil",
+        "pen",
+        "crayon",
+        "marker"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a Shoe",
+      "words": [
+        "sole",
+        "heel",
+        "tongue",
+        "lace"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that are Square",
+      "words": [
+        "box",
+        "frame",
+        "plot",
+        "tile"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Home Appliances",
+      "words": [
+        "oven",
+        "toaster",
+        "blender",
+        "fridge"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
