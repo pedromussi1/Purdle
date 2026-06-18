@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-18",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "badly",
+  "end": "jolly",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "badly",
+    "sadly",
+    "sally",
+    "silly",
+    "billy",
+    "belly",
+    "jelly",
+    "jolly"
+  ],
+  "difficulty_similarity": 0.192012757062912,
+  "generated_by": "fallback"
+}
