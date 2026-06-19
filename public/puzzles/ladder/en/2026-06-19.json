@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "focal",
+  "end": "royal",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "focal",
+    "local",
+    "loyal",
+    "royal"
+  ],
+  "difficulty_similarity": 0.22907927632331848,
+  "generated_by": "fallback"
+}
