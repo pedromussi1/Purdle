@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-19",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "flyer",
+  "end": "moose",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "flyer",
+    "rider",
+    "horse",
+    "snake",
+    "camel",
+    "moose"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
