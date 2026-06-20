@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-20",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Citrus fruits",
+      "words": [
+        "lemon",
+        "lime",
+        "orange",
+        "grapefruit"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that fly",
+      "words": [
+        "plane",
+        "kite",
+        "balloon",
+        "drone"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Synonyms of happy",
+      "words": [
+        "glad",
+        "merry",
+        "joyful",
+        "elated"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "___ pool",
+      "words": [
+        "car",
+        "dead",
+        "swimming",
+        "gene"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "fallback"
+}
