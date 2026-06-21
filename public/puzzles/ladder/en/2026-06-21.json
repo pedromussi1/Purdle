@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "skate",
+  "end": "booth",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "skate",
+    "state",
+    "stats",
+    "seats",
+    "beats",
+    "boats",
+    "boots",
+    "booth"
+  ],
+  "difficulty_similarity": 0.3027854561805725,
+  "generated_by": "fallback"
+}
