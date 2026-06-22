@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-22",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Body Parts",
+      "words": [
+        "head",
+        "hand",
+        "foot",
+        "arm"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that move",
+      "words": [
+        "walk",
+        "crawl",
+        "hop",
+        "skip"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of drinks",
+      "words": [
+        "tea",
+        "milk",
+        "water",
+        "juice"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words associated with money",
+      "words": [
+        "pay",
+        "cost",
+        "price",
+        "earn"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
