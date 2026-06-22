@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-22",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "audio",
+  "difficulty": 2,
+  "theme": "sound",
+  "etymology": "The word 'audio' comes from the Latin word 'audire', meaning 'to hear'. It refers to the sound that is transmitted, recorded, or reproduced.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
