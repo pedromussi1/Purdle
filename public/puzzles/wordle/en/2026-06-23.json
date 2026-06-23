@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-23",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "music",
+  "difficulty": 2,
+  "theme": "art",
+  "etymology": "The word 'music' comes from the Greek word 'mousike', which meant 'the art of the Muses'. The Muses were goddesses of inspiration in Greek mythology. So, music was originally seen as a divine art form.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
