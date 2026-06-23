@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-23",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of ships",
+      "words": [
+        "boat",
+        "canoe",
+        "yacht",
+        "liner"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with keys",
+      "words": [
+        "piano",
+        "lock",
+        "car",
+        "map"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Sounds a dog makes",
+      "words": [
+        "bark",
+        "whine",
+        "growl",
+        "howl"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Types of runs",
+      "words": [
+        "sprint",
+        "jog",
+        "dash",
+        "strike"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
