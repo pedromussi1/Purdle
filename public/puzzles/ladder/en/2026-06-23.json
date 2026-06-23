@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-23",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "paint",
+  "end": "sting",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "paint",
+    "saint",
+    "stint",
+    "sting"
+  ],
+  "difficulty_similarity": 0.2820448577404022,
+  "generated_by": "fallback"
+}
