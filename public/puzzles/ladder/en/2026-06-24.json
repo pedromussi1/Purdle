@@ -1,0 +1,19 @@
+{
+  "date": "2026-06-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "teach",
+  "end": "pinch",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "teach",
+    "beach",
+    "bench",
+    "bunch",
+    "punch",
+    "pinch"
+  ],
+  "difficulty_similarity": 0.2141621708869934,
+  "generated_by": "fallback"
+}
