@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-24",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "teeth",
+  "end": "slept",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "teeth",
+    "mouth",
+    "vocal",
+    "quiet",
+    "awake",
+    "slept"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 3,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
