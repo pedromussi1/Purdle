@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-25",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "apple",
+  "difficulty": 2,
+  "theme": "fruit",
+  "etymology": "The word 'apple' comes from the Proto-Germanic *aplaz, which may have been borrowed from an early Celtic word. It's one of the oldest and most recognizable words in the English language, appearing in ancient texts.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
