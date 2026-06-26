@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-26",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "slash",
+  "end": "grown",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "slash",
+    "clash",
+    "class",
+    "glass",
+    "grass",
+    "gross",
+    "grows",
+    "grown"
+  ],
+  "difficulty_similarity": 0.25837063789367676,
+  "generated_by": "fallback"
+}
