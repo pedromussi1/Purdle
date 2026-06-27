@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-27",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "mouse",
+  "difficulty": 2,
+  "theme": "animal",
+  "etymology": "The word 'mouse' comes from the Proto-Germanic word 'm\u016bsan', likely derived from an Indo-European root word meaning 'to steal'. This is thought to refer to the rodent's habit of pilfering food.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
