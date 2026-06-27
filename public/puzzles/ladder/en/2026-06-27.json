@@ -1,0 +1,20 @@
+{
+  "date": "2026-06-27",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "theme",
+  "end": "stone",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "theme",
+    "there",
+    "where",
+    "whore",
+    "shore",
+    "store",
+    "stone"
+  ],
+  "difficulty_similarity": 0.2701990306377411,
+  "generated_by": "fallback"
+}
