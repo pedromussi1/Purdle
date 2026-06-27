@@ -1,0 +1,21 @@
+{
+  "date": "2026-06-27",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "theme",
+  "end": "piano",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "theme",
+    "color",
+    "metal",
+    "bands",
+    "music",
+    "piano"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
