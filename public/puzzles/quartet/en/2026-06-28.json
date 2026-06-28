@@ -1,0 +1,49 @@
+{
+  "date": "2026-06-28",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Units of Time",
+      "words": [
+        "hour",
+        "week",
+        "month",
+        "year"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a Play",
+      "words": [
+        "scene",
+        "act",
+        "cast",
+        "stage"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words related to Writing",
+      "words": [
+        "pen",
+        "ink",
+        "paper",
+        "story"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things with a 'face'",
+      "words": [
+        "clock",
+        "mountain",
+        "watch",
+        "building"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
