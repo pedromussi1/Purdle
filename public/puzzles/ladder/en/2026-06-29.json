@@ -1,0 +1,19 @@
+{
+  "date": "2026-06-29",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stack",
+  "end": "brick",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "stack",
+    "slack",
+    "black",
+    "block",
+    "brock",
+    "brick"
+  ],
+  "difficulty_similarity": 0.28943106532096863,
+  "generated_by": "fallback"
+}
