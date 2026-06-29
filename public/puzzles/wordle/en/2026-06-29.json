@@ -1,0 +1,11 @@
+{
+  "date": "2026-06-29",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "grape",
+  "difficulty": 2,
+  "theme": "fruit",
+  "etymology": "The word 'grape' comes from the Old French word 'grape', meaning 'a cluster of grapes'. The English word 'grape' first appeared in the 14th century. The scientific name for the grape is Vitis vinifera.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
