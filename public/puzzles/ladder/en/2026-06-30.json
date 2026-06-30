@@ -1,0 +1,17 @@
+{
+  "date": "2026-06-30",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trick",
+  "end": "thank",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "trick",
+    "thick",
+    "think",
+    "thank"
+  ],
+  "difficulty_similarity": 0.2786696255207062,
+  "generated_by": "fallback"
+}
