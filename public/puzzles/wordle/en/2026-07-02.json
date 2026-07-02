@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "light",
+  "difficulty": null,
+  "theme": null,
+  "etymology": null,
+  "generated_by": "fallback"
+}
