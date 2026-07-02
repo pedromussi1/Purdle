@@ -1,0 +1,17 @@
+{
+  "date": "2026-07-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "value",
+  "end": "rogue",
+  "optimal_steps": 3,
+  "optimal_path": [
+    "value",
+    "vague",
+    "vogue",
+    "rogue"
+  ],
+  "difficulty_similarity": 0.2171057164669037,
+  "generated_by": "fallback"
+}
