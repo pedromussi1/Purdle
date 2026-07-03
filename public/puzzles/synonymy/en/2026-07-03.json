@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-03",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "swept",
+  "end": "woven",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "swept",
+    "sweep",
+    "clean",
+    "cloth",
+    "woven"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
