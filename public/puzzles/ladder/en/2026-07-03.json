@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-03",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "swept",
+  "end": "steak",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "swept",
+    "sweat",
+    "swear",
+    "spear",
+    "speak",
+    "steak"
+  ],
+  "difficulty_similarity": 0.18338225781917572,
+  "generated_by": "fallback"
+}
