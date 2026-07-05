@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-05",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "brake",
+  "end": "prone",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "brake",
+    "brave",
+    "grave",
+    "grove",
+    "prove",
+    "prone"
+  ],
+  "difficulty_similarity": 0.24699483811855316,
+  "generated_by": "fallback"
+}
