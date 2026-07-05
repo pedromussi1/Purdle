@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-05",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "brake",
+  "end": "knife",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "brake",
+    "break",
+    "split",
+    "slice",
+    "knife"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 4,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
