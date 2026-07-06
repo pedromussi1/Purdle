@@ -36,6 +36,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from wordfilter import is_blocked  # noqa: E402  proper-noun/offensive filter
+from gemini_retry import generate_json  # noqa: E402  Gemini call w/ backoff
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
@@ -318,19 +319,8 @@ def call_gemini(
         recent_pairs=pairs_str,
         rejection_history=rejection_block,
     )
-    try:
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                temperature=1.0,
-            ),
-        )
-        return json.loads(response.text)
-    except Exception as e:
-        log(f"Gemini call failed: {e}", level="warn")
-        return None
+    return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
+                         temperature=1.0, log=log)
 
 
 def validate_pair(
