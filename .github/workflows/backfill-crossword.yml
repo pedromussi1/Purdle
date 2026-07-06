@@ -1,0 +1,69 @@
+name: Backfill crossword
+
+# One-off manual backfill for the 2026-05-26 .. present gap left by the
+# solver-deadlock bug. Generates every missing date in chronological order
+# (so novelty stays coherent) with real Gemini clues, then commits once.
+# Safe to re-run: generate_crossword.py skips dates that already exist.
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "First date to backfill (YYYY-MM-DD)"
+        required: true
+      end:
+        description: "Last date, inclusive (YYYY-MM-DD); blank = today UTC"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Backfill missing puzzles
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -euo pipefail
+          start="${{ github.event.inputs.start }}"
+          end="${{ github.event.inputs.end }}"
+          if [ -z "$end" ]; then end="$(date -u +%F)"; fi
+          stop="$(date -u -d "$end + 1 day" +%F)"
+          d="$start"
+          while [ "$d" != "$stop" ]; do
+            echo "::group::$d"
+            python scripts/generate_crossword.py --date "$d" || echo "generation failed for $d (continuing)"
+            echo "::endgroup::"
+            d="$(date -u -d "$d + 1 day" +%F)"
+          done
+
+      - name: Commit puzzles
+        run: |
+          git config user.name "purdle-bot"
+          git config user.email "actions@github.com"
+          git add public/puzzles/crossword/
+          if git diff --staged --quiet; then
+            echo "No new puzzle files to commit."
+          else
+            count=$(git diff --staged --name-only -- 'public/puzzles/crossword/en/*.json' | grep -cE '[0-9]{4}-[0-9]{2}-[0-9]{2}\.json$' || true)
+            git commit -m "crossword: backfill ${count} missing puzzles"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "push attempt $i failed; retrying after 5s"
+              sleep 5
+            done
+          fi
