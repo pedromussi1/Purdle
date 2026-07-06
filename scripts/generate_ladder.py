@@ -50,15 +50,16 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gemini_retry import generate_json  # noqa: E402  Gemini call w/ backoff
+from wordfilter import is_blocked  # noqa: E402  proper-noun/offensive filter
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
 WORD_LENGTH = 5
-MIN_STEPS = 3   # too easy below this
+MIN_STEPS = 4   # too easy below this (3-step ladders are near-trivial slides)
 MAX_STEPS = 7   # too tedious above this
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
-NOVELTY_LOOKBACK_DAYS = 30
+NOVELTY_LOOKBACK_DAYS = 60
 
 ANSWER_LIST_PATH = ROOT / "scripts" / "answer_list.txt"
 DICT_PATH = ROOT / "public" / "words" / "valid-guesses.txt"
@@ -165,7 +166,10 @@ def common_words(dictionary: set[str], lang: str, threshold: float = 3.5) -> set
         log("wordfreq not installed; using full dictionary for BFS", level="warn")
         _common_set_cache = dictionary
         return _common_set_cache
-    common = {w for w in dictionary if zipf_frequency(w, lang) >= threshold}
+    common = {
+        w for w in dictionary
+        if zipf_frequency(w, lang) >= threshold and not is_blocked(w)
+    }
     log(f"filtered to {len(common)} common words (Zipf ≥ {threshold})")
     _common_set_cache = common
     return common
@@ -338,7 +342,7 @@ def fallback_pair(date: str, answers: list[str], graph: dict[str, list[str]],
     n = len(answers)
     # Restrict to answer-list words that ARE in the graph. With the
     # common-words filter, this drops a few obscure answer-list entries.
-    candidates = [w for w in answers if w in graph]
+    candidates = [w for w in answers if w in graph and not is_blocked(w)]
     if not candidates:
         sys.exit("no answer-list words in graph — dictionary mismatch?")
     cn = len(candidates)

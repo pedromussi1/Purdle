@@ -52,7 +52,7 @@ MIN_OPTIMAL_PATHS = 3
 MIN_LAYER_WIDTH = 2
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
-NOVELTY_LOOKBACK_DAYS = 30
+NOVELTY_LOOKBACK_DAYS = 60
 
 GRAPH_PATH = ROOT / "public" / "words" / "synonymy-graph.json"
 ANSWER_LIST_PATH = ROOT / "scripts" / "answer_list.txt"

@@ -28,11 +28,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gemini_retry import generate_json  # noqa: E402  Gemini call w/ backoff
+from wordfilter import is_blocked  # noqa: E402  proper-noun/offensive filter
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
 WORD_LENGTH = 5
-NOVELTY_LOOKBACK_DAYS = 30
+NOVELTY_LOOKBACK_DAYS = 60
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
 
@@ -198,6 +199,11 @@ def deterministic_pick(date: str, candidates: list[str], recent: set[str]) -> st
 def fallback_puzzle(args: Args, answers: list[str], recent: set[str]) -> dict:
     backup = load_backup_list()
     pool = backup if backup else answers
+    # Apply the same quality gates the Gemini path uses so the fallback can't
+    # ship an obscure or blocklisted word ('haste' 3.37 slipped through before).
+    gated = [w for w in pool if is_common(w, args.lang) and not is_blocked(w)]
+    if gated:
+        pool = gated
     word = deterministic_pick(args.date, pool, recent)
     return {
         "solution": word,
@@ -247,6 +253,8 @@ def _validate_candidate(word: str, lang: str, answers: set[str], recent: set[str
         return "not in curated answer list"
     if is_profane(word):
         return "flagged by profanity filter"
+    if is_blocked(word):
+        return "blocklisted proper noun / offensive term"
     if not is_common(word, lang):
         return "Zipf frequency below 3.5 (too obscure)"
     return None

@@ -231,16 +231,24 @@ def load_words_by_length() -> dict[int, list[tuple[str, float]]]:
             continue
         buckets[n].append((w, z))
 
-    # Override the 5-letter bucket with the curated Wordle list. Annotate
-    # each word with its Zipf for solver ordering (frequent words first).
+    # Override the 5-letter bucket with the curated Wordle list, but still
+    # apply the per-length Zipf floor — the Wordle answer set is chosen for
+    # *guessability*, not corpus frequency, so ~half its words fall below 3.5
+    # (abase 1.56, corer 1.58, thrum 1.97, egret 2.32, …). Without this floor
+    # those obscure fills leak into a "mini" that's supposed to use common
+    # words. ~1,150 words remain — ample for a 5×5.
     if WORDLE_5LETTER_PATH.exists():
+        floor = MIN_ZIPF_BY_LEN.get(5, 3.5)
         wordle_words = [
             w.strip().lower()
             for w in WORDLE_5LETTER_PATH.read_text(encoding="utf-8").splitlines()
             if len(w.strip()) == 5 and w.strip().isalpha()
         ]
-        wordle_words = [w for w in wordle_words if w not in BLOCKLIST and has_vowel(w)]
-        buckets[5] = [(w, zipf_frequency(w, "en")) for w in wordle_words]
+        buckets[5] = [
+            (w, z) for w in wordle_words
+            if w not in BLOCKLIST and has_vowel(w)
+            and (z := zipf_frequency(w, "en")) >= floor
+        ]
 
     for n in buckets:
         buckets[n].sort(key=lambda t: -t[1])

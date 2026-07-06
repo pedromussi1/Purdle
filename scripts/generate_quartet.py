@@ -39,6 +39,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gemini_retry import generate_json  # noqa: E402  Gemini call w/ backoff
+from wordfilter import is_blocked  # noqa: E402  proper-noun/offensive filter
 
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
@@ -47,7 +48,7 @@ WORDS_PER_GROUP = 4
 TOTAL_WORDS = GROUP_COUNT * WORDS_PER_GROUP
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
-NOVELTY_LOOKBACK_DAYS = 30
+NOVELTY_LOOKBACK_DAYS = 60
 
 BACKUP_PATH = ROOT / "scripts" / "quartet_backup.json"
 
@@ -289,6 +290,8 @@ def validate_puzzle(
                 return f"word {wl!r} appears in more than one group"
             if is_profane(wl):
                 return f"word {wl!r} flagged as profanity"
+            if is_blocked(wl):
+                return f"word {wl!r} is a blocklisted proper noun / offensive term"
             if not is_common(wl, lang):
                 return f"word {wl!r} too obscure (Zipf < 3.0)"
             seen_words.add(wl)
