@@ -1,0 +1,63 @@
+name: Reclue crossword
+
+# One-off manual pass to replace stock "N-letter word" placeholder clues
+# (left behind when a burst backfill exhausted the Gemini rate limit) with
+# real clues. Preserves grids and existing good clues. Idempotent and paced.
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "First date YYYY-MM-DD (blank = earliest)"
+        required: false
+        default: ""
+      end:
+        description: "Last date YYYY-MM-DD (blank = today UTC)"
+        required: false
+        default: ""
+      pace:
+        description: "Seconds between Gemini calls (rate-limit pacing)"
+        required: false
+        default: "4"
+
+permissions:
+  contents: write
+
+jobs:
+  reclue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Gemini client
+        run: pip install google-genai
+
+      - name: Regenerate placeholder clues
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -euo pipefail
+          ARGS="--pace ${{ github.event.inputs.pace }}"
+          if [ -n "${{ github.event.inputs.start }}" ]; then ARGS="$ARGS --start ${{ github.event.inputs.start }}"; fi
+          if [ -n "${{ github.event.inputs.end }}" ]; then ARGS="$ARGS --end ${{ github.event.inputs.end }}"; fi
+          python scripts/reclue_crossword.py $ARGS
+
+      - name: Commit reclued puzzles
+        run: |
+          git config user.name "purdle-bot"
+          git config user.email "actions@github.com"
+          git add public/puzzles/crossword/
+          if git diff --staged --quiet; then
+            echo "No clue changes to commit."
+          else
+            git commit -m "crossword: regenerate placeholder clues"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              echo "push attempt $i failed; retrying after 5s"
+              sleep 5
+            done
+          fi

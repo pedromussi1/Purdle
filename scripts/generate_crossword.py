@@ -32,6 +32,7 @@ import os
 import random
 import re
 import sys
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -393,6 +394,12 @@ Return STRICT JSON, no prose, no markdown:
 """
 
 
+# Retry budget per word. The first few retries ride out transient rate-limit
+# (429) errors with exponential backoff — important when many words are
+# clued in a burst (e.g. a backfill run) and the free-tier RPM is exceeded.
+GEMINI_MAX_ATTEMPTS = 6
+
+
 def call_gemini_clue(word: str) -> str | None:
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
@@ -404,26 +411,32 @@ def call_gemini_clue(word: str) -> str | None:
         return None
     client = genai.Client(api_key=api_key)
     prompt = GEMINI_PROMPT.format(word=word)
-    try:
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                temperature=0.9,
-            ),
-        )
-        data = json.loads(response.text)
-        clue = (data.get("clue") or "").strip()
-        if not clue:
-            return None
-        # Reject clues that contain the word itself (case-insensitive).
-        if word.lower() in clue.lower():
-            return None
-        return clue
-    except Exception as e:
-        log(f"Gemini clue for {word!r} failed: {e}", level="warn")
-        return None
+    for attempt in range(GEMINI_MAX_ATTEMPTS):
+        try:
+            response = client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.9,
+                ),
+            )
+            data = json.loads(response.text)
+            clue = (data.get("clue") or "").strip()
+            # A clue that's empty or contains the word itself is unusable;
+            # resample (temperature is high, so a retry often differs).
+            if clue and word.lower() not in clue.lower():
+                return clue
+            time.sleep(0.5)
+        except Exception as e:
+            # Almost always a transient rate-limit / network blip. Back off
+            # exponentially (1, 2, 4, 8, 16s) and retry; give up after the
+            # last attempt and let the caller fall back to a stock hint.
+            if attempt == GEMINI_MAX_ATTEMPTS - 1:
+                log(f"Gemini clue for {word!r} failed after {GEMINI_MAX_ATTEMPTS} attempts: {e}", level="warn")
+                return None
+            time.sleep(2 ** attempt)
+    return None
 
 
 def fallback_clue(word: str, length: int) -> str:
