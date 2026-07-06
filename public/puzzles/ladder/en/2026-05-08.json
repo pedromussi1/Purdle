@@ -3,19 +3,17 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "flume",
-  "end": "bitty",
-  "optimal_steps": 7,
+  "start": "slick",
+  "end": "store",
+  "optimal_steps": 5,
   "optimal_path": [
-    "flume",
-    "plume",
-    "plute",
-    "pluty",
-    "pouty",
-    "potty",
-    "botty",
-    "bitty"
+    "slick",
+    "stick",
+    "stack",
+    "stark",
+    "stare",
+    "store"
   ],
-  "difficulty_similarity": null,
+  "difficulty_similarity": 0.18981444835662842,
   "generated_by": "fallback"
 }

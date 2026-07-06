@@ -3,19 +3,16 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "cabal",
-  "end": "hardy",
-  "optimal_steps": 7,
+  "start": "price",
+  "end": "tribe",
+  "optimal_steps": 4,
   "optimal_path": [
-    "cabal",
-    "cabas",
-    "babas",
-    "balas",
-    "balds",
-    "bards",
-    "hards",
-    "hardy"
+    "price",
+    "pride",
+    "bride",
+    "bribe",
+    "tribe"
   ],
-  "difficulty_similarity": null,
+  "difficulty_similarity": 0.17669068276882172,
   "generated_by": "fallback"
 }

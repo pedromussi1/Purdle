@@ -3,19 +3,17 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "limbo",
-  "end": "fiend",
-  "optimal_steps": 7,
+  "start": "ditch",
+  "end": "harsh",
+  "optimal_steps": 5,
   "optimal_path": [
-    "limbo",
-    "limbs",
-    "limns",
-    "liens",
-    "siens",
-    "sient",
-    "fient",
-    "fiend"
+    "ditch",
+    "mitch",
+    "match",
+    "march",
+    "marsh",
+    "harsh"
   ],
-  "difficulty_similarity": null,
+  "difficulty_similarity": 0.28305038809776306,
   "generated_by": "fallback"
 }

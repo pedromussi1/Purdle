@@ -3,17 +3,17 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "guild",
-  "end": "brine",
+  "start": "click",
+  "end": "creed",
   "optimal_steps": 5,
   "optimal_path": [
-    "guild",
-    "guile",
-    "guide",
-    "gride",
-    "bride",
-    "brine"
+    "click",
+    "chick",
+    "check",
+    "cheek",
+    "creek",
+    "creed"
   ],
-  "difficulty_similarity": null,
+  "difficulty_similarity": 0.16829389333724976,
   "generated_by": "fallback"
 }

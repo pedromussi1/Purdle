@@ -3,19 +3,19 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "aping",
-  "end": "elope",
+  "start": "ready",
+  "end": "start",
   "optimal_steps": 7,
   "optimal_path": [
-    "aping",
-    "awing",
-    "swing",
-    "swine",
-    "swipe",
-    "slipe",
-    "slope",
-    "elope"
+    "ready",
+    "reads",
+    "beads",
+    "beats",
+    "seats",
+    "stats",
+    "stars",
+    "start"
   ],
-  "difficulty_similarity": null,
+  "difficulty_similarity": 0.3752560019493103,
   "generated_by": "fallback"
 }
