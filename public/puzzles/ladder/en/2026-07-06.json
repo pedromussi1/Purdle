@@ -1,0 +1,18 @@
+{
+  "date": "2026-07-06",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "chose",
+  "end": "shale",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "chose",
+    "whose",
+    "whole",
+    "whale",
+    "shale"
+  ],
+  "difficulty_similarity": 0.17968527972698212,
+  "generated_by": "fallback"
+}
