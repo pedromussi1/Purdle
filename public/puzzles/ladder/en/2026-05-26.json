@@ -3,18 +3,19 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "there",
-  "end": "shall",
-  "optimal_steps": 6,
+  "start": "cheat",
+  "end": "slash",
+  "optimal_steps": 7,
   "optimal_path": [
-    "there",
-    "where",
-    "whore",
-    "shore",
-    "share",
-    "shale",
-    "shall"
+    "cheat",
+    "chest",
+    "crest",
+    "crust",
+    "crush",
+    "crash",
+    "clash",
+    "slash"
   ],
-  "difficulty_similarity": 0.28527015447616577,
+  "difficulty_similarity": 0.3448435068130493,
   "generated_by": "fallback"
 }

@@ -3,19 +3,17 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "badly",
-  "end": "jolly",
-  "optimal_steps": 7,
+  "start": "spine",
+  "end": "stark",
+  "optimal_steps": 5,
   "optimal_path": [
-    "badly",
-    "sadly",
-    "sally",
-    "silly",
-    "billy",
-    "belly",
-    "jelly",
-    "jolly"
+    "spine",
+    "spice",
+    "space",
+    "spare",
+    "stare",
+    "stark"
   ],
-  "difficulty_similarity": 0.192012757062912,
+  "difficulty_similarity": 0.280464768409729,
   "generated_by": "fallback"
 }

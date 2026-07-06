@@ -3,17 +3,17 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "sword",
-  "end": "there",
+  "start": "shape",
+  "end": "chose",
   "optimal_steps": 5,
   "optimal_path": [
-    "sword",
-    "swore",
-    "shore",
-    "whore",
-    "where",
-    "there"
+    "shape",
+    "shale",
+    "whale",
+    "whole",
+    "whose",
+    "chose"
   ],
-  "difficulty_similarity": 0.25599566102027893,
+  "difficulty_similarity": 0.295853853225708,
   "generated_by": "fallback"
 }

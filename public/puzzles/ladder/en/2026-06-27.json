@@ -3,18 +3,16 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "theme",
-  "end": "stone",
-  "optimal_steps": 6,
+  "start": "hurry",
+  "end": "mercy",
+  "optimal_steps": 4,
   "optimal_path": [
-    "theme",
-    "there",
-    "where",
-    "whore",
-    "shore",
-    "store",
-    "stone"
+    "hurry",
+    "furry",
+    "ferry",
+    "merry",
+    "mercy"
   ],
-  "difficulty_similarity": 0.2701990306377411,
+  "difficulty_similarity": 0.18732738494873047,
   "generated_by": "fallback"
 }

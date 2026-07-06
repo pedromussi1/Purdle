@@ -3,17 +3,19 @@
   "game": "ladder",
   "lang": "en",
   "schema_version": 1,
-  "start": "prime",
-  "end": "trace",
-  "optimal_steps": 5,
+  "start": "woody",
+  "end": "ready",
+  "optimal_steps": 7,
   "optimal_path": [
-    "prime",
-    "price",
-    "prick",
-    "trick",
-    "track",
-    "trace"
+    "woody",
+    "woods",
+    "words",
+    "lords",
+    "loads",
+    "roads",
+    "reads",
+    "ready"
   ],
-  "difficulty_similarity": 0.21078462898731232,
+  "difficulty_similarity": 0.1465291678905487,
   "generated_by": "fallback"
 }
