@@ -49,6 +49,12 @@ TOTAL_WORDS = GROUP_COUNT * WORDS_PER_GROUP
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
 NOVELTY_LOOKBACK_DAYS = 60
+# Gemini's free-tier quota is ~20 requests/DAY across all five games, so we ask
+# for a batch of candidate puzzles in one call and validate locally instead of
+# one request per candidate. Puzzles are large, so the batch is small; at most
+# GEMINI_BATCH_CALLS requests per day.
+GEMINI_BATCH_SIZE = 4
+GEMINI_BATCH_CALLS = 2
 
 BACKUP_PATH = ROOT / "scripts" / "quartet_backup.json"
 
@@ -210,13 +216,16 @@ Across the puzzle:
 - Recent puzzle themes to AVOID: {recent_themes}
 {extra_feedback}
 
-Output schema:
+Propose {batch_size} DIFFERENT candidate puzzles (distinct themes across all of
+them) so we can pick one that passes our checks. Output schema:
 {{
-  "groups": [
-    {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 1 }},
-    {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 2 }},
-    {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 3 }},
-    {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 4 }}
+  "puzzles": [
+    {{ "groups": [
+      {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 1 }},
+      {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 2 }},
+      {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 3 }},
+      {{ "theme": "<short label>", "words": ["w1","w2","w3","w4"], "tier": 4 }}
+    ] }}
   ]
 }}
 """
@@ -238,6 +247,7 @@ def call_gemini(*, recent_themes: list[str], extra_feedback: str = "") -> dict |
     prompt = GEMINI_PROMPT.format(
         recent_themes=recent_themes[-30:] if recent_themes else "(none)",
         extra_feedback=("\n- " + extra_feedback) if extra_feedback else "",
+        batch_size=GEMINI_BATCH_SIZE,
     )
     return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
                          temperature=1.0, log=log)
@@ -314,30 +324,35 @@ def attempt_gemini(args: Args, recent_puzzles: list[dict]) -> dict | None:
     recent_themes_set = {t.lower() for t in recent_themes}
 
     feedback = ""
-    for attempt in range(5):
-        payload = call_gemini(
+    rejections: list[str] = []
+    for batch in range(GEMINI_BATCH_CALLS):
+        result = call_gemini(
             recent_themes=recent_themes,
             extra_feedback=feedback,
         )
-        if payload is None:
+        if result is None:
             return None  # API key missing or library unavailable
-
-        rejection = validate_puzzle(
-            payload, lang=args.lang, recent_themes_set=recent_themes_set
-        )
-        if rejection is None:
-            cluster_reject = validate_clustering(payload["groups"])
-            if cluster_reject is not None:
-                rejection = cluster_reject
-
-        if rejection is None:
-            payload["generated_by"] = GEMINI_MODEL
-            log(f"attempt {attempt + 1}: accepted", level="ok")
-            return payload
-
-        log(f"attempt {attempt + 1}: rejected — {rejection}", level="warn")
+        candidates = result.get("puzzles") if isinstance(result, dict) else None
+        if not candidates:
+            log(f"batch {batch + 1}: no candidates returned", level="warn")
+            continue
+        for cand in candidates:
+            if not isinstance(cand, dict) or not isinstance(cand.get("groups"), list):
+                continue
+            rejection = validate_puzzle(
+                cand, lang=args.lang, recent_themes_set=recent_themes_set
+            )
+            if rejection is None:
+                rejection = validate_clustering(cand["groups"])
+            if rejection is None:
+                cand["generated_by"] = GEMINI_MODEL
+                log(f"batch {batch + 1}: accepted", level="ok")
+                return cand
+            rejections.append(rejection)
+        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
         feedback = (
-            f"Your previous attempt was rejected: {rejection}. Generate a different puzzle."
+            "Previous candidates were all rejected, e.g.: "
+            + "; ".join(rejections[-4:]) + ". Generate different puzzles."
         )
 
     return None

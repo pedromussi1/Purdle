@@ -43,7 +43,11 @@ SCHEMA_VERSION = 1
 WORD_LENGTH = 5
 MIN_STEPS = 3
 MAX_STEPS = 7
-GEMINI_MAX_ATTEMPTS = 8
+# Gemini's free-tier quota is ~20 requests/DAY shared across all five games, so
+# we ask for a BATCH of candidate pairs in one call and validate locally, rather
+# than one request per candidate. At most GEMINI_BATCH_CALLS requests per day.
+GEMINI_BATCH_SIZE = 12
+GEMINI_BATCH_CALLS = 2
 GEMINI_VOCAB_SAMPLE = 50
 # Path-diversity gates: reject pairs whose start→end optimal subgraph has
 # a single chokepoint or only one chain (KNOCK→RANCH 2026-05-08 was the
@@ -277,11 +281,12 @@ CRITICAL CONSTRAINTS — your suggestion will be REJECTED if any are violated:
 Avoid these recently used pairs: {recent_pairs}
 {rejection_history}
 
-Return STRICT JSON, no prose, no markdown:
+Propose {batch_size} DIFFERENT candidate pairs (varied journeys) so we can pick
+one that fits our synonym graph. Return STRICT JSON, no prose, no markdown:
 {{
-  "start": "<EXACTLY 5 lowercase letters>",
-  "end": "<EXACTLY 5 lowercase letters>",
-  "rationale": "<one short sentence on the semantic journey>"
+  "pairs": [
+    {{"start": "<EXACTLY 5 lowercase letters>", "end": "<EXACTLY 5 lowercase letters>", "rationale": "<one short sentence>"}}
+  ]
 }}
 """
 
@@ -318,6 +323,7 @@ def call_gemini(
         sample_words=sample_str,
         recent_pairs=pairs_str,
         rejection_history=rejection_block,
+        batch_size=GEMINI_BATCH_SIZE,
     )
     return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
                          temperature=1.0, log=log)
@@ -368,7 +374,7 @@ def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[st
     pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
     sample_words = random.sample(graph.words, min(GEMINI_VOCAB_SAMPLE, len(graph.words)))
     rejection_history: list[str] = []
-    for attempt in range(GEMINI_MAX_ATTEMPTS):
+    for batch in range(GEMINI_BATCH_CALLS):
         result = call_gemini(
             recent_pairs=pairs_for_prompt,
             sample_words=sample_words,
@@ -376,19 +382,26 @@ def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[st
         )
         if result is None:
             return None
-        start = (result.get("start") or "").lower().strip()
-        end = (result.get("end") or "").lower().strip()
-        rejection, stats = validate_pair(start, end, graph, recent_pairs=recent_pairs)
-        if rejection is None and stats is not None:
-            log(
-                f"attempt {attempt + 1}: accepted ({start} → {end}, "
-                f"{stats.length} steps, {stats.n_optimal_paths} paths, "
-                f"min layer {stats.min_layer_width})",
-                level="ok",
-            )
-            return start, end, stats
-        log(f"attempt {attempt + 1}: rejected — {rejection}", level="warn")
-        rejection_history.append(f"({start!r}, {end!r}) → {rejection}")
+        candidates = result.get("pairs") if isinstance(result, dict) else None
+        if not candidates:
+            log(f"batch {batch + 1}: no candidates returned", level="warn")
+            continue
+        for cand in candidates:
+            if not isinstance(cand, dict):
+                continue
+            start = (cand.get("start") or "").lower().strip()
+            end = (cand.get("end") or "").lower().strip()
+            rejection, stats = validate_pair(start, end, graph, recent_pairs=recent_pairs)
+            if rejection is None and stats is not None:
+                log(
+                    f"batch {batch + 1}: accepted ({start} → {end}, "
+                    f"{stats.length} steps, {stats.n_optimal_paths} paths, "
+                    f"min layer {stats.min_layer_width})",
+                    level="ok",
+                )
+                return start, end, stats
+            rejection_history.append(f"({start!r}, {end!r}) → {rejection}")
+        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
     return None
 
 

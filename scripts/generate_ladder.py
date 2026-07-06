@@ -60,6 +60,11 @@ MAX_STEPS = 7   # too tedious above this
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
 NOVELTY_LOOKBACK_DAYS = 60
+# Gemini's free-tier quota is ~20 requests/DAY across all five games, so we ask
+# for a batch of candidate pairs in one call and validate locally instead of one
+# request per candidate. At most GEMINI_BATCH_CALLS requests per day.
+GEMINI_BATCH_SIZE = 12
+GEMINI_BATCH_CALLS = 2
 
 ANSWER_LIST_PATH = ROOT / "scripts" / "answer_list.txt"
 DICT_PATH = ROOT / "public" / "words" / "valid-guesses.txt"
@@ -265,11 +270,12 @@ Constraints:
 - Avoid pairs you've recently suggested: {recent_pairs}
 {extra_feedback}
 
-Return STRICT JSON, no prose, no markdown:
+Propose {batch_size} DIFFERENT candidate pairs (varied themes) so we can pick
+one that's a good ladder. Return STRICT JSON, no prose, no markdown:
 {{
-  "start": "<5 lowercase letters>",
-  "end": "<5 lowercase letters>",
-  "rationale": "<one short sentence on why this pair is interesting>"
+  "pairs": [
+    {{"start": "<5 lowercase letters>", "end": "<5 lowercase letters>", "rationale": "<one short sentence>"}}
+  ]
 }}
 """
 
@@ -291,6 +297,7 @@ def call_gemini(*, recent_pairs: list[tuple[str, str]], extra_feedback: str = ""
     prompt = GEMINI_PROMPT.format(
         recent_pairs=pairs_str,
         extra_feedback=("\n- " + extra_feedback) if extra_feedback else "",
+        batch_size=GEMINI_BATCH_SIZE,
     )
     return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
                          temperature=1.0, log=log)
@@ -374,20 +381,29 @@ def attempt_gemini(args: Args, graph: dict[str, list[str]],
                    recent_pairs: set[tuple[str, str]]) -> tuple[str, str, list[str]] | None:
     feedback = ""
     pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
-    for attempt in range(5):
+    rejections: list[str] = []
+    for batch in range(GEMINI_BATCH_CALLS):
         result = call_gemini(recent_pairs=pairs_for_prompt, extra_feedback=feedback)
         if result is None:
             return None
-        start = (result.get("start") or "").lower().strip()
-        end = (result.get("end") or "").lower().strip()
-        rejection, path = validate_pair(start, end, graph, recent_pairs=recent_pairs)
-        if rejection is None and path is not None:
-            log(f"attempt {attempt + 1}: accepted ({start} → {end}, {len(path) - 1} steps)", level="ok")
-            return start, end, path
-        log(f"attempt {attempt + 1}: rejected — {rejection}", level="warn")
+        candidates = result.get("pairs") if isinstance(result, dict) else None
+        if not candidates:
+            log(f"batch {batch + 1}: no candidates returned", level="warn")
+            continue
+        for cand in candidates:
+            if not isinstance(cand, dict):
+                continue
+            start = (cand.get("start") or "").lower().strip()
+            end = (cand.get("end") or "").lower().strip()
+            rejection, path = validate_pair(start, end, graph, recent_pairs=recent_pairs)
+            if rejection is None and path is not None:
+                log(f"batch {batch + 1}: accepted ({start} → {end}, {len(path) - 1} steps)", level="ok")
+                return start, end, path
+            rejections.append(f"({start!r}/{end!r}) {rejection}")
+        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
         feedback = (
-            f"Your previous suggestion ({start!r}/{end!r}) was rejected: {rejection}. "
-            "Pick a different pair."
+            "All previous suggestions were rejected, e.g.: "
+            + "; ".join(rejections[-5:]) + ". Pick different pairs."
         )
     return None
 

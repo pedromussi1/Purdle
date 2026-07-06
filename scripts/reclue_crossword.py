@@ -28,12 +28,17 @@ from pathlib import Path
 
 # Same-directory import; generate_crossword does no work at import time.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import generate_crossword as gc  # noqa: E402
 from generate_crossword import (  # noqa: E402
     GEMINI_MODEL,
     call_gemini_clue,
     fallback_clue,
     log,
 )
+
+# The daily cron leaves CLUES_VIA_GEMINI off to save quota; this tool exists
+# specifically to generate clues, so force it on for the reclue run.
+gc.CLUES_VIA_GEMINI = True
 
 ROOT = Path(__file__).resolve().parent.parent
 FALLBACK_RE = re.compile(r"^\d+-letter word$")

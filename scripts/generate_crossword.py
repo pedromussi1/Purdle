@@ -56,6 +56,11 @@ WORDLE_5LETTER_PATH = ROOT / "scripts" / "answer_list.txt"
 # Proper-noun / offensive filter now lives in scripts/wordfilter.py (BLOCKLIST,
 # imported above) so every generator shares one list.
 GEMINI_MODEL = "gemini-2.5-flash-lite"
+# Crossword has no game UI yet, so its ~10 clue calls/day would just burn the
+# shared free-tier Gemini quota (~20 req/day across all games) that the four
+# playable games need. Clues fall back to stock hints until the UI ships — flip
+# this to True (and run the Reclue workflow) when the crossword is playable.
+CLUES_VIA_GEMINI = False
 NOVELTY_LOOKBACK_DAYS = 30
 
 # Fixed v1 layout. '.' = white (letter cell), '#' = black (blocker).
@@ -377,6 +382,8 @@ GEMINI_MAX_ATTEMPTS = 6
 
 
 def call_gemini_clue(word: str) -> str | None:
+    if not CLUES_VIA_GEMINI:
+        return None
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         return None

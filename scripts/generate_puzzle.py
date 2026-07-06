@@ -36,6 +36,11 @@ WORD_LENGTH = 5
 NOVELTY_LOOKBACK_DAYS = 60
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
+# Gemini's free-tier quota is ~20 requests/DAY across all five games, so we ask
+# for a batch of candidate words in one call and validate locally instead of one
+# request per candidate. At most GEMINI_BATCH_CALLS requests per day.
+GEMINI_BATCH_SIZE = 12
+GEMINI_BATCH_CALLS = 2
 
 ANSWER_LIST_PATH = ROOT / "scripts" / "answer_list.txt"
 BACKUP_LIST_PATH = ROOT / "scripts" / "backup_words.json"
@@ -162,20 +167,20 @@ def call_gemini(*, recent_solutions: list[str], extra_feedback: str = "") -> dic
     client = genai.Client(api_key=api_key)
     prompt = f"""You generate puzzles for a Wordle clone called Purdle. Return STRICT JSON, no prose, no markdown.
 
-Constraints:
-- "solution" MUST be exactly 5 lowercase English letters, a single common word.
-- MUST be a noun, verb, or adjective in everyday use (Zipf frequency >= 3.5).
-- MUST NOT be a proper noun, abbreviation, or slang.
-- MUST NOT appear in this list of recent solutions: {recent_solutions[-15:]}
-- MUST NOT be offensive, profane, a slur, or politically charged.
+Each "solution" MUST satisfy:
+- exactly 5 lowercase English letters, a single common word.
+- a noun, verb, or adjective in everyday use (Zipf frequency >= 3.5).
+- NOT a proper noun, abbreviation, or slang.
+- NOT in this list of recent solutions: {recent_solutions[-15:]}
+- NOT offensive, profane, a slur, or politically charged.
 {extra_feedback}
 
-Output schema:
+Propose {GEMINI_BATCH_SIZE} DIFFERENT candidate words so we can pick one that
+passes our checks. Output schema:
 {{
-  "solution": "<5 lowercase letters>",
-  "difficulty": <integer 1-5>,
-  "theme": "<one-or-two word tag, can be null>",
-  "etymology": "<2-3 sentence origin or fun fact, kid-safe>"
+  "candidates": [
+    {{"solution": "<5 lowercase letters>", "difficulty": <integer 1-5>, "theme": "<one-or-two word tag, can be null>", "etymology": "<2-3 sentence origin or fun fact, kid-safe>"}}
+  ]
 }}"""
 
     return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
@@ -219,27 +224,34 @@ def fallback_puzzle(args: Args, answers: list[str], recent: set[str]) -> dict:
 def attempt_gemini(args: Args, answers_set: set[str], recent: list[dict]) -> dict | None:
     recent_words = [r.get("solution", "") for r in recent]
     feedback = ""
-    for attempt in range(5):
+    rejections: list[str] = []
+    for batch in range(GEMINI_BATCH_CALLS):
         result = call_gemini(recent_solutions=recent_words, extra_feedback=feedback)
         if result is None:
             return None  # missing key / lib — go straight to fallback
-
-        word = (result.get("solution") or "").lower().strip()
-        rejection = _validate_candidate(word, args.lang, answers_set, set(recent_words))
-        if rejection is None:
-            sim = novelty_max_similarity(word, recent_words)
-            if sim is not None and sim > 0.75:
-                rejection = f"too similar to recent words (cos={sim:.2f})"
-            else:
-                result["solution"] = word
-                result["generated_by"] = GEMINI_MODEL
-                log(f"attempt {attempt + 1}: {word!r} accepted (novelty={sim})", level="ok")
-                return result
-
-        log(f"attempt {attempt + 1}: rejected {word!r} — {rejection}", level="warn")
+        candidates = result.get("candidates") if isinstance(result, dict) else None
+        if not candidates:
+            log(f"batch {batch + 1}: no candidates returned", level="warn")
+            continue
+        for cand in candidates:
+            if not isinstance(cand, dict):
+                continue
+            word = (cand.get("solution") or "").lower().strip()
+            rejection = _validate_candidate(word, args.lang, answers_set, set(recent_words))
+            if rejection is None:
+                sim = novelty_max_similarity(word, recent_words)
+                if sim is not None and sim > 0.75:
+                    rejection = f"too similar to recent words (cos={sim:.2f})"
+                else:
+                    cand["solution"] = word
+                    cand["generated_by"] = GEMINI_MODEL
+                    log(f"batch {batch + 1}: {word!r} accepted (novelty={sim})", level="ok")
+                    return cand
+            rejections.append(f"{word!r} ({rejection})")
+        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
         feedback = (
-            f"- The word {word!r} you previously suggested was rejected because: "
-            f"{rejection}. Pick a different word."
+            "- Previous suggestions were all rejected, e.g.: "
+            + "; ".join(rejections[-5:]) + ". Pick different words."
         )
     return None
 
