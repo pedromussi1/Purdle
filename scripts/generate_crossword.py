@@ -87,7 +87,6 @@ BLOCKLIST = {
     "apollo",
 }
 GEMINI_MODEL = "gemini-2.5-flash-lite"
-GEMINI_FILL_ATTEMPTS = 5
 NOVELTY_LOOKBACK_DAYS = 30
 
 # Fixed v1 layout. '.' = white (letter cell), '#' = black (blocker).
@@ -469,9 +468,9 @@ def parse_args() -> Args:
     return Args(date=date, lang=a.lang, out_dir=ROOT / a.out / a.lang, force=a.force)
 
 
-def load_recent_words(out_dir: Path) -> set[str]:
-    """Words used in the last N days — used to nudge the solver toward
-    novelty across consecutive puzzles."""
+def load_recent_words(out_dir: Path, days: int = NOVELTY_LOOKBACK_DAYS) -> set[str]:
+    """Words used in the last `days` puzzles — used to nudge the solver
+    toward novelty across consecutive puzzles."""
     if not out_dir.exists():
         return set()
     files = sorted(
@@ -479,7 +478,7 @@ def load_recent_words(out_dir: Path) -> set[str]:
         if re.fullmatch(r"\d{4}-\d{2}-\d{2}\.json", f.name)
     )
     used: set[str] = set()
-    for f in files[-NOVELTY_LOOKBACK_DAYS:]:
+    for f in files[-days:]:
         try:
             data = json.loads(f.read_text(encoding="utf-8"))
             for slot in data.get("slots", []):
@@ -532,21 +531,34 @@ def main() -> int:
     spec = parse_layout(LAYOUT)
     log(f"layout: {spec.rows}×{spec.cols}, {len(spec.slots)} slots")
     buckets = filter_profanity(load_words_by_length())
-    recent = load_recent_words(args.out_dir)
-    log(f"avoiding {len(recent)} recently-used words")
 
-    # Try a few seeded fills until one succeeds (rare but possible failure
-    # mode if the random shuffle paints us into a corner).
+    # Novelty is a *soft* preference, not a hard constraint. Excluding every
+    # recently-used word can make this small, dense 5×5 grid unsatisfiable —
+    # and because a failed run writes no puzzle, the recent-word set would
+    # freeze at that boundary and deadlock the daily job forever. So we solve
+    # in tiers: prefer the full novelty window, then relax to a short window,
+    # then drop the constraint entirely. The base grid is always fillable from
+    # the full dictionary, guaranteeing we always ship a puzzle.
+    #
+    # A single deterministic attempt per tier is sufficient: the backtracking
+    # solver is complete, so it either finds a fill or proves none exists —
+    # re-rolling the seed cannot change satisfiability at a fixed tier.
     base_seed = int(hashlib.sha256(args.date.encode()).hexdigest(), 16) & 0xFFFFFFFF
+    tiers = [
+        (f"{NOVELTY_LOOKBACK_DAYS}-day novelty", load_recent_words(args.out_dir)),
+        ("7-day novelty", load_recent_words(args.out_dir, days=7)),
+        ("no novelty constraint", set()),
+    ]
     fill: dict[str, str] | None = None
-    for attempt in range(GEMINI_FILL_ATTEMPTS):
-        seed = base_seed + attempt
-        log(f"solver attempt {attempt + 1} (seed {seed})")
-        fill = solve(spec, buckets, seed=seed, forbid_words=recent)
+    for label, forbid in tiers:
+        log(f"solving grid ({label}, avoiding {len(forbid)} words, seed {base_seed})")
+        fill = solve(spec, buckets, seed=base_seed, forbid_words=forbid)
         if fill is not None:
+            if forbid is not tiers[0][1]:
+                log(f"relaxed novelty to '{label}' to fill the grid", level="warn")
             break
     if fill is None:
-        sys.exit("solver failed to fill the grid after all attempts")
+        sys.exit("solver failed to fill the grid even without novelty constraints")
     log(f"filled {len(fill)} slots", level="ok")
 
     clues = generate_clues(fill)
