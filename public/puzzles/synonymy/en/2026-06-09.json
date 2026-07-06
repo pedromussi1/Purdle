@@ -3,20 +3,20 @@
   "game": "synonymy",
   "lang": "en",
   "schema_version": 1,
-  "start": "sword",
-  "end": "tiger",
+  "start": "shape",
+  "end": "going",
   "optimal_steps": 6,
   "optimal_path": [
-    "sword",
-    "knife",
-    "flesh",
-    "penis",
-    "pussy",
-    "kitty",
-    "tiger"
+    "shape",
+    "thick",
+    "crisp",
+    "clear",
+    "clean",
+    "doing",
+    "going"
   ],
-  "n_optimal_paths": 11,
-  "min_layer_width": 3,
+  "n_optimal_paths": 33,
+  "min_layer_width": 4,
   "threshold": 0.5,
   "generated_by": "fallback"
 }

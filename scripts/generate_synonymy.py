@@ -34,6 +34,9 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from wordfilter import is_blocked  # noqa: E402  proper-noun/offensive filter
+
 ROOT = Path(__file__).resolve().parent.parent
 SCHEMA_VERSION = 1
 WORD_LENGTH = 5
@@ -99,10 +102,32 @@ def load_graph() -> Graph:
         )
     raw = json.loads(GRAPH_PATH.read_text(encoding="utf-8"))
     words = raw["words"]
+    neighbours = raw["neighbours"]
+
+    # Drop proper nouns / offensive words from the graph entirely, so they can
+    # never be a start/end word OR an intermediate step in a chain. (The
+    # 2026-06-09 puzzle routed a clean sword→tiger pair straight through a
+    # vulgar word because filtering only lived in the Gemini prompt.)
+    blocked = {i for i, w in enumerate(words) if is_blocked(w)}
+    if blocked:
+        old_to_new: dict[int, int] = {}
+        kept_words: list[str] = []
+        for i, w in enumerate(words):
+            if i in blocked:
+                continue
+            old_to_new[i] = len(kept_words)
+            kept_words.append(w)
+        kept_neighbours = [
+            [old_to_new[n] for n in neighbours[i] if n not in blocked]
+            for i in range(len(words)) if i not in blocked
+        ]
+        log(f"content filter removed {len(blocked)} words from graph")
+        words, neighbours = kept_words, kept_neighbours
+
     return Graph(
         words=words,
         word_to_idx={w: i for i, w in enumerate(words)},
-        neighbours=raw["neighbours"],
+        neighbours=neighbours,
         threshold=raw["threshold"],
         model=raw["model"],
     )

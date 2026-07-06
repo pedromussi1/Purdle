@@ -3,21 +3,19 @@
   "game": "synonymy",
   "lang": "en",
   "schema_version": 1,
-  "start": "begin",
-  "end": "sally",
-  "optimal_steps": 7,
+  "start": "scarf",
+  "end": "upset",
+  "optimal_steps": 5,
   "optimal_path": [
-    "begin",
-    "begun",
-    "risen",
-    "roses",
-    "poppy",
-    "molly",
-    "diane",
-    "sally"
+    "scarf",
+    "scars",
+    "wound",
+    "hurts",
+    "angry",
+    "upset"
   ],
-  "n_optimal_paths": 9,
-  "min_layer_width": 2,
+  "n_optimal_paths": 16,
+  "min_layer_width": 3,
   "threshold": 0.5,
   "generated_by": "fallback"
 }
