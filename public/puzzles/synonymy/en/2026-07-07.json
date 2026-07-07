@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-07",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "crawl",
+  "end": "actor",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "crawl",
+    "scrap",
+    "craft",
+    "hobby",
+    "sport",
+    "plays",
+    "acted",
+    "actor"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 2,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
