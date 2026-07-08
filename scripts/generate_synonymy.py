@@ -28,7 +28,6 @@ import datetime as dt
 import hashlib
 import json
 import os
-import random
 import re
 import sys
 from dataclasses import dataclass
@@ -43,12 +42,12 @@ SCHEMA_VERSION = 1
 WORD_LENGTH = 5
 MIN_STEPS = 3
 MAX_STEPS = 7
-# Gemini's free-tier quota is ~20 requests/DAY shared across all five games, so
-# we ask for a BATCH of candidate pairs in one call and validate locally, rather
-# than one request per candidate. At most GEMINI_BATCH_CALLS requests per day.
-GEMINI_BATCH_SIZE = 12
-GEMINI_BATCH_CALLS = 2
-GEMINI_VOCAB_SAMPLE = 50
+# Synonymy generation is STRUCTURAL-first: we enumerate valid semantic chains
+# (correct length + path-diversity) ourselves, then ask Gemini to PICK the most
+# interesting one. This guarantees a valid puzzle regardless of the LLM —
+# previously Gemini proposed pairs whose words often weren't in our graph, so
+# nearly every candidate was rejected. One request/day.
+SYNONYMY_CANDIDATE_COUNT = 24
 # Path-diversity gates: reject pairs whose start→end optimal subgraph has
 # a single chokepoint or only one chain (KNOCK→RANCH 2026-05-08 was the
 # motivating failure — one optimal path through SHOOT→RIFLE→KNIFE).
@@ -268,180 +267,97 @@ def path_diversity(start: str, end: str, graph: Graph) -> PathStats | None:
     return PathStats(L, n_paths, min_intermediate, one_path)
 
 
-# ---------- Gemini ----------
+# ---------- Gemini path (selector, not generator) ----------
 
-GEMINI_PROMPT = """You pick the start and end of a Synonymy puzzle: two five-letter common English words connected through semantic similarity. Players chain from start to end via "synonym steps" — each successive word must be related to the previous one in meaning.
+GEMINI_SELECT_PROMPT = """You are choosing today's Synonymy puzzle. Players chain the START word to the END word via "synonym steps" — each successive word related in meaning to the previous. Below are {n} VALID candidate pairs (all have a good semantic chain of {min}-{max} steps). Pick the ONE with the most interesting journey — opposites, category-spanning concepts, or a surprising connection — and give it a short theme label.
 
-CRITICAL CONSTRAINTS — your suggestion will be REJECTED if any are violated:
-- Both words MUST be EXACTLY 5 letters. Count them. "happy"=5✓, "table"=5✓, "begin"=5✓, "finish"=6✗, "sleep"=5✓, "go"=2✗.
-- Both words MUST be in our valid vocabulary. Here are 50 words sampled from it to show you the level: {sample_words}. Pick words at this level of commonness or simpler. Words like "gloom" and "shaky" are NOT in our vocabulary even though they feel common — stay closer to the sample list.
-- No proper nouns, no offensive or politically charged content.
-- Pick pairs with an interesting semantic journey: opposites, category-spanning concepts, or thematic transformations. Avoid trivial near-synonyms.
+Candidates (index: start → end, steps):
+{candidate_list}
 
-Avoid these recently used pairs: {recent_pairs}
-{rejection_history}
-
-Propose {batch_size} DIFFERENT candidate pairs (varied journeys) so we can pick
-one that fits our synonym graph. Return STRICT JSON, no prose, no markdown:
-{{
-  "pairs": [
-    {{"start": "<EXACTLY 5 lowercase letters>", "end": "<EXACTLY 5 lowercase letters>", "rationale": "<one short sentence>"}}
-  ]
-}}
+Return STRICT JSON, no prose, no markdown:
+{{"choice": <index number from the list above>, "theme": "<2-4 word label for the pair>"}}
 """
 
 
-def call_gemini(
-    *,
-    recent_pairs: list[tuple[str, str]],
-    sample_words: list[str],
-    rejection_history: list[str],
-) -> dict | None:
+def select_with_gemini(candidates: list[tuple[str, str, PathStats]]) -> tuple[int, str | None] | None:
+    """Ask Gemini to choose the most interesting pair from pre-validated
+    candidates. Returns (index, theme) or None if the LLM is unavailable or its
+    answer is unusable. Any returned index is guaranteed valid."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        log("GEMINI_API_KEY not set; skipping LLM call", level="warn")
+        log("GEMINI_API_KEY not set; using structural pick", level="warn")
         return None
     try:
         from google import genai  # type: ignore
         from google.genai import types  # type: ignore
     except ImportError:
-        log("google-genai not installed; skipping LLM call", level="warn")
+        log("google-genai not installed; using structural pick", level="warn")
         return None
 
-    client = genai.Client(api_key=api_key)
-    pairs_str = ", ".join(f"({a},{b})" for a, b in recent_pairs[-15:]) or "(none)"
-    sample_str = ", ".join(sample_words)
-    if rejection_history:
-        rejection_block = (
-            "Your previous attempts in THIS session were ALL rejected. Pick a "
-            "DIFFERENT pair, not a variation of any of these:\n  "
-            + "\n  ".join(rejection_history)
-        )
-    else:
-        rejection_block = ""
-    prompt = GEMINI_PROMPT.format(
-        sample_words=sample_str,
-        recent_pairs=pairs_str,
-        rejection_history=rejection_block,
-        batch_size=GEMINI_BATCH_SIZE,
+    listing = "\n".join(
+        f"{i}: {s} → {e} ({st.length} steps)"
+        for i, (s, e, st) in enumerate(candidates)
     )
-    return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
-                         temperature=1.0, log=log)
+    prompt = GEMINI_SELECT_PROMPT.format(
+        n=len(candidates), min=MIN_STEPS, max=MAX_STEPS, candidate_list=listing
+    )
+    client = genai.Client(api_key=api_key)
+    result = generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
+                           temperature=1.0, log=log)
+    if not isinstance(result, dict):
+        return None
+    choice = result.get("choice")
+    if not isinstance(choice, int) or not (0 <= choice < len(candidates)):
+        log(f"Gemini returned invalid choice {choice!r}; using structural pick", level="warn")
+        return None
+    theme = result.get("theme")
+    theme = theme.strip() if isinstance(theme, str) and theme.strip() else None
+    return choice, theme
 
 
-def validate_pair(
-    start: str,
-    end: str,
+def structural_candidates(
+    date: str,
+    answers: list[str],
     graph: Graph,
-    *,
     recent_pairs: set[tuple[str, str]],
-) -> tuple[str | None, PathStats | None]:
-    s = start.lower().strip()
-    e = end.lower().strip()
-    if not (re.fullmatch(r"[a-z]{5}", s) and re.fullmatch(r"[a-z]{5}", e)):
-        return f"start/end must be 5 lowercase letters; got {start!r}/{end!r}", None
-    if s == e:
-        return "start and end are the same", None
-    if s not in graph.word_to_idx:
-        return f"start {s!r} not in synonym graph", None
-    if e not in graph.word_to_idx:
-        return f"end {e!r} not in synonym graph", None
-    if (s, e) in recent_pairs or (e, s) in recent_pairs:
-        return f"({s}, {e}) appeared recently", None
-    stats = path_diversity(s, e, graph)
-    if stats is None:
-        return f"no semantic chain connects {s!r} and {e!r}", None
-    if stats.length < MIN_STEPS:
-        return f"too easy: only {stats.length} steps (min {MIN_STEPS})", None
-    if stats.length > MAX_STEPS:
-        return f"too hard: needs {stats.length} steps (max {MAX_STEPS})", None
-    if stats.min_layer_width < MIN_LAYER_WIDTH:
-        return (
-            f"corridor: narrowest intermediate layer has "
-            f"{stats.min_layer_width} word(s) (min {MIN_LAYER_WIDTH})",
-            None,
-        )
-    if stats.n_optimal_paths < MIN_OPTIMAL_PATHS:
-        return (
-            f"too narrow: only {stats.n_optimal_paths} optimal path(s) "
-            f"(min {MIN_OPTIMAL_PATHS})",
-            None,
-        )
-    return None, stats
-
-
-def attempt_gemini(graph: Graph, recent_pairs: set[tuple[str, str]]) -> tuple[str, str, PathStats] | None:
-    pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
-    sample_words = random.sample(graph.words, min(GEMINI_VOCAB_SAMPLE, len(graph.words)))
-    rejection_history: list[str] = []
-    for batch in range(GEMINI_BATCH_CALLS):
-        result = call_gemini(
-            recent_pairs=pairs_for_prompt,
-            sample_words=sample_words,
-            rejection_history=rejection_history,
-        )
-        if result is None:
-            return None
-        candidates = result.get("pairs") if isinstance(result, dict) else None
-        if not candidates:
-            log(f"batch {batch + 1}: no candidates returned", level="warn")
-            continue
-        for cand in candidates:
-            if not isinstance(cand, dict):
-                continue
-            start = (cand.get("start") or "").lower().strip()
-            end = (cand.get("end") or "").lower().strip()
-            rejection, stats = validate_pair(start, end, graph, recent_pairs=recent_pairs)
-            if rejection is None and stats is not None:
-                log(
-                    f"batch {batch + 1}: accepted ({start} → {end}, "
-                    f"{stats.length} steps, {stats.n_optimal_paths} paths, "
-                    f"min layer {stats.min_layer_width})",
-                    level="ok",
-                )
-                return start, end, stats
-            rejection_history.append(f"({start!r}, {end!r}) → {rejection}")
-        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
-    return None
-
-
-def fallback_pair(date: str, answers: list[str], graph: Graph,
-                  recent_pairs: set[tuple[str, str]]) -> tuple[str, str, PathStats]:
-    """Deterministic pair selection by hashing the date. Walks the seed
-    space until path-diversity validation accepts a pair."""
-    candidates = [w for w in answers if w in graph.word_to_idx]
-    if not candidates:
+    want: int = SYNONYMY_CANDIDATE_COUNT,
+) -> list[tuple[str, str, PathStats]]:
+    """Enumerate up to `want` distinct valid Synonymy pairs (start, end, stats)
+    by walking the date-seeded answer space and BFS-ing the semantic graph.
+    Every pair meets the length AND path-diversity gates, so any of them is a
+    valid puzzle. Deterministic — candidates[0] is a stable fallback pick when
+    the LLM is unavailable."""
+    pool = [w for w in answers if w in graph.word_to_idx]
+    if not pool:
         sys.exit("no answer-list words in synonym graph — graph mismatch?")
+    pool_set = set(pool)
     seed = int(hashlib.sha256(date.encode()).hexdigest(), 16)
-    cn = len(candidates)
-    for offset in range(cn * cn):
-        i = (seed + offset) % cn
-        start = candidates[i]
+    cn = len(pool)
+    out: list[tuple[str, str, PathStats]] = []
+    seen: set[tuple[str, str]] = set()
+    for offset in range(cn):
+        if len(out) >= want:
+            break
+        start = pool[(seed + offset) % cn]
         dists = bfs_reachable(start, graph, MAX_STEPS)
         valid_ends = [
             w for w, d in dists.items()
-            if MIN_STEPS <= d <= MAX_STEPS and w in candidates
+            if MIN_STEPS <= d <= MAX_STEPS and w in pool_set
             and (start, w) not in recent_pairs and (w, start) not in recent_pairs
         ]
-        if not valid_ends:
-            continue
-        en = len(valid_ends)
-        for k in range(en):
-            j = (seed * 31 + offset + k) % en
-            end = valid_ends[j]
+        for k in range(len(valid_ends)):
+            end = valid_ends[(seed * 31 + offset + k) % len(valid_ends)]
+            key = (min(start, end), max(start, end))
+            if key in seen:
+                continue
             stats = path_diversity(start, end, graph)
-            if stats is None:
+            if stats is None or stats.min_layer_width < MIN_LAYER_WIDTH \
+                    or stats.n_optimal_paths < MIN_OPTIMAL_PATHS:
                 continue
-            if stats.min_layer_width < MIN_LAYER_WIDTH:
-                continue
-            if stats.n_optimal_paths < MIN_OPTIMAL_PATHS:
-                continue
-            log(
-                f"fallback pair: {start} → {end} ({stats.length} steps, "
-                f"{stats.n_optimal_paths} paths, min layer {stats.min_layer_width})"
-            )
-            return start, end, stats
-    sys.exit("fallback exhausted — no valid pair found")
+            seen.add(key)
+            out.append((start, end, stats))
+            break
+    return out
 
 
 # ---------- Outputs ----------
@@ -495,17 +411,25 @@ def main() -> int:
             recent_pairs.add((s, e))
     log(f"loaded {len(recent_pairs)} recent pairs for dedup")
 
-    selected: tuple[str, str, PathStats] | None = None
-    if os.environ.get("GEMINI_API_KEY"):
-        selected = attempt_gemini(graph, recent_pairs)
+    # Structural-first: build valid semantic pairs ourselves, then let Gemini
+    # pick the most interesting. Any pick is valid, so the LLM only improves the
+    # puzzle, never breaks it.
+    candidates = structural_candidates(args.date, answers, graph, recent_pairs)
+    if not candidates:
+        sys.exit("no valid semantic pairs found — graph mismatch?")
+    log(f"built {len(candidates)} valid synonymy candidates")
 
-    generator = "gemini-2.5-flash-lite"
-    if selected is None:
-        log("using deterministic fallback")
-        start, end, stats = fallback_pair(args.date, answers, graph, recent_pairs)
-        generator = "fallback"
+    theme: str | None = None
+    generator = "fallback"
+    pick = select_with_gemini(candidates)
+    if pick is not None:
+        idx, theme = pick
+        start, end, stats = candidates[idx]
+        generator = "gemini-2.5-flash-lite"
+        log(f"Gemini chose {start} → {end} (theme: {theme})", level="ok")
     else:
-        start, end, stats = selected
+        start, end, stats = candidates[0]
+        log(f"structural pick: {start} → {end}")
 
     payload = {
         "start": start,
@@ -514,6 +438,7 @@ def main() -> int:
         "optimal_path": stats.one_path,
         "n_optimal_paths": stats.n_optimal_paths,
         "min_layer_width": stats.min_layer_width,
+        "theme": theme,
         "threshold": graph.threshold,
         "generated_by": generator,
     }
