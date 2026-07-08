@@ -1,0 +1,21 @@
+{
+  "date": "2026-07-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "tooth",
+  "end": "beard",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "tooth",
+    "booth",
+    "boots",
+    "boats",
+    "beats",
+    "bears",
+    "beard"
+  ],
+  "theme": "From Mouth to Facial Hair",
+  "difficulty_similarity": 0.5020699501037598,
+  "generated_by": "gemini-2.5-flash-lite"
+}
