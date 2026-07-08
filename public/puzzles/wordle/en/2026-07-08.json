@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-08",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "green",
+  "difficulty": 2,
+  "theme": "color",
+  "etymology": "This color word derives from Old English 'grene', with ancient Germanic origins. It is commonly associated with nature, growth, and spring. It is one of the primary colors in the visible spectrum.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
