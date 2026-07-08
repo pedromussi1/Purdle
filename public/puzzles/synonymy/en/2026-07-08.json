@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-08",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trout",
+  "end": "poppy",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "trout",
+    "brook",
+    "marsh",
+    "sandy",
+    "donna",
+    "kelly",
+    "holly",
+    "poppy"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "theme": "Aquatic to Floral",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
