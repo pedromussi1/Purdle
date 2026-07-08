@@ -60,11 +60,12 @@ MAX_STEPS = 7   # too tedious above this
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 DEFAULT_LANG = "en"
 NOVELTY_LOOKBACK_DAYS = 60
-# Gemini's free-tier quota is ~20 requests/DAY across all five games, so we ask
-# for a batch of candidate pairs in one call and validate locally instead of one
-# request per candidate. At most GEMINI_BATCH_CALLS requests per day.
-GEMINI_BATCH_SIZE = 12
-GEMINI_BATCH_CALLS = 2
+# Ladder generation is STRUCTURAL-first: we enumerate valid ladders (real 4-7
+# step chains through the common-words graph) ourselves, then ask Gemini to
+# merely PICK the most enjoyable one. This guarantees a valid puzzle regardless
+# of the LLM (previously Gemini proposed thematic pairs that almost never had a
+# valid letter-ladder path, so Ladder was ~100% fallback). One request/day.
+LADDER_CANDIDATE_COUNT = 24
 
 ANSWER_LIST_PATH = ROOT / "scripts" / "answer_list.txt"
 DICT_PATH = ROOT / "public" / "words" / "valid-guesses.txt"
@@ -259,153 +260,104 @@ def difficulty_similarity(start: str, end: str) -> float | None:
         return None
 
 
-# ---------- Gemini path ----------
+# ---------- Gemini path (selector, not generator) ----------
 
-GEMINI_PROMPT = """You pick the start and end of a Word Ladder puzzle: two five-letter common English words connected by a thematic relationship (opposites, transformations, before/after, related concepts).
+GEMINI_SELECT_PROMPT = """You are choosing today's Word Ladder puzzle. A ladder transforms the START word into the END word one letter at a time, each step a real word. Below are {n} VALID candidate ladders (all solvable). Pick the ONE with the most enjoyable "journey" — opposites, a satisfying transformation, or an amusing/surprising start-and-end relationship — and give it a short theme label.
 
-Constraints:
-- Both words MUST be exactly 5 lowercase letters.
-- Both MUST be common everyday English (Zipf frequency >= 3.5), no proper nouns, no offensive content.
-- The pair should feel like a journey — opposites ("warm"/"cold"), transformations ("seed"/"tree"), or related concepts. Avoid pairs that are too obviously a one-step change.
-- Avoid pairs you've recently suggested: {recent_pairs}
-{extra_feedback}
+Candidates (index: start → end, {min}-{max} steps):
+{candidate_list}
 
-Propose {batch_size} DIFFERENT candidate pairs (varied themes) so we can pick
-one that's a good ladder. Return STRICT JSON, no prose, no markdown:
-{{
-  "pairs": [
-    {{"start": "<5 lowercase letters>", "end": "<5 lowercase letters>", "rationale": "<one short sentence>"}}
-  ]
-}}
+Return STRICT JSON, no prose, no markdown:
+{{"choice": <index number from the list above>, "theme": "<2-4 word label for the pair>"}}
 """
 
 
-def call_gemini(*, recent_pairs: list[tuple[str, str]], extra_feedback: str = "") -> dict | None:
+def select_with_gemini(candidates: list[tuple[str, str, list[str]]]) -> tuple[int, str | None] | None:
+    """Ask Gemini to choose the most enjoyable ladder from pre-validated
+    candidates. Returns (index, theme) or None if the LLM is unavailable or
+    its answer is unusable. Any returned index is guaranteed valid because the
+    candidates were structurally validated before the call."""
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
-        log("GEMINI_API_KEY not set; skipping LLM call", level="warn")
+        log("GEMINI_API_KEY not set; using structural pick", level="warn")
         return None
     try:
         from google import genai  # type: ignore
         from google.genai import types  # type: ignore
     except ImportError:
-        log("google-genai not installed; skipping LLM call", level="warn")
+        log("google-genai not installed; using structural pick", level="warn")
         return None
 
-    client = genai.Client(api_key=api_key)
-    pairs_str = ", ".join(f"({a},{b})" for a, b in recent_pairs[-15:]) or "(none)"
-    prompt = GEMINI_PROMPT.format(
-        recent_pairs=pairs_str,
-        extra_feedback=("\n- " + extra_feedback) if extra_feedback else "",
-        batch_size=GEMINI_BATCH_SIZE,
+    listing = "\n".join(
+        f"{i}: {s} → {e} ({len(path) - 1} steps)"
+        for i, (s, e, path) in enumerate(candidates)
     )
-    return generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
-                         temperature=1.0, log=log)
+    prompt = GEMINI_SELECT_PROMPT.format(
+        n=len(candidates), min=MIN_STEPS, max=MAX_STEPS, candidate_list=listing
+    )
+    client = genai.Client(api_key=api_key)
+    result = generate_json(client, types, model=GEMINI_MODEL, prompt=prompt,
+                           temperature=1.0, log=log)
+    if not isinstance(result, dict):
+        return None
+    choice = result.get("choice")
+    if not isinstance(choice, int) or not (0 <= choice < len(candidates)):
+        log(f"Gemini returned invalid choice {choice!r}; using structural pick", level="warn")
+        return None
+    theme = result.get("theme")
+    theme = theme.strip() if isinstance(theme, str) and theme.strip() else None
+    return choice, theme
 
 
-# ---------- Validation ----------
+# ---------- Structural candidate generation ----------
 
-def validate_pair(
-    start: str,
-    end: str,
+def structural_candidates(
+    date: str,
+    answers: list[str],
     graph: dict[str, list[str]],
-    *,
     recent_pairs: set[tuple[str, str]],
-) -> tuple[str | None, list[str] | None]:
-    """Returns (rejection_reason, optimal_path). On success, reason is None."""
-    s = start.lower().strip()
-    e = end.lower().strip()
-    if not (re.fullmatch(r"[a-z]{5}", s) and re.fullmatch(r"[a-z]{5}", e)):
-        return f"start/end must be 5 lowercase letters; got {start!r}/{end!r}", None
-    if s == e:
-        return "start and end are the same word", None
-    if s not in graph:
-        return f"start {s!r} not in dictionary", None
-    if e not in graph:
-        return f"end {e!r} not in dictionary", None
-    if (s, e) in recent_pairs or (e, s) in recent_pairs:
-        return f"({s}, {e}) appeared in a recent puzzle", None
-
-    path = bfs_shortest_path(s, e, graph)
-    if path is None:
-        return f"no chain exists between {s!r} and {e!r}", None
-    steps = len(path) - 1
-    if steps < MIN_STEPS:
-        return f"too easy: only {steps} steps (min {MIN_STEPS})", None
-    if steps > MAX_STEPS:
-        return f"too hard: needs {steps} steps (max {MAX_STEPS})", None
-    return None, path
-
-
-# ---------- Fallback ----------
-
-def fallback_pair(date: str, answers: list[str], graph: dict[str, list[str]],
-                  recent_pairs: set[tuple[str, str]]) -> tuple[str, list[str]]:
-    """Deterministic random pair from the answer list, retrying through
-    the seed space until BFS finds a valid path through the common-words
-    graph (the one passed in). Always succeeds in practice — the answer
-    list has thousands of suitable pairs even after the common-words filter."""
+    want: int = LADDER_CANDIDATE_COUNT,
+) -> list[tuple[str, str, list[str]]]:
+    """Enumerate up to `want` distinct, valid ladders (start, end, path) by
+    walking the date-seeded answer space and BFS-ing through the common-words
+    graph. Every returned ladder is guaranteed solvable in MIN..MAX steps and
+    free of recent/blocked words. Deterministic, so candidates[0] is a stable
+    fallback pick when the LLM is unavailable. The answer list yields thousands
+    of valid pairs, so `want` is easily met."""
     seed = int(hashlib.sha256(date.encode()).hexdigest(), 16)
-    n = len(answers)
-    # Restrict to answer-list words that ARE in the graph. With the
-    # common-words filter, this drops a few obscure answer-list entries.
-    candidates = [w for w in answers if w in graph and not is_blocked(w)]
-    if not candidates:
+    pool = [w for w in answers if w in graph and not is_blocked(w)]
+    if not pool:
         sys.exit("no answer-list words in graph — dictionary mismatch?")
-    cn = len(candidates)
-    for offset in range(cn * cn):
-        i = (seed + offset) % cn
-        start = candidates[i]
-        # BFS from start, find candidates with optimal_steps in [MIN, MAX].
+    pool_set = set(pool)
+    cn = len(pool)
+    out: list[tuple[str, str, list[str]]] = []
+    seen: set[tuple[str, str]] = set()
+    for offset in range(cn):
+        if len(out) >= want:
+            break
+        start = pool[(seed + offset) % cn]
         dists = bfs_distances(start, graph, MAX_STEPS)
         valid_ends = [
             w for w, d in dists.items()
-            if MIN_STEPS <= d <= MAX_STEPS and w in candidates
+            if MIN_STEPS <= d <= MAX_STEPS and w in pool_set
+            and not is_blocked(w)
             and (start, w) not in recent_pairs and (w, start) not in recent_pairs
         ]
         if not valid_ends:
             continue
-        # Deterministic pick from valid ends.
-        j = (seed * 31 + offset) % len(valid_ends)
-        end = valid_ends[j]
+        end = valid_ends[(seed * 31 + offset) % len(valid_ends)]
+        key = (min(start, end), max(start, end))
+        if key in seen:
+            continue
         path = bfs_shortest_path(start, end, graph)
-        if path is not None:
-            log(f"fallback selected pair: {start} → {end} ({len(path) - 1} steps)")
-            return f"{start},{end}", path
-    sys.exit("fallback exhausted — no valid pair found")
+        if path is None:
+            continue
+        seen.add(key)
+        out.append((start, end, path))
+    return out
 
 
 # ---------- Main flow ----------
-
-def attempt_gemini(args: Args, graph: dict[str, list[str]],
-                   recent_pairs: set[tuple[str, str]]) -> tuple[str, str, list[str]] | None:
-    feedback = ""
-    pairs_for_prompt: list[tuple[str, str]] = list(recent_pairs)
-    rejections: list[str] = []
-    for batch in range(GEMINI_BATCH_CALLS):
-        result = call_gemini(recent_pairs=pairs_for_prompt, extra_feedback=feedback)
-        if result is None:
-            return None
-        candidates = result.get("pairs") if isinstance(result, dict) else None
-        if not candidates:
-            log(f"batch {batch + 1}: no candidates returned", level="warn")
-            continue
-        for cand in candidates:
-            if not isinstance(cand, dict):
-                continue
-            start = (cand.get("start") or "").lower().strip()
-            end = (cand.get("end") or "").lower().strip()
-            rejection, path = validate_pair(start, end, graph, recent_pairs=recent_pairs)
-            if rejection is None and path is not None:
-                log(f"batch {batch + 1}: accepted ({start} → {end}, {len(path) - 1} steps)", level="ok")
-                return start, end, path
-            rejections.append(f"({start!r}/{end!r}) {rejection}")
-        log(f"batch {batch + 1}: all {len(candidates)} candidates rejected", level="warn")
-        feedback = (
-            "All previous suggestions were rejected, e.g.: "
-            + "; ".join(rejections[-5:]) + ". Pick different pairs."
-        )
-    return None
 
 
 def write_puzzle(args: Args, payload: dict) -> Path:
@@ -464,24 +416,32 @@ def main() -> int:
             recent_pairs.add((s, e))
     log(f"loaded {len(recent_pairs)} recent pairs for dedup")
 
-    selected: tuple[str, str, list[str]] | None = None
-    if os.environ.get("GEMINI_API_KEY"):
-        selected = attempt_gemini(args, graph, recent_pairs)
+    # Structural-first: build valid ladders ourselves, then let Gemini pick the
+    # nicest. Any pick is valid, so the LLM can only improve the puzzle, never
+    # break it.
+    candidates = structural_candidates(args.date, answers, graph, recent_pairs)
+    if not candidates:
+        sys.exit("no valid ladders found — dictionary/graph mismatch?")
+    log(f"built {len(candidates)} valid ladder candidates")
 
-    generator = "gemini-2.5-flash-lite"
-    if selected is None:
-        log("using deterministic fallback")
-        _, path = fallback_pair(args.date, answers, graph, recent_pairs)
-        start, end = path[0], path[-1]
-        generator = "fallback"
+    theme: str | None = None
+    generator = "fallback"
+    pick = select_with_gemini(candidates)
+    if pick is not None:
+        idx, theme = pick
+        start, end, path = candidates[idx]
+        generator = "gemini-2.5-flash-lite"
+        log(f"Gemini chose {start} → {end} (theme: {theme})", level="ok")
     else:
-        start, end, path = selected
+        start, end, path = candidates[0]
+        log(f"structural pick: {start} → {end}")
 
     payload = {
         "start": start,
         "end": end,
         "optimal_steps": len(path) - 1,
         "optimal_path": path,
+        "theme": theme,
         "difficulty_similarity": difficulty_similarity(start, end),
         "generated_by": generator,
     }
