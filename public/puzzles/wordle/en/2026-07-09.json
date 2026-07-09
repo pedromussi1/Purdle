@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-09",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sweet",
+  "difficulty": 1,
+  "theme": "taste",
+  "etymology": "From Old English 'sw\u0113te', related to 'sw\u0113gnes', meaning sweetness. It describes a pleasant taste or smell, and also agreeable in general.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
