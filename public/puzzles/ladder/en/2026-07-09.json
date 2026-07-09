@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-09",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "flush",
+  "end": "trash",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "flush",
+    "flash",
+    "clash",
+    "crash",
+    "trash"
+  ],
+  "theme": "From Clean to Dirty",
+  "difficulty_similarity": 0.38202106952667236,
+  "generated_by": "gemini-2.5-flash-lite"
+}
