@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-10",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "brick",
+  "difficulty": 2,
+  "theme": "building",
+  "etymology": "The word 'brick' comes from the Old French 'brique', meaning a piece of clay. Bricks have been used as a building material for thousands of years, dating back to ancient civilizations.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
