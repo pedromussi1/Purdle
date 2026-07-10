@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-10",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "faint",
+  "end": "heart",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "faint",
+    "paint",
+    "pains",
+    "pairs",
+    "hairs",
+    "heirs",
+    "hears",
+    "heart"
+  ],
+  "theme": "Faint to Heartfelt",
+  "difficulty_similarity": 0.2663642168045044,
+  "generated_by": "gemini-2.5-flash-lite"
+}
