@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-11",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cigar",
+  "end": "nerve",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "cigar",
+    "smoke",
+    "taste",
+    "mouth",
+    "skull",
+    "brain",
+    "nerve"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": "Smoke to Sensitivity",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
