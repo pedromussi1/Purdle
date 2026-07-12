@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-12",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Containers",
+      "words": [
+        "box",
+        "bag",
+        "jar",
+        "can"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a computer",
+      "words": [
+        "mouse",
+        "screen",
+        "drive",
+        "chip"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of liquid",
+      "words": [
+        "water",
+        "milk",
+        "juice",
+        "oil"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things with points",
+      "words": [
+        "star",
+        "needle",
+        "stake",
+        "story"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
