@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-12",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "dream",
+  "difficulty": 3,
+  "theme": "abstract",
+  "etymology": "From the Old English 'dr\u00f8m', meaning 'joy' or 'dream'. Dreams are a series of thoughts, images, and sensations occurring in a person's mind during sleep.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
