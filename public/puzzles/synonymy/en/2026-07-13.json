@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-13",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "marry",
+  "end": "medal",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "marry",
+    "wives",
+    "mates",
+    "match",
+    "score",
+    "votes",
+    "award",
+    "medal"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "theme": "Love to Triumph",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
