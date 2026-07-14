@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-14",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "mouth",
+  "end": "honey",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "mouth",
+    "month",
+    "monty",
+    "money",
+    "honey"
+  ],
+  "theme": "Sweet Transformation",
+  "difficulty_similarity": 0.36595579981803894,
+  "generated_by": "gemini-2.5-flash-lite"
+}
