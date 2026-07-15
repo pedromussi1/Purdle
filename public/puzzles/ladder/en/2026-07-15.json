@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-15",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "scary",
+  "end": "stone",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "scary",
+    "scare",
+    "stare",
+    "store",
+    "stone"
+  ],
+  "theme": "Scary to Solid",
+  "difficulty_similarity": 0.2617621123790741,
+  "generated_by": "gemini-2.5-flash-lite"
+}
