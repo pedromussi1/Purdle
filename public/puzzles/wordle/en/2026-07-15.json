@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-15",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "dance",
+  "difficulty": 1,
+  "theme": "activity",
+  "etymology": "The word 'dance' has Old French origins, coming from 'dancier'. Its ultimate source is debated but may be related to a Frankish word meaning 'to trample' or 'stamp'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
