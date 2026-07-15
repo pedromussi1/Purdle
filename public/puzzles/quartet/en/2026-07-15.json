@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-15",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Mammals",
+      "words": [
+        "dog",
+        "cat",
+        "lion",
+        "tiger"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Vehicles",
+      "words": [
+        "car",
+        "truck",
+        "bike",
+        "boat"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Weather Phenomena",
+      "words": [
+        "rain",
+        "snow",
+        "wind",
+        "fog"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words That Can Follow 'Box'",
+      "words": [
+        "lunch",
+        "gift",
+        "tool",
+        "soap"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
