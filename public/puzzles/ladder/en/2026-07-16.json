@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-16",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "lunch",
+  "end": "plate",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "lunch",
+    "bunch",
+    "bench",
+    "beach",
+    "peach",
+    "peace",
+    "place",
+    "plate"
+  ],
+  "theme": "From Meal to Meal",
+  "difficulty_similarity": 0.33723214268684387,
+  "generated_by": "gemini-2.5-flash-lite"
+}
