@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-16",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "jolly",
+  "end": "sober",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "jolly",
+    "candy",
+    "rocks",
+    "water",
+    "drank",
+    "sober"
+  ],
+  "n_optimal_paths": 11,
+  "min_layer_width": 2,
+  "theme": "Mood Shift",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
