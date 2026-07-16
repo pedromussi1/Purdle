@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-16",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Colors of the rainbow",
+      "words": [
+        "red",
+        "orange",
+        "yellow",
+        "green"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with leaves",
+      "words": [
+        "book",
+        "tree",
+        "plant",
+        "salad"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Tools for measuring",
+      "words": [
+        "ruler",
+        "scale",
+        "tape",
+        "level"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words related to a game of chance",
+      "words": [
+        "roll",
+        "deal",
+        "bet",
+        "play"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
