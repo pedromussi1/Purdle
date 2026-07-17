@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-17",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "types of weather",
+      "words": [
+        "rain",
+        "snow",
+        "wind",
+        "hail"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "things that are cold",
+      "words": [
+        "ice",
+        "frost",
+        "chill",
+        "freeze"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "related to writing",
+      "words": [
+        "pen",
+        "paper",
+        "ink",
+        "story"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "associated with a library",
+      "words": [
+        "book",
+        "shelf",
+        "page",
+        "index"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
