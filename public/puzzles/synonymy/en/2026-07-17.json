@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-17",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rouge",
+  "end": "metal",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "rouge",
+    "rogue",
+    "sneak",
+    "hides",
+    "cloak",
+    "armor",
+    "steel",
+    "metal"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": "Cosmetics to Metal",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
