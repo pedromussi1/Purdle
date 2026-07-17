@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-17",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "baker",
+  "difficulty": 2,
+  "theme": "occupation",
+  "etymology": "Comes from the Old English word 'b\u00e6cere', meaning 'one who bakes bread'. It's one of the oldest occupational surnames.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
