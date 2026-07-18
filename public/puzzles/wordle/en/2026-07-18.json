@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-18",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "drive",
+  "difficulty": 2,
+  "theme": "action",
+  "etymology": "'Drive' comes from the Old English 'dr\u012bfan', meaning 'to propel' or 'to chase'. It shares roots with the German word 'treiben', which has similar meanings related to pushing or urging forward.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
