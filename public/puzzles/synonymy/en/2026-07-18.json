@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-18",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "shame",
+  "end": "where",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "shame",
+    "cries",
+    "tears",
+    "dying",
+    "lives",
+    "lived",
+    "moved",
+    "where"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 2,
+  "theme": "Shame to Where",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
