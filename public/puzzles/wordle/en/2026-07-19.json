@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-19",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "beach",
+  "difficulty": 2,
+  "theme": "Nature",
+  "etymology": "Originates from Old English 'b\u00e6ce', meaning a brook or stream. Later evolved to refer to the sandy or pebbly shore by the sea.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
