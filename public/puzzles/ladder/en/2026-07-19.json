@@ -1,0 +1,21 @@
+{
+  "date": "2026-07-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "leave",
+  "end": "whole",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "leave",
+    "lease",
+    "cease",
+    "chase",
+    "chose",
+    "whose",
+    "whole"
+  ],
+  "theme": "From Absence to Completeness",
+  "difficulty_similarity": 0.22716592252254486,
+  "generated_by": "gemini-2.5-flash-lite"
+}
