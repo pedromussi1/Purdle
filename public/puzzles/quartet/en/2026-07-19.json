@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-19",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Furniture",
+      "words": [
+        "chair",
+        "table",
+        "sofa",
+        "bed"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Animals with Fur",
+      "words": [
+        "dog",
+        "cat",
+        "bear",
+        "rabbit"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things associated with Water",
+      "words": [
+        "river",
+        "lake",
+        "ocean",
+        "rain"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words associated with Sound",
+      "words": [
+        "loud",
+        "quiet",
+        "noise",
+        "music"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
