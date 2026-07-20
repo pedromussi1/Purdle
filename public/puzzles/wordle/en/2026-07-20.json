@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-20",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "paper",
+  "difficulty": 2,
+  "theme": "material",
+  "etymology": "From the Greek word 'papuros', referring to the papyrus plant. Ancient Egyptians used it for writing.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
