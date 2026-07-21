@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-21",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sleep",
+  "difficulty": 1,
+  "theme": "action",
+  "etymology": "'Sleep' has Old English roots and is related to words in other Germanic languages that convey the idea of rest or slumber. It's a fundamental biological process.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
