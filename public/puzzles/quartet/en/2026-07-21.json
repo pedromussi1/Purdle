@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-21",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Domestic Animals",
+      "words": [
+        "dog",
+        "cat",
+        "cow",
+        "pig"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things That Are Round",
+      "words": [
+        "ball",
+        "coin",
+        "plate",
+        "ring"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words Associated with Trees",
+      "words": [
+        "bark",
+        "root",
+        "trunk",
+        "leaf"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with Light",
+      "words": [
+        "beam",
+        "ray",
+        "shine",
+        "glow"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
