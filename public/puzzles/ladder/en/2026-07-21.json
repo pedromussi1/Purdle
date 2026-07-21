@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rough",
+  "end": "porch",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "rough",
+    "tough",
+    "touch",
+    "torch",
+    "porch"
+  ],
+  "theme": "Rough to Porch",
+  "difficulty_similarity": 0.19564534723758698,
+  "generated_by": "gemini-2.5-flash-lite"
+}
