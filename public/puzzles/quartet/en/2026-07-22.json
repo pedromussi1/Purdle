@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-22",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Trees",
+      "words": [
+        "oak",
+        "pine",
+        "maple",
+        "birch"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Forms of Water",
+      "words": [
+        "ice",
+        "steam",
+        "snow",
+        "dew"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words Related to Games",
+      "words": [
+        "play",
+        "game",
+        "win",
+        "score"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things with a Surface",
+      "words": [
+        "table",
+        "wall",
+        "floor",
+        "desk"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
