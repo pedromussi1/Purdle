@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-22",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "black",
+  "end": "thank",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "black",
+    "slack",
+    "slick",
+    "click",
+    "chick",
+    "thick",
+    "think",
+    "thank"
+  ],
+  "theme": "From dark to grateful",
+  "difficulty_similarity": 0.2307596504688263,
+  "generated_by": "gemini-2.5-flash-lite"
+}
