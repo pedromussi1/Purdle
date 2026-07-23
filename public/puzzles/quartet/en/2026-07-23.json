@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-23",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Rooms in a House",
+      "words": [
+        "kitchen",
+        "bedroom",
+        "bathroom",
+        "living"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "School Subjects",
+      "words": [
+        "math",
+        "science",
+        "history",
+        "english"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Associated with Sports",
+      "words": [
+        "ball",
+        "net",
+        "goal",
+        "field"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Abstract Concepts",
+      "words": [
+        "love",
+        "hate",
+        "fear",
+        "joy"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
