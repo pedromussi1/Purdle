@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-23",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "heart",
+  "difficulty": 1,
+  "theme": "anatomy",
+  "etymology": "The word 'heart' comes from Old English 'heorte', with roots in Proto-Germanic '*hert\u00f4'. It has consistently referred to the vital organ throughout English history.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
