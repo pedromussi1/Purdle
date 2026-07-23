@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-23",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "witch",
+  "end": "peach",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "witch",
+    "pitch",
+    "pinch",
+    "punch",
+    "bunch",
+    "bench",
+    "beach",
+    "peach"
+  ],
+  "theme": "Witch to Fruit",
+  "difficulty_similarity": 0.36309802532196045,
+  "generated_by": "gemini-2.5-flash-lite"
+}
