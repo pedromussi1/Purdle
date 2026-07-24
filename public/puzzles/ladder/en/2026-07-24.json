@@ -1,0 +1,20 @@
+{
+  "date": "2026-07-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "youth",
+  "end": "honey",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "youth",
+    "mouth",
+    "month",
+    "monty",
+    "money",
+    "honey"
+  ],
+  "theme": "From Youth to Honey",
+  "difficulty_similarity": 0.25354301929473877,
+  "generated_by": "gemini-2.5-flash-lite"
+}
