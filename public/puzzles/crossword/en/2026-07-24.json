@@ -1,0 +1,185 @@
+{
+  "date": "2026-07-24",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "c",
+      "a",
+      "s",
+      "e",
+      "#"
+    ],
+    [
+      "a",
+      "l",
+      "t",
+      "a",
+      "r"
+    ],
+    [
+      "s",
+      "l",
+      "a",
+      "t",
+      "e"
+    ],
+    [
+      "t",
+      "o",
+      "k",
+      "e",
+      "n"
+    ],
+    [
+      "#",
+      "w",
+      "e",
+      "n",
+      "t"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "case",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "altar",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "slate",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "token",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "went",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "cast",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "allow",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "stake",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "eaten",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "rent",
+      "clue": "4-letter word"
+    }
+  ],
+  "generated_by": "fallback"
+}
