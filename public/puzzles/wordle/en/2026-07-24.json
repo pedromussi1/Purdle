@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-24",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "start",
+  "difficulty": 1,
+  "theme": "action",
+  "etymology": "The word 'start' has Old English roots, related to 'styrtan', meaning 'to leap up'. It means to begin or set in motion. It's a fundamental action verb.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
