@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-25",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "wheat",
+  "end": "blush",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "wheat",
+    "cheat",
+    "chest",
+    "crest",
+    "crust",
+    "crush",
+    "brush",
+    "blush"
+  ],
+  "theme": "Grain to Glow",
+  "difficulty_similarity": 0.10122804343700409,
+  "generated_by": "gemini-2.5-flash-lite"
+}
