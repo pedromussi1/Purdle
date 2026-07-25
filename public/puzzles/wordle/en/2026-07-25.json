@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-25",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "ready",
+  "difficulty": 2,
+  "theme": "state",
+  "etymology": "'Ready' comes from the Old English 'r\u00e6de', meaning 'prepared' or 'arranged'. It is related to the word 'ride' because traveling prepared was common.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
