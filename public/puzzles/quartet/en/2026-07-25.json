@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-25",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Colors",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Shapes",
+      "words": [
+        "circle",
+        "square",
+        "triangle",
+        "star"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things in a Garden",
+      "words": [
+        "flower",
+        "tree",
+        "grass",
+        "bench"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with Travel",
+      "words": [
+        "road",
+        "path",
+        "route",
+        "way"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
