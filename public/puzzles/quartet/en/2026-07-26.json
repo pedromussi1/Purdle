@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-26",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Basic Shapes",
+      "words": [
+        "square",
+        "circle",
+        "triangle",
+        "rectangle"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Seasons",
+      "words": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Weather Conditions",
+      "words": [
+        "sun",
+        "rain",
+        "cloud",
+        "wind"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Tools for Writing",
+      "words": [
+        "pen",
+        "pencil",
+        "crayon",
+        "marker"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
