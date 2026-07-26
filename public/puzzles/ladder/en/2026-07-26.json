@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-26",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "teeth",
+  "end": "candy",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "teeth",
+    "tenth",
+    "tents",
+    "tends",
+    "sends",
+    "sands",
+    "sandy",
+    "candy"
+  ],
+  "theme": "Teeth to Candy",
+  "difficulty_similarity": 0.5033677220344543,
+  "generated_by": "gemini-2.5-flash-lite"
+}
