@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-26",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "south",
+  "difficulty": 2,
+  "theme": "direction",
+  "etymology": "From Old English 's\u016b\u00fe', possibly related to 'sun' due to its position at noon.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
