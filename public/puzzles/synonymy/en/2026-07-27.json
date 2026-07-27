@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-27",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "steer",
+  "end": "comic",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "steer",
+    "wagon",
+    "boats",
+    "ocean",
+    "whale",
+    "snail",
+    "bunny",
+    "comic"
+  ],
+  "n_optimal_paths": 11,
+  "min_layer_width": 2,
+  "theme": "Steering the Narrative",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
