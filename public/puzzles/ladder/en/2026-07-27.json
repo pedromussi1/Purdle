@@ -1,0 +1,21 @@
+{
+  "date": "2026-07-27",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "start",
+  "end": "flock",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "start",
+    "stark",
+    "stack",
+    "slack",
+    "black",
+    "block",
+    "flock"
+  ],
+  "theme": "Starting a Flock",
+  "difficulty_similarity": 0.18579702079296112,
+  "generated_by": "gemini-2.5-flash-lite"
+}
