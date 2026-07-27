@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-27",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "glass",
+  "difficulty": 2,
+  "theme": "material",
+  "etymology": "'Glass' comes from a Proto-Germanic word that referred to a transparent substance. Its use dates back to ancient civilizations.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
