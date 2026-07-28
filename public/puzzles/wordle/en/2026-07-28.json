@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-28",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "stone",
+  "difficulty": 1,
+  "theme": "material",
+  "etymology": "From Old English 'st\u0101n', of Proto-Germanic origin. It refers to a hard, solid nonmetallic mineral matter.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
