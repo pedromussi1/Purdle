@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-29",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Common Animals",
+      "words": [
+        "dog",
+        "cat",
+        "bird",
+        "fish"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with Wings",
+      "words": [
+        "fly",
+        "bee",
+        "angel",
+        "plane"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things you wear on your feet",
+      "words": [
+        "sock",
+        "shoe",
+        "slipper",
+        "boot"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Parts of a House",
+      "words": [
+        "roof",
+        "wall",
+        "floor",
+        "door"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
