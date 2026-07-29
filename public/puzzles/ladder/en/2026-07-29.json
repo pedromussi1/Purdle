@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-29",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "arose",
+  "end": "truce",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "arose",
+    "prose",
+    "prove",
+    "grove",
+    "grave",
+    "grace",
+    "trace",
+    "truce"
+  ],
+  "theme": "Peace Treaty",
+  "difficulty_similarity": 0.21325848996639252,
+  "generated_by": "gemini-2.5-flash-lite"
+}
