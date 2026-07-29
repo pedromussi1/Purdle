@@ -1,0 +1,11 @@
+{
+  "date": "2026-07-29",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "water",
+  "difficulty": 1,
+  "theme": "element",
+  "etymology": "Derived from the Old English word 'w\u00e6ter'. Water is essential for all known forms of life and covers about 71% of the Earth's surface.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
