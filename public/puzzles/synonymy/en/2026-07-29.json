@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-29",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "widow",
+  "end": "puppy",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "widow",
+    "bride",
+    "wives",
+    "women",
+    "males",
+    "youth",
+    "child",
+    "puppy"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "theme": "Life's Transitions",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
