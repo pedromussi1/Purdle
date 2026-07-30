@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-30",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Metal",
+      "words": [
+        "iron",
+        "gold",
+        "lead",
+        "zinc"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a Letter",
+      "words": [
+        "page",
+        "seal",
+        "stamp",
+        "post"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things on a Keyboard",
+      "words": [
+        "shift",
+        "space",
+        "enter",
+        "delete"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Types of Music",
+      "words": [
+        "rock",
+        "pop",
+        "jazz",
+        "soul"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
