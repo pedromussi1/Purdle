@@ -1,0 +1,24 @@
+{
+  "date": "2026-07-30",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "shock",
+  "end": "jelly",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "shock",
+    "spark",
+    "fiery",
+    "spicy",
+    "salad",
+    "fruit",
+    "pearl",
+    "jelly"
+  ],
+  "n_optimal_paths": 38,
+  "min_layer_width": 4,
+  "theme": "Sudden Impact to Soft Substance",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
