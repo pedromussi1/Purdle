@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-30",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "skull",
+  "end": "shark",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "skull",
+    "skill",
+    "still",
+    "stall",
+    "shall",
+    "shale",
+    "share",
+    "shark"
+  ],
+  "theme": "From Bone to Fin",
+  "difficulty_similarity": 0.40206900238990784,
+  "generated_by": "gemini-2.5-flash-lite"
+}
