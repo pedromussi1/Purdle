@@ -1,0 +1,49 @@
+{
+  "date": "2026-07-31",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Common Musical Instruments",
+      "words": [
+        "piano",
+        "guitar",
+        "violin",
+        "drums"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Beer",
+      "words": [
+        "lager",
+        "ale",
+        "stout",
+        "ipa"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Found in a Bakery",
+      "words": [
+        "flour",
+        "yeast",
+        "sugar",
+        "oven"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Homophones with 'ate'",
+      "words": [
+        "eight",
+        "weight",
+        "bait",
+        "late"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
