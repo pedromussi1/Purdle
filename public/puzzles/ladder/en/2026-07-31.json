@@ -1,0 +1,22 @@
+{
+  "date": "2026-07-31",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "taken",
+  "end": "paper",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "taken",
+    "takes",
+    "tales",
+    "tiles",
+    "piles",
+    "pipes",
+    "piper",
+    "paper"
+  ],
+  "theme": "From Taking to Publishing",
+  "difficulty_similarity": 0.2211439162492752,
+  "generated_by": "gemini-2.5-flash-lite"
+}
