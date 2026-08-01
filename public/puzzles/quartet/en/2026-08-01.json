@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-01",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Food",
+      "words": [
+        "bread",
+        "rice",
+        "pasta",
+        "potato"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things You Roll",
+      "words": [
+        "ball",
+        "log",
+        "dough",
+        "stone"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a Car",
+      "words": [
+        "wheel",
+        "engine",
+        "brake",
+        "door"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Musical Terms",
+      "words": [
+        "note",
+        "key",
+        "scale",
+        "chord"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
