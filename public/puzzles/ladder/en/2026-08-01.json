@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-01",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "saint",
+  "end": "daisy",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "saint",
+    "paint",
+    "pains",
+    "pairs",
+    "hairs",
+    "hairy",
+    "dairy",
+    "daisy"
+  ],
+  "theme": "Saint to Daisy",
+  "difficulty_similarity": 0.22359628975391388,
+  "generated_by": "gemini-2.5-flash-lite"
+}
