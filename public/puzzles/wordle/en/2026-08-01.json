@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-01",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "knife",
+  "difficulty": 2,
+  "theme": "tool",
+  "etymology": "The word 'knife' is of Germanic origin, related to the word 'gnaw'. The 'k' was historically pronounced and the word originally referred to a tool used for cutting or gnawing.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
