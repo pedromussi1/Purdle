@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "flame",
+  "difficulty": 2,
+  "theme": "elements",
+  "etymology": "Flame originates from the Old English 'flamma', which itself comes from the Latin 'flamma', meaning 'blaze' or 'torch'. It's an ancient word with Indo-European roots.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
