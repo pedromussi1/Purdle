@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "peace",
+  "end": "smoke",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "peace",
+    "place",
+    "plate",
+    "slate",
+    "state",
+    "stake",
+    "stoke",
+    "smoke"
+  ],
+  "theme": "Peaceful to Smoky",
+  "difficulty_similarity": 0.4195343554019928,
+  "generated_by": "gemini-2.5-flash-lite"
+}
