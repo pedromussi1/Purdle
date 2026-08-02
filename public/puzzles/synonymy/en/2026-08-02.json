@@ -1,0 +1,23 @@
+{
+  "date": "2026-08-02",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "noisy",
+  "end": "seize",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "noisy",
+    "sound",
+    "solid",
+    "steel",
+    "knife",
+    "armed",
+    "seize"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "theme": "Auditory to Physical",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
