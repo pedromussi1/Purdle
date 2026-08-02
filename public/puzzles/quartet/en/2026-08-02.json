@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-02",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Drink",
+      "words": [
+        "water",
+        "milk",
+        "juice",
+        "soda"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Dessert",
+      "words": [
+        "cake",
+        "pie",
+        "cookie",
+        "ice"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things associated with Sleep",
+      "words": [
+        "bed",
+        "pillow",
+        "blanket",
+        "dream"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Geometric Shapes",
+      "words": [
+        "square",
+        "round",
+        "line",
+        "point"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
