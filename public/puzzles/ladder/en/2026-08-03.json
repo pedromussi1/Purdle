@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-03",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "worst",
+  "end": "goose",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "worst",
+    "worse",
+    "morse",
+    "moose",
+    "goose"
+  ],
+  "theme": "Worst to Wonderful",
+  "difficulty_similarity": 0.287217378616333,
+  "generated_by": "gemini-2.5-flash-lite"
+}
