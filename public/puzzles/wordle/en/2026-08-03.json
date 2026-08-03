@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-03",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "fence",
+  "difficulty": 2,
+  "theme": "structure",
+  "etymology": "'Fence' is derived from the Old French word 'defens', meaning 'defense'. It refers to an enclosure or barrier, originally built for protection.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
