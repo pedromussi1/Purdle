@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-04",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "north",
+  "difficulty": 2,
+  "theme": "direction",
+  "etymology": "An ancient word, 'north' comes from the Proto-Germanic '*nurthaz', possibly related to a root meaning 'left' or 'under', implying it was the direction to the left when facing east.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
