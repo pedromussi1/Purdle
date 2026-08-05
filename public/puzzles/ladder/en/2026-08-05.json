@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-05",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "pinch",
+  "end": "harsh",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "pinch",
+    "pitch",
+    "mitch",
+    "match",
+    "march",
+    "marsh",
+    "harsh"
+  ],
+  "theme": "Greed to Rudeness",
+  "difficulty_similarity": 0.2805047035217285,
+  "generated_by": "gemini-2.5-flash-lite"
+}
