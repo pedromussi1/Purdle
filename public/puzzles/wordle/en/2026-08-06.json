@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-06",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "faith",
+  "difficulty": 2,
+  "theme": "concept",
+  "etymology": "The word 'faith' comes from the Old French 'feid', derived from the Latin 'fides', meaning 'trust, belief, confidence'. It shares a root with words like 'fealty' and 'confide'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
