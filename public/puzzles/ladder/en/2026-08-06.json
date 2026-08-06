@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-06",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "basil",
+  "end": "comet",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "basil",
+    "basis",
+    "bases",
+    "cases",
+    "cares",
+    "cores",
+    "comes",
+    "comet"
+  ],
+  "theme": "Herbal to Cosmic",
+  "difficulty_similarity": 0.1990687996149063,
+  "generated_by": "gemini-2.5-flash-lite"
+}
