@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-07",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "ocean",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "The term 'ocean' derives from the Greek titan Okeanos, personification of the world-encircling river. It refers to the vast bodies of saltwater that cover most of Earth's surface.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
