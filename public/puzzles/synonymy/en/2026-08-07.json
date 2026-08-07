@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-07",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "threw",
+  "end": "grape",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "threw",
+    "throw",
+    "pitch",
+    "mound",
+    "grass",
+    "weeds",
+    "vines",
+    "grape"
+  ],
+  "n_optimal_paths": 7,
+  "min_layer_width": 3,
+  "theme": "Throwing Fruit",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
