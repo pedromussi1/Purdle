@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-07",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Common Metals",
+      "words": [
+        "iron",
+        "steel",
+        "gold",
+        "silver"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that 'Cover'",
+      "words": [
+        "blanket",
+        "roof",
+        "lid",
+        "paint"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that 'Flow'",
+      "words": [
+        "river",
+        "hair",
+        "traffic",
+        "lava"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words associated with 'School'",
+      "words": [
+        "class",
+        "bell",
+        "teacher",
+        "grade"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
