@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "yeast",
+  "end": "chase",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "yeast",
+    "least",
+    "lease",
+    "cease",
+    "chase"
+  ],
+  "theme": "Yeast to Chase",
+  "difficulty_similarity": 0.12866216897964478,
+  "generated_by": "gemini-2.5-flash-lite"
+}
