@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-08",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Animals",
+      "words": [
+        "dog",
+        "cat",
+        "bird",
+        "fish"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things in a Forest",
+      "words": [
+        "tree",
+        "leaf",
+        "rock",
+        "stream"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of Clothing",
+      "words": [
+        "shirt",
+        "pants",
+        "shoes",
+        "hat"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Double Meanings",
+      "words": [
+        "bank",
+        "bat",
+        "fly",
+        "wave"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
