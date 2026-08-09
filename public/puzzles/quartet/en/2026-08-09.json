@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-09",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of chairs",
+      "words": [
+        "stool",
+        "bench",
+        "rocker",
+        "ottoman"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things you find in a bathroom",
+      "words": [
+        "soap",
+        "towel",
+        "shampoo",
+        "brush"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words related to time",
+      "words": [
+        "hour",
+        "minute",
+        "second",
+        "day"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words related to communication",
+      "words": [
+        "speak",
+        "listen",
+        "talk",
+        "hear"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
