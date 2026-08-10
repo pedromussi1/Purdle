@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-10",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Kitchen Utensils",
+      "words": [
+        "fork",
+        "spoon",
+        "knife",
+        "plate"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with Strings",
+      "words": [
+        "guitar",
+        "violin",
+        "balloon",
+        "kite"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a Book",
+      "words": [
+        "cover",
+        "spine",
+        "page",
+        "index"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Types of Jumps",
+      "words": [
+        "leap",
+        "hop",
+        "skip",
+        "bound"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
