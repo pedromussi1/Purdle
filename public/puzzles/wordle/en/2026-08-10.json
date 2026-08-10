@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-10",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "juice",
+  "difficulty": 2,
+  "theme": "food",
+  "etymology": "The word 'juice' comes from the Old French 'jus', meaning 'liquid'. This, in turn, comes from the Latin 'iusum', the past participle of 'iuvare', meaning 'to help' or 'to flow'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
