@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-11",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Sport Balls",
+      "words": [
+        "golf",
+        "bowling",
+        "tennis",
+        "baseball"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things to Cook With",
+      "words": [
+        "flour",
+        "sugar",
+        "yeast",
+        "salt"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Musical Notes",
+      "words": [
+        "do",
+        "re",
+        "mi",
+        "fa"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Parts of a Wave",
+      "words": [
+        "crest",
+        "trough",
+        "face",
+        "break"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
