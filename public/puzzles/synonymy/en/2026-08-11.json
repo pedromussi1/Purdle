@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-11",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "penny",
+  "end": "split",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "penny",
+    "coins",
+    "funds",
+    "asset",
+    "image",
+    "piece",
+    "chunk",
+    "split"
+  ],
+  "n_optimal_paths": 12,
+  "min_layer_width": 2,
+  "theme": "Coin to Division",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
