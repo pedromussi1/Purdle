@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-12",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Tree types",
+      "words": [
+        "oak",
+        "maple",
+        "pine",
+        "birch"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things in a desk drawer",
+      "words": [
+        "pen",
+        "stapler",
+        "tape",
+        "ruler"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Compass directions",
+      "words": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "___ shot",
+      "words": [
+        "long",
+        "moon",
+        "screen",
+        "buck"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "fallback"
+}
