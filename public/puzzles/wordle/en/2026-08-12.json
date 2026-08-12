@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-12",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "ivory",
+  "difficulty": 3,
+  "theme": "material",
+  "etymology": " 'Ivory' comes from the Greek word 'elephas', referring to elephants. It's the hard, white material from tusks and teeth.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
