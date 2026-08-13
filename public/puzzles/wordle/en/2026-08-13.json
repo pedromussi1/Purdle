@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-13",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "jolly",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "The word 'jolly' comes from the Old French 'joli', meaning pretty or cheerful. Its meaning shifted over time to describe someone full of high spirits.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
