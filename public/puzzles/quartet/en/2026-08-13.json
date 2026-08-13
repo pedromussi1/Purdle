@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-13",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Farm Animals",
+      "words": [
+        "cow",
+        "pig",
+        "sheep",
+        "horse"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that are 'Round'",
+      "words": [
+        "ball",
+        "wheel",
+        "circle",
+        "disk"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things associated with 'Sleep'",
+      "words": [
+        "bed",
+        "dream",
+        "pillow",
+        "rest"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words related to 'Games'",
+      "words": [
+        "play",
+        "score",
+        "win",
+        "lose"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
