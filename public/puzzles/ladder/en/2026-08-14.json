@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-14",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cloak",
+  "end": "shark",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "cloak",
+    "clock",
+    "block",
+    "black",
+    "slack",
+    "stack",
+    "stark",
+    "shark"
+  ],
+  "theme": "Cloak to Shark",
+  "difficulty_similarity": 0.2174406498670578,
+  "generated_by": "gemini-2.5-flash-lite"
+}
