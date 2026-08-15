@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-15",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "price",
+  "end": "tribe",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "price",
+    "pride",
+    "bride",
+    "bribe",
+    "tribe"
+  ],
+  "theme": "Price to Tribe",
+  "difficulty_similarity": 0.1766907125711441,
+  "generated_by": "gemini-2.5-flash-lite"
+}
