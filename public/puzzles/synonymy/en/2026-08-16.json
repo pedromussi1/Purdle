@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-16",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "finch",
+  "end": "robot",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "finch",
+    "daisy",
+    "chick",
+    "woman",
+    "human",
+    "robot"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "theme": "Bird to Machine",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
