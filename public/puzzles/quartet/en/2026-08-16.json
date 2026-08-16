@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-16",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Fruit",
+      "words": [
+        "pear",
+        "plum",
+        "grape",
+        "lime"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with a point",
+      "words": [
+        "needle",
+        "pin",
+        "arrow",
+        "stake"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that have a point or edge",
+      "words": [
+        "knife",
+        "blade",
+        "edge",
+        "point"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words that can follow 'point'",
+      "words": [
+        "out",
+        "to",
+        "off",
+        "at"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
