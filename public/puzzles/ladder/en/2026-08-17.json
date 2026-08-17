@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-17",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "spicy",
+  "end": "trick",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "spicy",
+    "spice",
+    "slice",
+    "slick",
+    "click",
+    "chick",
+    "thick",
+    "trick"
+  ],
+  "theme": "Spice to Trick",
+  "difficulty_similarity": 0.2732996344566345,
+  "generated_by": "gemini-2.5-flash-lite"
+}
