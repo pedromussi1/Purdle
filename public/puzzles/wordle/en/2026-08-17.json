@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-17",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "dolly",
+  "difficulty": 2,
+  "theme": "toy",
+  "etymology": "A 'dolly' can refer to a small model of a person, often a baby doll. The term likely originated as a diminutive of the name 'Dorothy'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
