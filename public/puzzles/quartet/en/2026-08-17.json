@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-17",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Fish",
+      "words": [
+        "cod",
+        "tuna",
+        "bass",
+        "trout"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that 'lock'",
+      "words": [
+        "door",
+        "key",
+        "bolt",
+        "safe"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words related to 'music'",
+      "words": [
+        "tune",
+        "note",
+        "song",
+        "sound"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words associated with 'light'",
+      "words": [
+        "lamp",
+        "bulb",
+        "beam",
+        "shine"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
