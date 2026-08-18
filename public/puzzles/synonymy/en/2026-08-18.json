@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-18",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "awful",
+  "end": "drink",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "awful",
+    "sucks",
+    "cries",
+    "tears",
+    "bleed",
+    "fluid",
+    "drank",
+    "drink"
+  ],
+  "n_optimal_paths": 9,
+  "min_layer_width": 2,
+  "theme": "Awful Outcome",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
