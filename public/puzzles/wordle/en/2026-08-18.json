@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-18",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "house",
+  "difficulty": 1,
+  "theme": "building",
+  "etymology": "Comes from the Old English 'hus'. A house is a building for human habitation, typically one that is lived in by a single family.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
