@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-18",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "bleed",
+  "end": "flood",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "bleed",
+    "blend",
+    "blond",
+    "blood",
+    "flood"
+  ],
+  "theme": "Bleak to Bright",
+  "difficulty_similarity": 0.3682967722415924,
+  "generated_by": "gemini-2.5-flash-lite"
+}
