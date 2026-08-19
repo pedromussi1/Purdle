@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-19",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Basic Emotions",
+      "words": [
+        "anger",
+        "fear",
+        "joy",
+        "sadness"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Wood",
+      "words": [
+        "cedar",
+        "oak",
+        "pine",
+        "walnut"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Found in a Kitchen",
+      "words": [
+        "bowl",
+        "cup",
+        "plate",
+        "spoon"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Related to Betting",
+      "words": [
+        "bet",
+        "gamble",
+        "wager",
+        "winnings"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
