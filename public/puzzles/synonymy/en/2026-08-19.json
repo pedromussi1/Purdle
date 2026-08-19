@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-19",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sauce",
+  "end": "agony",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "sauce",
+    "spicy",
+    "fiery",
+    "burns",
+    "hurts",
+    "agony"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": "Flavor to Pain",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
