@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "saint",
+  "end": "fairy",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "saint",
+    "paint",
+    "pains",
+    "pairs",
+    "hairs",
+    "hairy",
+    "fairy"
+  ],
+  "theme": "Divine to Magical",
+  "difficulty_similarity": 0.2117462009191513,
+  "generated_by": "gemini-2.5-flash-lite"
+}
