@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-20",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "batch",
+  "end": "lunch",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "batch",
+    "patch",
+    "pitch",
+    "pinch",
+    "punch",
+    "lunch"
+  ],
+  "theme": "Mealtime Transition",
+  "difficulty_similarity": 0.30268701910972595,
+  "generated_by": "gemini-2.5-flash-lite"
+}
