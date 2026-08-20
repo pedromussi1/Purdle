@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-20",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "clean",
+  "difficulty": 2,
+  "theme": "adjective",
+  "etymology": "'Clean' comes from the Old English word 'cl\u00e6ne', possibly meaning 'pure' or 'clear'. It might have roots related to shining or brightness.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
