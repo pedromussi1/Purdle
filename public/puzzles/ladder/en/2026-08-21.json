@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "river",
+  "end": "token",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "river",
+    "liver",
+    "lives",
+    "likes",
+    "lakes",
+    "takes",
+    "taken",
+    "token"
+  ],
+  "theme": "River to Token",
+  "difficulty_similarity": 0.19949747622013092,
+  "generated_by": "gemini-2.5-flash-lite"
+}
