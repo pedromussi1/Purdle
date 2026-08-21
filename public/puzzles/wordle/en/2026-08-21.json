@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-21",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "eager",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "'Eager' comes from the Middle English word 'egre', meaning sharp or bitter. It later developed the sense of keen or enthusiastic.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
