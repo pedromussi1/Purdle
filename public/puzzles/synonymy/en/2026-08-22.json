@@ -1,0 +1,24 @@
+{
+  "date": "2026-08-22",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "raven",
+  "end": "baker",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "raven",
+    "finch",
+    "daisy",
+    "peach",
+    "fruit",
+    "snack",
+    "baked",
+    "baker"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "theme": "Bird to Bread",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
