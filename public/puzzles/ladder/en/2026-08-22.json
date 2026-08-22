@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-22",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "river",
+  "end": "fewer",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "river",
+    "liver",
+    "lever",
+    "fever",
+    "fewer"
+  ],
+  "theme": "River to Fewer",
+  "difficulty_similarity": 0.16220930218696594,
+  "generated_by": "gemini-2.5-flash-lite"
+}
