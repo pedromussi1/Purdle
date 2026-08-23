@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-23",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Cooking Methods",
+      "words": [
+        "boil",
+        "fry",
+        "bake",
+        "roast"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things You Might Find in a Garden",
+      "words": [
+        "rake",
+        "spade",
+        "hose",
+        "gnome"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a Clock",
+      "words": [
+        "dial",
+        "hand",
+        "face",
+        "alarm"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with Speed",
+      "words": [
+        "quick",
+        "fast",
+        "rapid",
+        "swift"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
