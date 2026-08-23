@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-23",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "train",
+  "difficulty": 3,
+  "theme": "transport",
+  "etymology": "'Train' derives from the Old French word 'trainier', meaning 'to draw'. It refers to a series of connected vehicles that travel along a railway.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
