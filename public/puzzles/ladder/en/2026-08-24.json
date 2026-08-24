@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "lease",
+  "end": "whole",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "lease",
+    "cease",
+    "chase",
+    "chose",
+    "whose",
+    "whole"
+  ],
+  "theme": "Lease to Whole",
+  "difficulty_similarity": 0.1777176707983017,
+  "generated_by": "gemini-2.5-flash-lite"
+}
