@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-24",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of dogs",
+      "words": [
+        "beagle",
+        "poodle",
+        "terrier",
+        "hound"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that have strings",
+      "words": [
+        "bow",
+        "guitar",
+        "kite",
+        "puppet"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Words that can follow 'bank'",
+      "words": [
+        "account",
+        "card",
+        "draft",
+        "note"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words meaning 'a lot'",
+      "words": [
+        "ample",
+        "copious",
+        "enough",
+        "plenty"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
