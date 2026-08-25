@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-25",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "happy",
+  "difficulty": 1,
+  "theme": "emotion",
+  "etymology": "'Happy' has Old Norse roots, possibly related to 'happ', meaning 'chance' or 'good fortune'. It came to signify a state of good luck and contentment.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
