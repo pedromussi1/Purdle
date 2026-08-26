@@ -1,0 +1,21 @@
+{
+  "date": "2026-08-26",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "plane",
+  "end": "shark",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "plane",
+    "plate",
+    "slate",
+    "state",
+    "stare",
+    "share",
+    "shark"
+  ],
+  "theme": "From Flora to Fauna",
+  "difficulty_similarity": 0.2552736699581146,
+  "generated_by": "gemini-2.5-flash-lite"
+}
