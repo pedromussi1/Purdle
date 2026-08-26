@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-26",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "image",
+  "difficulty": 2,
+  "theme": "visual",
+  "etymology": "From Old French 'imagerie', meaning 'likeness' or 'representation'. It ultimately derives from the Latin word 'imago', meaning 'likeness', 'image', 'phantom'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
