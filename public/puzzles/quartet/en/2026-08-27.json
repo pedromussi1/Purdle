@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-27",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Geometric Shapes",
+      "words": [
+        "square",
+        "circle",
+        "triangle",
+        "rectangle"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things on a Desk",
+      "words": [
+        "pen",
+        "paper",
+        "lamp",
+        "book"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Sounds",
+      "words": [
+        "noise",
+        "music",
+        "voice",
+        "sound"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that are Soft",
+      "words": [
+        "velvet",
+        "cotton",
+        "feather",
+        "down"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
