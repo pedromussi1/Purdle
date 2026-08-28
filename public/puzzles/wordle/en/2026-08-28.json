@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-28",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "bread",
+  "difficulty": 1,
+  "theme": "food",
+  "etymology": "'Bread' derives from the Old English word 'br\u00e6d', meaning 'piece' or 'lump'. It is one of the oldest prepared foods, with archaeological evidence dating back to the Neolithic period.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
