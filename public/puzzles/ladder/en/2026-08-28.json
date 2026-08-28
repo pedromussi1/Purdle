@@ -1,0 +1,22 @@
+{
+  "date": "2026-08-28",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "paste",
+  "end": "booty",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "paste",
+    "caste",
+    "casts",
+    "costs",
+    "coats",
+    "boats",
+    "boots",
+    "booty"
+  ],
+  "theme": "Sticky Situation",
+  "difficulty_similarity": 0.13832475244998932,
+  "generated_by": "gemini-2.5-flash-lite"
+}
