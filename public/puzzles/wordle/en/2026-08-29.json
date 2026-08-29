@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-29",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "field",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "The word 'field' comes from Old English 'felda', meaning 'open land'. Fields are often used for agriculture or as open spaces.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
