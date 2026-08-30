@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-30",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "plant",
+  "difficulty": 1,
+  "theme": "nature",
+  "etymology": "The word 'plant' derives from the Latin word 'planta', which meant 'sole of the foot' and later came to mean 'a shoot or sprout'. It is thought to be related to the verb 'planere', meaning 'to level'. Plants are essential for life on Earth, providing oxygen and food.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
