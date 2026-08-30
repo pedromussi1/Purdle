@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-30",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Things With Keys",
+      "words": [
+        "door",
+        "piano",
+        "car",
+        "keyboard"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Fabric",
+      "words": [
+        "silk",
+        "cotton",
+        "wool",
+        "velvet"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things That Burn",
+      "words": [
+        "candle",
+        "wood",
+        "fire",
+        "fuel"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with Games",
+      "words": [
+        "play",
+        "game",
+        "fun",
+        "win"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
