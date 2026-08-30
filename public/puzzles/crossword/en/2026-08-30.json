@@ -1,0 +1,185 @@
+{
+  "date": "2026-08-30",
+  "game": "crossword",
+  "lang": "en",
+  "schema_version": 1,
+  "rows": 5,
+  "cols": 5,
+  "layout": [
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "#"
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      ".",
+      ".",
+      ".",
+      ".",
+      "."
+    ],
+    [
+      "#",
+      ".",
+      ".",
+      ".",
+      "."
+    ]
+  ],
+  "solution": [
+    [
+      "p",
+      "a",
+      "s",
+      "t",
+      "#"
+    ],
+    [
+      "a",
+      "l",
+      "t",
+      "e",
+      "r"
+    ],
+    [
+      "s",
+      "t",
+      "o",
+      "n",
+      "e"
+    ],
+    [
+      "s",
+      "a",
+      "l",
+      "s",
+      "a"
+    ],
+    [
+      "#",
+      "r",
+      "e",
+      "e",
+      "d"
+    ]
+  ],
+  "slots": [
+    {
+      "id": "A1",
+      "direction": "across",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "past",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "A5",
+      "direction": "across",
+      "row": 1,
+      "col": 0,
+      "length": 5,
+      "number": 5,
+      "word": "alter",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A7",
+      "direction": "across",
+      "row": 2,
+      "col": 0,
+      "length": 5,
+      "number": 7,
+      "word": "stone",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A8",
+      "direction": "across",
+      "row": 3,
+      "col": 0,
+      "length": 5,
+      "number": 8,
+      "word": "salsa",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "A9",
+      "direction": "across",
+      "row": 4,
+      "col": 1,
+      "length": 4,
+      "number": 9,
+      "word": "reed",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "D1",
+      "direction": "down",
+      "row": 0,
+      "col": 0,
+      "length": 4,
+      "number": 1,
+      "word": "pass",
+      "clue": "4-letter word"
+    },
+    {
+      "id": "D2",
+      "direction": "down",
+      "row": 0,
+      "col": 1,
+      "length": 5,
+      "number": 2,
+      "word": "altar",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D3",
+      "direction": "down",
+      "row": 0,
+      "col": 2,
+      "length": 5,
+      "number": 3,
+      "word": "stole",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D4",
+      "direction": "down",
+      "row": 0,
+      "col": 3,
+      "length": 5,
+      "number": 4,
+      "word": "tense",
+      "clue": "5-letter word"
+    },
+    {
+      "id": "D6",
+      "direction": "down",
+      "row": 1,
+      "col": 4,
+      "length": 4,
+      "number": 6,
+      "word": "read",
+      "clue": "4-letter word"
+    }
+  ],
+  "generated_by": "fallback"
+}
