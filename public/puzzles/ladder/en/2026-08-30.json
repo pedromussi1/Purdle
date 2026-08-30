@@ -1,0 +1,20 @@
+{
+  "date": "2026-08-30",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stash",
+  "end": "crust",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "stash",
+    "slash",
+    "clash",
+    "crash",
+    "crush",
+    "crust"
+  ],
+  "theme": "Hidden Treasure",
+  "difficulty_similarity": 0.2527872920036316,
+  "generated_by": "gemini-2.5-flash-lite"
+}
