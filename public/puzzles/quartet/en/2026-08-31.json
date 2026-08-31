@@ -1,0 +1,49 @@
+{
+  "date": "2026-08-31",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Parts of a Shoe",
+      "words": [
+        "lace",
+        "sole",
+        "tongue",
+        "heel"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Ships",
+      "words": [
+        "boat",
+        "ferry",
+        "liner",
+        "yacht"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Units of Measurement",
+      "words": [
+        "inch",
+        "mile",
+        "pound",
+        "quart"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with Music",
+      "words": [
+        "scale",
+        "note",
+        "key",
+        "chord"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
