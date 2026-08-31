@@ -1,0 +1,19 @@
+{
+  "date": "2026-08-31",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "valve",
+  "end": "rogue",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "valve",
+    "value",
+    "vague",
+    "vogue",
+    "rogue"
+  ],
+  "theme": "Valve to Rogue",
+  "difficulty_similarity": 0.2194383293390274,
+  "generated_by": "gemini-2.5-flash-lite"
+}
