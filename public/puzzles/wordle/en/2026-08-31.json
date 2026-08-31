@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-31",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "faint",
+  "difficulty": 3,
+  "theme": "sensation",
+  "etymology": "Comes from the Old French 'faint', the past participle of 'fayner', meaning 'to feign' or 'pretend'. It came to mean 'to lose consciousness' in the 14th century.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
