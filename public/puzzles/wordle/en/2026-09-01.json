@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-01",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "watch",
+  "difficulty": 2,
+  "theme": "time",
+  "etymology": "From Old English 'w\u00e6ccian', meaning to stay awake or be vigilant. The noun sense, referring to a device for telling time, emerged in the 17th century.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
