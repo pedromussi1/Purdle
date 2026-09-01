@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-01",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "witch",
+  "end": "death",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "witch",
+    "ghost",
+    "haunt",
+    "grave",
+    "death"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "theme": "Magic to Mortality",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
