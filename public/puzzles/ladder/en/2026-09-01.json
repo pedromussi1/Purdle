@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-01",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "baker",
+  "end": "comet",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "baker",
+    "maker",
+    "makes",
+    "cakes",
+    "cares",
+    "cores",
+    "comes",
+    "comet"
+  ],
+  "theme": "Baker to Comet",
+  "difficulty_similarity": 0.1544460952281952,
+  "generated_by": "gemini-2.5-flash-lite"
+}
