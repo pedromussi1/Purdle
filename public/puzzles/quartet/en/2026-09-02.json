@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-02",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Animals",
+      "words": [
+        "dog",
+        "cat",
+        "lion",
+        "tiger"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things You Wear",
+      "words": [
+        "shirt",
+        "pants",
+        "shoes",
+        "hat"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Associated with the Sea",
+      "words": [
+        "wave",
+        "beach",
+        "boat",
+        "sand"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words with Double Meanings",
+      "words": [
+        "bank",
+        "bat",
+        "crane",
+        "watch"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
