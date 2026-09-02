@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "forge",
+  "difficulty": 3,
+  "theme": "action",
+  "etymology": "The word 'forge' comes from the Old French 'forgier', meaning to make or shape. It refers to the act of shaping metal, often with heat.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
