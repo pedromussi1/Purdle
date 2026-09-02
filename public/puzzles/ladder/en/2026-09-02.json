@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "prose",
+  "end": "globe",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "prose",
+    "prove",
+    "grove",
+    "glove",
+    "globe"
+  ],
+  "theme": "Prose to Globe",
+  "difficulty_similarity": 0.22070425748825073,
+  "generated_by": "gemini-2.5-flash-lite"
+}
