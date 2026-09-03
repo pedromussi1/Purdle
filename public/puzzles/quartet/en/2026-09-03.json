@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-03",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Musical instruments",
+      "words": [
+        "piano",
+        "drum",
+        "violin",
+        "flute"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Big cats",
+      "words": [
+        "lion",
+        "tiger",
+        "leopard",
+        "panther"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that are sticky",
+      "words": [
+        "glue",
+        "tape",
+        "honey",
+        "syrup"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words after 'sun'",
+      "words": [
+        "set",
+        "rise",
+        "light",
+        "flower"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "fallback"
+}
