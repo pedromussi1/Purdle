@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-03",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "cloud",
+  "difficulty": 1,
+  "theme": "Nature",
+  "etymology": "Originates from the Old English 'cl\u016bd', meaning a hill or mass of rock. It later came to mean a collection of vapor in the sky, likely due to its dense, mass-like appearance.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
