@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-04",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Body Parts",
+      "words": [
+        "head",
+        "hand",
+        "foot",
+        "eye"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Stages of Life",
+      "words": [
+        "baby",
+        "child",
+        "adult",
+        "teen"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things That Grow",
+      "words": [
+        "plant",
+        "tree",
+        "seed",
+        "root"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things You Can Break",
+      "words": [
+        "rule",
+        "promise",
+        "record",
+        "habit"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
