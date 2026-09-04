@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-04",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "abide",
+  "difficulty": 3,
+  "theme": "behavior",
+  "etymology": "From Old English '\u0101b\u012bdan', meaning 'to wait, remain'. It carries the sense of enduring or staying put.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
