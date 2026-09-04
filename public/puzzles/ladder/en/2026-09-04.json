@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-04",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "dying",
+  "end": "truce",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "dying",
+    "tying",
+    "thing",
+    "think",
+    "thick",
+    "trick",
+    "truck",
+    "truce"
+  ],
+  "theme": "Life to Peace",
+  "difficulty_similarity": 0.29454153776168823,
+  "generated_by": "gemini-2.5-flash-lite"
+}
