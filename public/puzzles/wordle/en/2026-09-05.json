@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-05",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "light",
+  "difficulty": 2,
+  "theme": "physics",
+  "etymology": "'Light' comes from the Old English 'l\u0113oht' or 'l\u0113ht'. It is related to words in other Germanic languages, all stemming from a common root meaning 'bright'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
