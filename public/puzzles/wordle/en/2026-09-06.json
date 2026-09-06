@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-06",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "grape",
+  "difficulty": 2,
+  "theme": "fruit",
+  "etymology": "The word 'grape' likely evolved from the Old French 'grape', a cluster of berries. These fruits grow on vines and are used to make wine, juice, and raisins.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
