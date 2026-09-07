@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-07",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "truth",
+  "difficulty": 3,
+  "theme": "concept",
+  "etymology": "A very old Germanic word, its roots are linked to 'true'. It signifies honesty, fact, and reality.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
