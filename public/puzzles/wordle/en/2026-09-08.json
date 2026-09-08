@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-08",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "fault",
+  "difficulty": 3,
+  "theme": "abstract",
+  "etymology": "'Fault' comes from the Old French 'faute', meaning 'lack' or 'need'. It evolved to mean a defect or error, and also a fracture in rock strata.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
