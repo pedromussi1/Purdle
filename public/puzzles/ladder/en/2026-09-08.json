@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "spine",
+  "end": "blank",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "spine",
+    "spice",
+    "slice",
+    "slick",
+    "slack",
+    "black",
+    "blank"
+  ],
+  "theme": "Spine to Blank",
+  "difficulty_similarity": 0.23197612166404724,
+  "generated_by": "gemini-2.5-flash-lite"
+}
