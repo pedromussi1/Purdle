@@ -1,0 +1,23 @@
+{
+  "date": "2026-09-09",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "graph",
+  "end": "music",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "graph",
+    "edges",
+    "sides",
+    "shape",
+    "solid",
+    "sound",
+    "music"
+  ],
+  "n_optimal_paths": 9,
+  "min_layer_width": 3,
+  "theme": "Data to Sound",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
