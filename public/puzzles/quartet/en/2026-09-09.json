@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-09",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "types of games",
+      "words": [
+        "chess",
+        "cards",
+        "dice",
+        "board"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "writing utensils",
+      "words": [
+        "pen",
+        "pencil",
+        "crayon",
+        "marker"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "kinds of emotions",
+      "words": [
+        "happy",
+        "sad",
+        "angry",
+        "fear"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "words related to sound",
+      "words": [
+        "loud",
+        "quiet",
+        "noise",
+        "sound"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
