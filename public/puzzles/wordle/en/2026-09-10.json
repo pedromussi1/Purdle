@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-10",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "shame",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "From Old English 'scamu', related to words in other Germanic languages meaning 'shame' or 'disgrace'. The ultimate origin is uncertain but may be related to Proto-Indo-European roots for 'gleam' or 'shine', perhaps ironically.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
