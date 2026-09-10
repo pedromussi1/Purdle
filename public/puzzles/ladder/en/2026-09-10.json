@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-10",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "giant",
+  "end": "black",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "giant",
+    "grant",
+    "grand",
+    "brand",
+    "bland",
+    "blank",
+    "black"
+  ],
+  "theme": "A Giant Leap",
+  "difficulty_similarity": 0.29893168807029724,
+  "generated_by": "gemini-2.5-flash-lite"
+}
