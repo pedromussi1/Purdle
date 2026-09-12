@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-12",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sweet",
+  "difficulty": 2,
+  "theme": "taste",
+  "etymology": "The word 'sweet' originates from Old English 'sw\u0113te', tracing back to Proto-Germanic. It describes a pleasant taste, like that of sugar or honey.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
