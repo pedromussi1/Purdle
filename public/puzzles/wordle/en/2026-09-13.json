@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-13",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "river",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "Derived from the Latin 'riparia', meaning 'of the bank'. A river is a natural flowing watercourse, usually freshwater, flowing towards an ocean, sea, lake or another river.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
