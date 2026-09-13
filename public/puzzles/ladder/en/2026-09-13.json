@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-13",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "jelly",
+  "end": "heart",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "jelly",
+    "belly",
+    "bells",
+    "belts",
+    "beats",
+    "bears",
+    "hears",
+    "heart"
+  ],
+  "theme": "Jelly to Heart",
+  "difficulty_similarity": 0.31259235739707947,
+  "generated_by": "gemini-2.5-flash-lite"
+}
