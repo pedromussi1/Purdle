@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-14",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rainy",
+  "end": "heard",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "rainy",
+    "rains",
+    "pains",
+    "pairs",
+    "hairs",
+    "heirs",
+    "hears",
+    "heard"
+  ],
+  "theme": "From Wet to Heard",
+  "difficulty_similarity": 0.2894904911518097,
+  "generated_by": "gemini-2.5-flash-lite"
+}
