@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-15",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "gross",
+  "end": "clown",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "gross",
+    "grows",
+    "grown",
+    "crown",
+    "clown"
+  ],
+  "theme": "From Disgust to Delight",
+  "difficulty_similarity": 0.21429970860481262,
+  "generated_by": "gemini-2.5-flash-lite"
+}
