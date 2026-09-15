@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-15",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "dance",
+  "difficulty": 2,
+  "theme": "activity",
+  "etymology": "Entered English from Old French 'dancier', likely of Germanic origin. The earliest references to dancing date back to prehistoric times.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
