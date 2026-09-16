@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-16",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "dream",
+  "difficulty": 2,
+  "theme": "concept",
+  "etymology": "'Dream' comes from the Old English word 'dr\u00f8m', meaning 'joy' or 'revelry'. Over time, its meaning shifted to refer to the visions experienced during sleep.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
