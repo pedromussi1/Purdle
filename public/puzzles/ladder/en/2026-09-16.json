@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-16",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "phone",
+  "end": "drive",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "phone",
+    "prone",
+    "drone",
+    "drove",
+    "drive"
+  ],
+  "theme": "Phone to Drive",
+  "difficulty_similarity": 0.40508338809013367,
+  "generated_by": "gemini-2.5-flash-lite"
+}
