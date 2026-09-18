@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-18",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "irony",
+  "end": "tooth",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "irony",
+    "humor",
+    "laugh",
+    "smile",
+    "teeth",
+    "tooth"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "theme": "Irony to Tooth",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
