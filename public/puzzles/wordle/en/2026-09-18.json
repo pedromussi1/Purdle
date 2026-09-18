@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-18",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "eagle",
+  "difficulty": 3,
+  "theme": "animal",
+  "etymology": "The word 'eagle' comes from the Latin 'aquila'. Eagles have been symbols of power and majesty in many cultures throughout history.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
