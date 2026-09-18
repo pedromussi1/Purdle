@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-18",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "joker",
+  "end": "cover",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "joker",
+    "poker",
+    "power",
+    "lower",
+    "lover",
+    "cover"
+  ],
+  "theme": "Joker to Cover",
+  "difficulty_similarity": 0.26611781120300293,
+  "generated_by": "gemini-2.5-flash-lite"
+}
