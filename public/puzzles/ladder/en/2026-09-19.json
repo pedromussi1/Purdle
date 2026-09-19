@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rainy",
+  "end": "fairy",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "rainy",
+    "rains",
+    "pains",
+    "pairs",
+    "hairs",
+    "hairy",
+    "fairy"
+  ],
+  "theme": "Rain to Fantasy",
+  "difficulty_similarity": 0.2638772130012512,
+  "generated_by": "gemini-2.5-flash-lite"
+}
