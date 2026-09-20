@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-20",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "dream",
+  "end": "great",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "dream",
+    "dread",
+    "tread",
+    "treat",
+    "great"
+  ],
+  "theme": "Dream To Reality",
+  "difficulty_similarity": 0.2997313439846039,
+  "generated_by": "gemini-2.5-flash-lite"
+}
