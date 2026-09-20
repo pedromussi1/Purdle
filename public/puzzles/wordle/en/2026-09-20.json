@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-20",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "clock",
+  "difficulty": 2,
+  "theme": "time",
+  "etymology": "The word 'clock' is thought to derive from the Celtic word 'clagan', meaning 'bell'. Early clocks often used bells to strike the hours.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
