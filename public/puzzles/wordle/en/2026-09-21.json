@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-21",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "sound",
+  "difficulty": 2,
+  "theme": "physics",
+  "etymology": "From Old French 'son', from Latin 'sonus' meaning 'noise'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
