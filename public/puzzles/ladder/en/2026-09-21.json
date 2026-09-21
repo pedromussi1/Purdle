@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sword",
+  "end": "smoke",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "sword",
+    "swore",
+    "store",
+    "stoke",
+    "smoke"
+  ],
+  "theme": "Sword to Smoke",
+  "difficulty_similarity": 0.2898474633693695,
+  "generated_by": "gemini-2.5-flash-lite"
+}
