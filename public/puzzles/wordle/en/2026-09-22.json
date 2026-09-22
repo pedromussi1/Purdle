@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-22",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "money",
+  "difficulty": 2,
+  "theme": "finance",
+  "etymology": "The word 'money' originates from the Latin word 'moneta', which was an epithet of the Roman goddess Juno. Coins were often minted in her temple.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
