@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-23",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "leave",
+  "end": "roast",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "leave",
+    "lease",
+    "least",
+    "beast",
+    "boast",
+    "roast"
+  ],
+  "theme": "Leave to Roast",
+  "difficulty_similarity": 0.2576504349708557,
+  "generated_by": "gemini-2.5-flash-lite"
+}
