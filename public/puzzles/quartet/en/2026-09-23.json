@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-23",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of furniture",
+      "words": [
+        "chair",
+        "table",
+        "sofa",
+        "bed"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things you can hear",
+      "words": [
+        "sound",
+        "noise",
+        "music",
+        "voice"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things associated with rain",
+      "words": [
+        "drop",
+        "cloud",
+        "shower",
+        "storm"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that have a point",
+      "words": [
+        "needle",
+        "knife",
+        "star",
+        "arrow"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
