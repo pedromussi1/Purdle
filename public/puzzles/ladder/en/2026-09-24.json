@@ -1,0 +1,21 @@
+{
+  "date": "2026-09-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sweat",
+  "end": "creek",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "sweat",
+    "sweet",
+    "sheet",
+    "sheer",
+    "cheer",
+    "cheek",
+    "creek"
+  ],
+  "theme": "Sweaty Creek",
+  "difficulty_similarity": 0.2470439076423645,
+  "generated_by": "gemini-2.5-flash-lite"
+}
