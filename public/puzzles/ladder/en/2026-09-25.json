@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-25",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cough",
+  "end": "porch",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "cough",
+    "tough",
+    "touch",
+    "torch",
+    "porch"
+  ],
+  "theme": "From Hacking to Living",
+  "difficulty_similarity": 0.17891831696033478,
+  "generated_by": "gemini-2.5-flash-lite"
+}
