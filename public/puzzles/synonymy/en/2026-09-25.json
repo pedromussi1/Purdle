@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-25",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "chuck",
+  "end": "swamp",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "chuck",
+    "brock",
+    "hogan",
+    "sting",
+    "trout",
+    "brook",
+    "marsh",
+    "swamp"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": "Force of Nature",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
