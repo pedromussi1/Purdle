@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-26",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "paper",
+  "difficulty": 2,
+  "theme": "material",
+  "etymology": "From Old French papier, meaning 'thin material', from Latin papyrus, meaning 'papyrus plant', named after the river Papyras in Egypt.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
