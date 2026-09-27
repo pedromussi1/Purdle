@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-27",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rider",
+  "end": "grape",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "rider",
+    "flyer",
+    "wings",
+    "beers",
+    "wines",
+    "grape"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 3,
+  "theme": "Grape Expectations",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
