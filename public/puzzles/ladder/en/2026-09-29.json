@@ -1,0 +1,22 @@
+{
+  "date": "2026-09-29",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rider",
+  "end": "bowel",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "rider",
+    "river",
+    "liver",
+    "lover",
+    "lower",
+    "tower",
+    "towel",
+    "bowel"
+  ],
+  "theme": "Horse to Intestines",
+  "difficulty_similarity": 0.19314874708652496,
+  "generated_by": "gemini-2.5-flash-lite"
+}
