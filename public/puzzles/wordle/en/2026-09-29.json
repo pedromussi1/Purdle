@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-29",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "water",
+  "difficulty": 1,
+  "theme": "element",
+  "etymology": "The word 'water' comes from the Old English 'w\u00e6ter', which is related to the Proto-Germanic word '*w\u014ddr'. This root is found in many Indo-European languages, often associated with fluidity.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
