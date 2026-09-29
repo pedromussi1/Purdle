@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-29",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Birds",
+      "words": [
+        "robin",
+        "sparrow",
+        "crow",
+        "dove"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things Associated with a School",
+      "words": [
+        "class",
+        "book",
+        "desk",
+        "learn"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Made of Glass",
+      "words": [
+        "window",
+        "cup",
+        "vase",
+        "bottle"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with 'Sound'",
+      "words": [
+        "loud",
+        "quiet",
+        "noise",
+        "ring"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
