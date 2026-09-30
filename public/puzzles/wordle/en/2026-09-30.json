@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-30",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "smile",
+  "difficulty": 2,
+  "theme": "emotion",
+  "etymology": "From Old English 'smylian', of uncertain origin, possibly related to Old Norse 'smj\u00e1la', meaning to anoint or smear. It came to mean to assume a pleased, gentle, or mocking expression.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
