@@ -1,0 +1,49 @@
+{
+  "date": "2026-09-30",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Common Shapes",
+      "words": [
+        "circle",
+        "square",
+        "triangle",
+        "rectangle"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Clothing Items",
+      "words": [
+        "shirt",
+        "pants",
+        "dress",
+        "skirt"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things Found in a Garden",
+      "words": [
+        "flower",
+        "grass",
+        "tree",
+        "soil"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words that rhyme with 'day'",
+      "words": [
+        "say",
+        "way",
+        "play",
+        "gray"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
