@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-01",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "wrote",
+  "end": "chase",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "wrote",
+    "write",
+    "white",
+    "while",
+    "whole",
+    "whose",
+    "chose",
+    "chase"
+  ],
+  "theme": "Wrote to Chase",
+  "difficulty_similarity": 0.2894154191017151,
+  "generated_by": "gemini-2.5-flash-lite"
+}
