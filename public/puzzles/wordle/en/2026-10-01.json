@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-01",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "young",
+  "difficulty": 1,
+  "theme": "age",
+  "etymology": "'Young' has Germanic roots, appearing in Old English as 'geong'. It describes someone or something in the early stage of life or development.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
