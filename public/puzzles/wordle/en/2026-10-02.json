@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "power",
+  "difficulty": 2,
+  "theme": "abstract",
+  "etymology": "The word 'power' comes from the Old French 'poeir', meaning 'to be able'. It is related to the Latin word 'posse', meaning 'to be able'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
