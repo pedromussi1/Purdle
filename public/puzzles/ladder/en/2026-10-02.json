@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stare",
+  "end": "block",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "stare",
+    "stark",
+    "stack",
+    "slack",
+    "black",
+    "block"
+  ],
+  "theme": "Look to Build",
+  "difficulty_similarity": 0.2551994025707245,
+  "generated_by": "gemini-2.5-flash-lite"
+}
