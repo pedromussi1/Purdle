@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-03",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "peace",
+  "end": "storm",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "peace",
+    "place",
+    "plate",
+    "slate",
+    "state",
+    "stare",
+    "store",
+    "storm"
+  ],
+  "theme": "Peace to Storm",
+  "difficulty_similarity": 0.39185816049575806,
+  "generated_by": "gemini-2.5-flash-lite"
+}
