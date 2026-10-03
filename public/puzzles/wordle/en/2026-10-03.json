@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-03",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "start",
+  "difficulty": 1,
+  "theme": "action",
+  "etymology": "'Start' is a Germanic word with roots suggesting a sudden movement or leap. It signifies the beginning of an action, process, or journey.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
