@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-04",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "black",
+  "end": "grace",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "black",
+    "block",
+    "brock",
+    "brick",
+    "trick",
+    "track",
+    "trace",
+    "grace"
+  ],
+  "theme": "From dark to light",
+  "difficulty_similarity": 0.3101634681224823,
+  "generated_by": "gemini-2.5-flash-lite"
+}
