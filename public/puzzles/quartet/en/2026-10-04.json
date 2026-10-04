@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-04",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Basic Shapes",
+      "words": [
+        "circle",
+        "square",
+        "triangle",
+        "rectangle"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things found in a classroom",
+      "words": [
+        "desk",
+        "chalk",
+        "pencil",
+        "book"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Parts of a meal",
+      "words": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that make noise",
+      "words": [
+        "bell",
+        "whistle",
+        "horn",
+        "siren"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
