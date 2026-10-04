@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-04",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "glass",
+  "difficulty": 2,
+  "theme": "material",
+  "etymology": "'Glass' has Germanic origins, possibly related to words meaning 'gleam' or 'shine'. It is a transparent, brittle substance made by fusing sand with soda and lime.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
