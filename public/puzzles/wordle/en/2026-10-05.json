@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-05",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "beach",
+  "difficulty": 1,
+  "theme": "nature",
+  "etymology": "'Beach' likely originated from a word meaning 'the shore of the sea'. It is related to the Old English word 'b\u00e6c', meaning 'ridge' or 'back'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
