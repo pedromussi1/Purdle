@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-06",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "heart",
+  "difficulty": 2,
+  "theme": "body",
+  "etymology": "From the Middle English 'herte', ultimately deriving from the Proto-Germanic '*hert\u00f4'. It has long been a symbol of love and emotion.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
