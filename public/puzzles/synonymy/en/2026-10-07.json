@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-07",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cheap",
+  "end": "dough",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "cheap",
+    "deals",
+    "money",
+    "drugs",
+    "smoke",
+    "grill",
+    "baked",
+    "dough"
+  ],
+  "n_optimal_paths": 19,
+  "min_layer_width": 3,
+  "theme": "Value Transformation",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
