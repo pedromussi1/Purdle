@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-07",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cheat",
+  "end": "blush",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "cheat",
+    "chest",
+    "crest",
+    "crust",
+    "crush",
+    "brush",
+    "blush"
+  ],
+  "theme": "Cheat to Blush",
+  "difficulty_similarity": 0.20075350999832153,
+  "generated_by": "gemini-2.5-flash-lite"
+}
