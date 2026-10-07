@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-07",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Common Metals",
+      "words": [
+        "iron",
+        "gold",
+        "lead",
+        "zinc"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Units of Time",
+      "words": [
+        "hour",
+        "day",
+        "week",
+        "minute"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things That Flow",
+      "words": [
+        "water",
+        "air",
+        "lava",
+        "blood"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words Associated with 'Play'",
+      "words": [
+        "game",
+        "music",
+        "actor",
+        "dance"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
