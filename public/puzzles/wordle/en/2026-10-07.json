@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-07",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "break",
+  "difficulty": 2,
+  "theme": "verb",
+  "etymology": " 'Break' comes from the Proto-Germanic word *brekan. It is a very old word found across many Indo-European languages, indicating separation or shattering.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
