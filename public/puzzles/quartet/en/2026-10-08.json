@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-08",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Weather",
+      "words": [
+        "rain",
+        "snow",
+        "wind",
+        "cloud"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things in a Bathroom",
+      "words": [
+        "soap",
+        "towel",
+        "brush",
+        "sink"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that have 'points'",
+      "words": [
+        "star",
+        "pencil",
+        "pin",
+        "knife"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words associated with 'road'",
+      "words": [
+        "street",
+        "lane",
+        "avenue",
+        "way"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
