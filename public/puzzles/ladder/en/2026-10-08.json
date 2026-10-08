@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "fresh",
+  "end": "gross",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "fresh",
+    "flesh",
+    "flash",
+    "clash",
+    "class",
+    "glass",
+    "grass",
+    "gross"
+  ],
+  "theme": "Fresh to Gross",
+  "difficulty_similarity": 0.34141889214515686,
+  "generated_by": "gemini-2.5-flash-lite"
+}
