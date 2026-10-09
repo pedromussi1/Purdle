@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-09",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "tiger",
+  "difficulty": 2,
+  "theme": "animal",
+  "etymology": "The word 'tiger' comes from the Greek word 'tigris', which likely originated from an Iranian language. It referred to the swiftness of the animal.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
