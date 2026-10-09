@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-09",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Vehicles",
+      "words": [
+        "car",
+        "bus",
+        "truck",
+        "van"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Words for 'Small'",
+      "words": [
+        "little",
+        "tiny",
+        "small",
+        "mini"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things You Read",
+      "words": [
+        "book",
+        "letter",
+        "note",
+        "story"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things that Stick",
+      "words": [
+        "glue",
+        "tape",
+        "paste",
+        "stick"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
