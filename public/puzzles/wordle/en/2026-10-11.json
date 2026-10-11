@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-11",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "child",
+  "difficulty": 2,
+  "theme": "people",
+  "etymology": "From Old English cild, of Germanic origin. It's a word with a long history, referring to a young human being.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
