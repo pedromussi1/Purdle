@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-11",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "beach",
+  "end": "plane",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "beach",
+    "peach",
+    "peace",
+    "place",
+    "plane"
+  ],
+  "theme": "Beach to Air",
+  "difficulty_similarity": 0.2693018615245819,
+  "generated_by": "gemini-2.5-flash-lite"
+}
