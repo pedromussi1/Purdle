@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-12",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Colors",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Kitchen Utensils",
+      "words": [
+        "spoon",
+        "fork",
+        "knife",
+        "plate"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Types of Balls",
+      "words": [
+        "soccer",
+        "tennis",
+        "golf",
+        "base"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Sounds like 'way'",
+      "words": [
+        "weigh",
+        "whey",
+        "way",
+        "we"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
