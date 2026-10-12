@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "night",
+  "difficulty": 1,
+  "theme": "time",
+  "etymology": "From Old English 'niht', related to Germanic words for night, and ultimately to a Proto-Indo-European root meaning 'night'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
