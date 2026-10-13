@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-13",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stove",
+  "end": "white",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "stove",
+    "shove",
+    "shave",
+    "shale",
+    "whale",
+    "while",
+    "white"
+  ],
+  "theme": "Stove to White",
+  "difficulty_similarity": 0.30101215839385986,
+  "generated_by": "gemini-2.5-flash-lite"
+}
