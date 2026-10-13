@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-13",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "story",
+  "difficulty": 2,
+  "theme": "literature",
+  "etymology": "From Old English 'st\u00e6 D\u014dm', meaning 'history, chronicle, account'. Stories are a fundamental way humans share experiences and knowledge.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
