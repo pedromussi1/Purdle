@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-13",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "swear",
+  "end": "sight",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "swear",
+    "swore",
+    "tells",
+    "knows",
+    "jokes",
+    "laugh",
+    "stare",
+    "sight"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 2,
+  "theme": "Oath to Vision",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
