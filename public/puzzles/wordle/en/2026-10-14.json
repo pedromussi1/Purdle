@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-14",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "plane",
+  "difficulty": 2,
+  "theme": "transport",
+  "etymology": "Short for 'aeroplane'. The word 'plane' itself comes from Old French 'plan', meaning flat surface, from Latin 'planum'. It refers to an aircraft with fixed wings.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
