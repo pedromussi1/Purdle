@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-14",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Grain",
+      "words": [
+        "oats",
+        "rye",
+        "barley",
+        "wheat"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Parts of a Plant",
+      "words": [
+        "root",
+        "stem",
+        "leaf",
+        "thorn"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things You Tie",
+      "words": [
+        "knot",
+        "bow",
+        "lace",
+        "ribbon"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Sounds of Animals",
+      "words": [
+        "meow",
+        "bark",
+        "moo",
+        "hiss"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
