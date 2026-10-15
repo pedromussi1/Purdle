@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-15",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "fully",
+  "end": "booty",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "fully",
+    "bully",
+    "belly",
+    "bells",
+    "belts",
+    "bolts",
+    "boots",
+    "booty"
+  ],
+  "theme": "From Funky to Fine",
+  "difficulty_similarity": 0.3283616602420807,
+  "generated_by": "gemini-2.5-flash-lite"
+}
