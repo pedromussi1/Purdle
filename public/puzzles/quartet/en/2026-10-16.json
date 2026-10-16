@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-16",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Parts of a Game",
+      "words": [
+        "dice",
+        "board",
+        "piece",
+        "card"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of Waves",
+      "words": [
+        "heat",
+        "sound",
+        "light",
+        "radio"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that Contain Liquid",
+      "words": [
+        "cup",
+        "bottle",
+        "bowl",
+        "glass"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Ends in 'ake'",
+      "words": [
+        "shake",
+        "brake",
+        "stake",
+        "quake"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
