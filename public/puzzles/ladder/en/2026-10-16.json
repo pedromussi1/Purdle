@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-16",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "trade",
+  "end": "globe",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "trade",
+    "grade",
+    "grave",
+    "grove",
+    "glove",
+    "globe"
+  ],
+  "theme": "Commerce to Community",
+  "difficulty_similarity": 0.20408238470554352,
+  "generated_by": "gemini-2.5-flash-lite"
+}
