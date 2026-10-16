@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-16",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "black",
+  "difficulty": 1,
+  "theme": "color",
+  "etymology": "From Old English 'bl\u00e6c'. Its origins are Germanic and likely related to words meaning 'burnt' or 'dark'. It has been the standard word for this color in English for over a millennium.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
