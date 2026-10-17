@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-17",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "yacht",
+  "end": "theft",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "yacht",
+    "ocean",
+    "water",
+    "drain",
+    "waste",
+    "spend",
+    "steal",
+    "theft"
+  ],
+  "n_optimal_paths": 18,
+  "min_layer_width": 2,
+  "theme": "Sailing to Crime",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
