@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-17",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "brave",
+  "difficulty": 2,
+  "theme": "adjective",
+  "etymology": "The word 'brave' derives from the Old French 'braf', meaning bold. It was later influenced by the Italian word 'bravo', which can mean brave or villainous. Over time, 'brave' settled on the positive meaning of courage.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
