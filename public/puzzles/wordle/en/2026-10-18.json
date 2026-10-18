@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-18",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "house",
+  "difficulty": 1,
+  "theme": "building",
+  "etymology": "Originating from the Old English word 'hus', 'house' refers to a structure built for human habitation. It's a fundamental element of human settlement.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
