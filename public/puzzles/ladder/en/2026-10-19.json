@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-19",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "minor",
+  "end": "belle",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "minor",
+    "miner",
+    "mines",
+    "miles",
+    "mills",
+    "bills",
+    "bells",
+    "belle"
+  ],
+  "theme": "minor to belle",
+  "difficulty_similarity": 0.21315032243728638,
+  "generated_by": "gemini-2.5-flash-lite"
+}
