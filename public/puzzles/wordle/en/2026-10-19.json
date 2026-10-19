@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-19",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "table",
+  "difficulty": 1,
+  "theme": "furniture",
+  "etymology": "The word 'table' comes from the Latin word 'tabula', meaning 'board' or 'plank'. It evolved to refer to a piece of furniture with a flat top and one or more legs.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
