@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-20",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "shame",
+  "end": "story",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "shame",
+    "share",
+    "stare",
+    "store",
+    "story"
+  ],
+  "theme": "Emotion to Narrative",
+  "difficulty_similarity": 0.32894960045814514,
+  "generated_by": "gemini-2.5-flash-lite"
+}
