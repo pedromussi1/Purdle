@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-21",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "radio",
+  "difficulty": 3,
+  "theme": "technology",
+  "etymology": "'Radio' is derived from the Latin word 'radius', meaning 'ray' or 'beam'. It refers to the transmission of signals through electromagnetic waves.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
