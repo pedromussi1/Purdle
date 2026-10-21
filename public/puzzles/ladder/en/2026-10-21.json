@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "grass",
+  "end": "trash",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "grass",
+    "glass",
+    "class",
+    "clash",
+    "crash",
+    "trash"
+  ],
+  "theme": "From Green to Garbage",
+  "difficulty_similarity": 0.3199973404407501,
+  "generated_by": "gemini-2.5-flash-lite"
+}
