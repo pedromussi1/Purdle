@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-22",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "grass",
+  "difficulty": 1,
+  "theme": "nature",
+  "etymology": "'Grass' has Old English roots, originating from 'gr\u00e6s'. It shares common ancestry with words in other Germanic languages. The word has consistently referred to the common green plant since its earliest recorded uses.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
