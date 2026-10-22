@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-22",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "poppy",
+  "end": "olive",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "poppy",
+    "holly",
+    "maria",
+    "roman",
+    "latin",
+    "greek",
+    "olive"
+  ],
+  "n_optimal_paths": 3,
+  "min_layer_width": 2,
+  "theme": "Poppy to Olive",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
