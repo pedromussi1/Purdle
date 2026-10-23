@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-23",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "hydro",
+  "end": "finch",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "hydro",
+    "water",
+    "rains",
+    "skies",
+    "flies",
+    "birds",
+    "finch"
+  ],
+  "n_optimal_paths": 25,
+  "min_layer_width": 3,
+  "theme": "Water to Bird",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
