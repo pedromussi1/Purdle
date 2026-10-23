@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-23",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "peace",
+  "difficulty": 3,
+  "theme": "concept",
+  "etymology": "Derived from the Old French word 'pais', meaning 'peace' or 'treaty'. This word has its origins in the Latin 'pax', meaning 'peace'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
