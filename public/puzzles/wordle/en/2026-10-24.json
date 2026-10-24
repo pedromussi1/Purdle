@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-24",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "music",
+  "difficulty": 2,
+  "theme": "arts",
+  "etymology": "The word 'music' derives from the Old French 'musique', which comes from the Latin 'musica'. This, in turn, is borrowed from the Greek 'mousik\u0113', referring to the art of the Muses. The Muses were goddesses of inspiration in Greek mythology.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
