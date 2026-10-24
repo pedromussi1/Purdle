@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "fever",
+  "end": "risen",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "fever",
+    "lever",
+    "liver",
+    "river",
+    "rider",
+    "rides",
+    "rises",
+    "risen"
+  ],
+  "theme": "Temperature Change",
+  "difficulty_similarity": 0.1954643577337265,
+  "generated_by": "gemini-2.5-flash-lite"
+}
