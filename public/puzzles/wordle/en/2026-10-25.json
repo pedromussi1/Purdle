@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-25",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "point",
+  "difficulty": 2,
+  "theme": "geometry",
+  "etymology": "From the Old French 'point,' meaning 'prick' or 'stitch.' In geometry, it signifies a location or position without dimensions.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
