@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-25",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "crime",
+  "end": "bribe",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "crime",
+    "prime",
+    "pride",
+    "bride",
+    "bribe"
+  ],
+  "theme": "Criminal Exchange",
+  "difficulty_similarity": 0.3786371052265167,
+  "generated_by": "gemini-2.5-flash-lite"
+}
