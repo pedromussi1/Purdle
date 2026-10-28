@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-28",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "train",
+  "difficulty": 2,
+  "theme": "transport",
+  "etymology": "'Train' comes from the Old French 'trainier', meaning to drag or pull. It originally referred to the long skirt or robes that were trailed behind a royal person.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
