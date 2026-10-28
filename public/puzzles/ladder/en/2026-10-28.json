@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-28",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stuck",
+  "end": "blood",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "stuck",
+    "stack",
+    "slack",
+    "black",
+    "blank",
+    "bland",
+    "blond",
+    "blood"
+  ],
+  "theme": "Stuck to Blood",
+  "difficulty_similarity": 0.24840280413627625,
+  "generated_by": "gemini-2.5-flash-lite"
+}
