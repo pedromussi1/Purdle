@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-28",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Fruits",
+      "words": [
+        "peach",
+        "plum",
+        "pear",
+        "lime"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Vegetables",
+      "words": [
+        "onion",
+        "carrot",
+        "potato",
+        "lettuce"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Dairy Products",
+      "words": [
+        "butter",
+        "cheese",
+        "yogurt",
+        "cream"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Things You Might Find in a Kitchen",
+      "words": [
+        "oven",
+        "stove",
+        "sink",
+        "table"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
