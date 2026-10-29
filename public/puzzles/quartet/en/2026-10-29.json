@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-29",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Angles",
+      "words": [
+        "acute",
+        "obtuse",
+        "right",
+        "straight"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things that contain 'water'",
+      "words": [
+        "river",
+        "ocean",
+        "lake",
+        "pond"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Musical Notes",
+      "words": [
+        "do",
+        "re",
+        "mi",
+        "fa"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Things that run",
+      "words": [
+        "nose",
+        "clock",
+        "water",
+        "program"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
