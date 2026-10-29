@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "smash",
+  "end": "gross",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "smash",
+    "slash",
+    "clash",
+    "class",
+    "glass",
+    "grass",
+    "gross"
+  ],
+  "theme": "smash to gross",
+  "difficulty_similarity": 0.21893759071826935,
+  "generated_by": "gemini-2.5-flash-lite"
+}
