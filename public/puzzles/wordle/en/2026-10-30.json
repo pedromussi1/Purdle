@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-30",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "ocean",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "'Ocean' derives from the Greek word 'okeanos', which referred to the great mythical river or body of water encircling the world. Ancient Greek maps often depicted this vast, encircling body of water.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
