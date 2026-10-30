@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-30",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Basic Colors",
+      "words": [
+        "red",
+        "blue",
+        "green",
+        "yellow"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Types of boats",
+      "words": [
+        "canoe",
+        "kayak",
+        "raft",
+        "sail"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things that are hot",
+      "words": [
+        "fire",
+        "sun",
+        "oven",
+        "boiler"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Words related to a clock face",
+      "words": [
+        "hand",
+        "face",
+        "dial",
+        "number"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
