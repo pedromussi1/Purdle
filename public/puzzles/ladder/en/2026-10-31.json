@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-31",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "green",
+  "end": "blood",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "green",
+    "greed",
+    "breed",
+    "bleed",
+    "blend",
+    "blond",
+    "blood"
+  ],
+  "theme": "Green to Red",
+  "difficulty_similarity": 0.3584066331386566,
+  "generated_by": "gemini-2.5-flash-lite"
+}
