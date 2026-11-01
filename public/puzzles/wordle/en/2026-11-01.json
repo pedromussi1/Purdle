@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-01",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "bread",
+  "difficulty": 1,
+  "theme": "food",
+  "etymology": "The word 'bread' has Old English origins, 'br\u0113ad', which referred to a 'piece' or 'morsel'. It's thought to be related to words meaning to 'bake' or 'tear'.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
