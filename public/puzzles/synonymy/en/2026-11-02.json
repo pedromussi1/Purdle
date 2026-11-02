@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stain",
+  "end": "horse",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "stain",
+    "linen",
+    "lines",
+    "lanes",
+    "roads",
+    "rides",
+    "rider",
+    "horse"
+  ],
+  "n_optimal_paths": 31,
+  "min_layer_width": 2,
+  "theme": "Color to Creature",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
