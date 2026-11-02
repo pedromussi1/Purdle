@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-02",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "field",
+  "difficulty": 2,
+  "theme": "nature",
+  "etymology": "From Old English \"feld\", meaning \"open land, grassland\". It's an area of open land, especially one planted with crops or pasture.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
