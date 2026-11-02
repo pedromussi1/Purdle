@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-02",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "start",
+  "end": "belle",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "start",
+    "stars",
+    "stats",
+    "seats",
+    "beats",
+    "belts",
+    "bells",
+    "belle"
+  ],
+  "theme": "Starting a Show",
+  "difficulty_similarity": 0.21583929657936096,
+  "generated_by": "gemini-2.5-flash-lite"
+}
