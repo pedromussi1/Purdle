@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-03",
+  "game": "wordle",
+  "lang": "en",
+  "schema_version": 1,
+  "solution": "cloud",
+  "difficulty": 2,
+  "theme": "weather",
+  "etymology": " 'Cloud' has Old English roots, coming from 'cl\u016bd', which originally referred to a hill or mass of rock. Its meaning evolved to the visible mass of water droplets in the sky.",
+  "generated_by": "gemini-2.5-flash-lite"
+}
