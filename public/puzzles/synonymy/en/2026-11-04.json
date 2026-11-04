@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-04",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "ferry",
+  "end": "haunt",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "ferry",
+    "river",
+    "water",
+    "blood",
+    "souls",
+    "devil",
+    "ghost",
+    "haunt"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": "Passage and Presence",
+  "threshold": 0.5,
+  "generated_by": "gemini-2.5-flash-lite"
+}
