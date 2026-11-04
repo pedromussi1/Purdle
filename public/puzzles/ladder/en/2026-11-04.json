@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-04",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "fever",
+  "end": "mayor",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "fever",
+    "lever",
+    "liver",
+    "liner",
+    "miner",
+    "minor",
+    "manor",
+    "mayor"
+  ],
+  "theme": "Feverish to Fulfilling",
+  "difficulty_similarity": 0.12463217973709106,
+  "generated_by": "gemini-2.5-flash-lite"
+}
