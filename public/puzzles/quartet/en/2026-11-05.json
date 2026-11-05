@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-05",
+  "game": "quartet",
+  "lang": "en",
+  "schema_version": 1,
+  "groups": [
+    {
+      "theme": "Types of Animals",
+      "words": [
+        "cat",
+        "dog",
+        "lion",
+        "tiger"
+      ],
+      "tier": 1
+    },
+    {
+      "theme": "Things with keys",
+      "words": [
+        "piano",
+        "door",
+        "car",
+        "computer"
+      ],
+      "tier": 2
+    },
+    {
+      "theme": "Things associated with a garden",
+      "words": [
+        "flower",
+        "grass",
+        "tree",
+        "vegetable"
+      ],
+      "tier": 3
+    },
+    {
+      "theme": "Wordplay: Words that can precede 'shot'",
+      "words": [
+        "gun",
+        "drink",
+        "photo",
+        "idea"
+      ],
+      "tier": 4
+    }
+  ],
+  "generated_by": "gemini-2.5-flash-lite"
+}
