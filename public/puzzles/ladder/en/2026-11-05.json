@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-05",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "rouge",
+  "end": "coach",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "rouge",
+    "rough",
+    "cough",
+    "couch",
+    "coach"
+  ],
+  "theme": "Red to Black",
+  "difficulty_similarity": 0.1672273725271225,
+  "generated_by": "gemini-2.5-flash-lite"
+}
