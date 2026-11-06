@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-06",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "heart",
+  "end": "saint",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "heart",
+    "hears",
+    "heirs",
+    "hairs",
+    "pairs",
+    "pains",
+    "paint",
+    "saint"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.21242442727088928,
+  "generated_by": "fallback"
+}
