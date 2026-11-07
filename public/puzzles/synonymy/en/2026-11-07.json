@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-07",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "grape",
+  "end": "motor",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "grape",
+    "fruit",
+    "eaten",
+    "knife",
+    "steel",
+    "motor"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
