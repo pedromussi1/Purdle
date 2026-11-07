@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-07",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "grand",
+  "end": "bring",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "grand",
+    "brand",
+    "bland",
+    "blind",
+    "blink",
+    "brink",
+    "bring"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.22090782225131989,
+  "generated_by": "fallback"
+}
