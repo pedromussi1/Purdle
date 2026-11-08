@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-08",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "onion",
+  "end": "cloak",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "onion",
+    "layer",
+    "coats",
+    "liner",
+    "cloth",
+    "cloak"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
