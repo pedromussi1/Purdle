@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-08",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "owing",
+  "end": "print",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "owing",
+    "swing",
+    "sting",
+    "stint",
+    "saint",
+    "paint",
+    "print"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.22923320531845093,
+  "generated_by": "fallback"
+}
