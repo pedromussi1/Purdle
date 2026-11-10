@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-10",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "fiber",
+  "end": "drill",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "fiber",
+    "woven",
+    "ropes",
+    "hooks",
+    "traps",
+    "holes",
+    "drill"
+  ],
+  "n_optimal_paths": 11,
+  "min_layer_width": 3,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
