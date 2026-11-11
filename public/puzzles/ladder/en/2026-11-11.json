@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-11",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cider",
+  "end": "risen",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "cider",
+    "rider",
+    "rides",
+    "rises",
+    "risen"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.23972009122371674,
+  "generated_by": "fallback"
+}
