@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-12",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "spark",
+  "end": "intro",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "spark",
+    "shock",
+    "burst",
+    "chunk",
+    "piece",
+    "scene",
+    "intro"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
