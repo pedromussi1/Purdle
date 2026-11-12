@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-12",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "spark",
+  "end": "spell",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "spark",
+    "shark",
+    "share",
+    "shale",
+    "shall",
+    "shell",
+    "spell"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.363330215215683,
+  "generated_by": "fallback"
+}
