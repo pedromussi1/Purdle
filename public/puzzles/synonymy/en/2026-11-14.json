@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-14",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "drown",
+  "end": "drake",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "drown",
+    "ocean",
+    "beach",
+    "sandy",
+    "donna",
+    "laura",
+    "jesse",
+    "drake"
+  ],
+  "n_optimal_paths": 8,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
