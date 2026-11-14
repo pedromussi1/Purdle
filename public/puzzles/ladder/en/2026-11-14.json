@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-14",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "drown",
+  "end": "brace",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "drown",
+    "drawn",
+    "drain",
+    "train",
+    "trait",
+    "tract",
+    "trace",
+    "brace"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.188179150223732,
+  "generated_by": "fallback"
+}
