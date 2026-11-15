@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-15",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "adult",
+  "end": "mouth",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "adult",
+    "grown",
+    "fruit",
+    "juicy",
+    "taste",
+    "mouth"
+  ],
+  "n_optimal_paths": 5,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
