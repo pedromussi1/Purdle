@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-16",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "finch",
+  "end": "chess",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "finch",
+    "scout",
+    "troop",
+    "squad",
+    "teams",
+    "games",
+    "chess"
+  ],
+  "n_optimal_paths": 18,
+  "min_layer_width": 3,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
