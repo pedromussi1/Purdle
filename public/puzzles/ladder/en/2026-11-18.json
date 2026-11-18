@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-18",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "money",
+  "end": "youth",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "money",
+    "monty",
+    "month",
+    "mouth",
+    "youth"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.3714729845523834,
+  "generated_by": "fallback"
+}
