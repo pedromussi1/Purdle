@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-20",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "angel",
+  "end": "carol",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "angel",
+    "grace",
+    "erica",
+    "doris",
+    "julia",
+    "carol"
+  ],
+  "n_optimal_paths": 7,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
