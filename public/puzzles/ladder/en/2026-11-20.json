@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-20",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "arise",
+  "end": "brake",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "arise",
+    "arose",
+    "prose",
+    "prove",
+    "grove",
+    "grave",
+    "brave",
+    "brake"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.23229266703128815,
+  "generated_by": "fallback"
+}
