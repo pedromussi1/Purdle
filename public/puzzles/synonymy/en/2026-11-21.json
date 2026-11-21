@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-21",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "serum",
+  "end": "angry",
+  "optimal_steps": 5,
+  "optimal_path": [
+    "serum",
+    "fluid",
+    "vapor",
+    "smoke",
+    "anger",
+    "angry"
+  ],
+  "n_optimal_paths": 7,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
