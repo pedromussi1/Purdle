@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-21",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "sewer",
+  "end": "given",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "sewer",
+    "fewer",
+    "fever",
+    "lever",
+    "liver",
+    "lives",
+    "gives",
+    "given"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.24443967640399933,
+  "generated_by": "fallback"
+}
