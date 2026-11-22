@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-22",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "gamer",
+  "end": "taste",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "gamer",
+    "games",
+    "gases",
+    "cases",
+    "casts",
+    "caste",
+    "taste"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.38237833976745605,
+  "generated_by": "fallback"
+}
