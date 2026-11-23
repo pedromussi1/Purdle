@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-23",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "water",
+  "end": "range",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "water",
+    "creek",
+    "trail",
+    "paths",
+    "route",
+    "reach",
+    "range"
+  ],
+  "n_optimal_paths": 10,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
