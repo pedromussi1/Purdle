@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-23",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "water",
+  "end": "newer",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "water",
+    "later",
+    "laser",
+    "loser",
+    "lover",
+    "lever",
+    "never",
+    "newer"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.21325023472309113,
+  "generated_by": "fallback"
+}
