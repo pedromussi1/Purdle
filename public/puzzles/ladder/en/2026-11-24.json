@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-24",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "jelly",
+  "end": "beard",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "jelly",
+    "belly",
+    "bells",
+    "belts",
+    "beats",
+    "bears",
+    "beard"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.306719571352005,
+  "generated_by": "fallback"
+}
