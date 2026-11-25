@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-25",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stock",
+  "end": "green",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "stock",
+    "buyer",
+    "trade",
+    "shiny",
+    "shine",
+    "light",
+    "color",
+    "green"
+  ],
+  "n_optimal_paths": 16,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
