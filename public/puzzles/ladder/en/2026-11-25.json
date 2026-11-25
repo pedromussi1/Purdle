@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-25",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "stint",
+  "end": "flirt",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "stint",
+    "saint",
+    "faint",
+    "flint",
+    "flirt"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.20383092761039734,
+  "generated_by": "fallback"
+}
