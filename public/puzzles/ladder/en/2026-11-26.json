@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-26",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "quite",
+  "end": "smack",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "quite",
+    "suite",
+    "spite",
+    "spice",
+    "slice",
+    "slick",
+    "slack",
+    "smack"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.10812655836343765,
+  "generated_by": "fallback"
+}
