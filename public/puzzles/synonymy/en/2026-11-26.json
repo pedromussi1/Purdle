@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-26",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "puppy",
+  "end": "drain",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "puppy",
+    "child",
+    "birth",
+    "belly",
+    "bowel",
+    "sewer",
+    "drain"
+  ],
+  "n_optimal_paths": 6,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
