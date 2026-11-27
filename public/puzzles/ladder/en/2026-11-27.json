@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-27",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "cross",
+  "end": "crash",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "cross",
+    "gross",
+    "grass",
+    "glass",
+    "class",
+    "clash",
+    "crash"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.23016363382339478,
+  "generated_by": "fallback"
+}
