@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-27",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "crisp",
+  "end": "south",
+  "optimal_steps": 7,
+  "optimal_path": [
+    "crisp",
+    "sharp",
+    "knife",
+    "piece",
+    "scene",
+    "place",
+    "where",
+    "south"
+  ],
+  "n_optimal_paths": 43,
+  "min_layer_width": 4,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
