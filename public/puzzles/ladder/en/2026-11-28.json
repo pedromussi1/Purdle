@@ -1,0 +1,19 @@
+{
+  "date": "2026-11-28",
+  "game": "ladder",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "mercy",
+  "end": "curry",
+  "optimal_steps": 4,
+  "optimal_path": [
+    "mercy",
+    "merry",
+    "ferry",
+    "furry",
+    "curry"
+  ],
+  "theme": null,
+  "difficulty_similarity": 0.22314196825027466,
+  "generated_by": "fallback"
+}
