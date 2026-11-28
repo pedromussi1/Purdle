@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-28",
+  "game": "synonymy",
+  "lang": "en",
+  "schema_version": 1,
+  "start": "medal",
+  "end": "laugh",
+  "optimal_steps": 6,
+  "optimal_path": [
+    "medal",
+    "prize",
+    "given",
+    "gives",
+    "knows",
+    "jokes",
+    "laugh"
+  ],
+  "n_optimal_paths": 4,
+  "min_layer_width": 2,
+  "theme": null,
+  "threshold": 0.5,
+  "generated_by": "fallback"
+}
